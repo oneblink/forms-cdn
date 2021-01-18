@@ -49,8 +49,7 @@ function Form({
         })
 
         window.location.href =
-          postSubmissionUrl +
-          `?submissionId=${formSubmissionResult.submissionId}`
+          `${postSubmissionUrl}?submissionId=${formSubmissionResult.submissionId}`
       } catch (e) {
         console.error('An error has occurred while attempting to submit: ', e)
       } finally {
