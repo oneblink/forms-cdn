@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'latest.js',
-    library: ['OneBlink'],
+    library: ['OneBlinkForms'],
     libraryTarget: 'umd',
     publicPath: '/dist/',
   },
