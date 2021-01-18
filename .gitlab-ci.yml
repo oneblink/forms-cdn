@@ -73,7 +73,7 @@ Deploy:Test:OneBlink:
     name: OneBlink Test
   needs: ['Build:Test:OneBlink']
   variables:
-    ONEBLINK_ACCESS_KEY: $ONEBLINK_ONEBLINK_SECRET_KEY
+    ONEBLINK_ACCESS_KEY: $ONEBLINK_ONEBLINK_ACCESS_KEY
     ONEBLINK_SECRET_KEY: $ONEBLINK_ONEBLINK_SECRET_KEY
   script:
     - npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
@@ -89,7 +89,7 @@ Deploy:Test:CivicPlus:
     name: CivicPlus Test
   needs: ['Build:Test:CivicPlus']
   variables:
-    ONEBLINK_ACCESS_KEY: $CIVICPLUS_ONEBLINK_SECRET_KEY
+    ONEBLINK_ACCESS_KEY: $CIVICPLUS_ONEBLINK_ACCESS_KEY
     ONEBLINK_SECRET_KEY: $CIVICPLUS_ONEBLINK_SECRET_KEY
   script:
     - npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
@@ -105,7 +105,7 @@ Deploy:Production:OneBlink:
     name: OneBlink Production
   needs: ['Build:Production:OneBlink']
   variables:
-    ONEBLINK_ACCESS_KEY: $ONEBLINK_ONEBLINK_SECRET_KEY
+    ONEBLINK_ACCESS_KEY: $ONEBLINK_ONEBLINK_ACCESS_KEY
     ONEBLINK_SECRET_KEY: $ONEBLINK_ONEBLINK_SECRET_KEY
   script:
     - npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
@@ -119,7 +119,7 @@ Deploy:Production:CivicPlus:
     name: CivicPlus Production
   needs: ['Build:Production:CivicPlus']
   variables:
-    ONEBLINK_ACCESS_KEY: $CIVICPLUS_ONEBLINK_SECRET_KEY
+    ONEBLINK_ACCESS_KEY: $CIVICPLUS_ONEBLINK_ACCESS_KEY
     ONEBLINK_SECRET_KEY: $CIVICPLUS_ONEBLINK_SECRET_KEY
   script:
     - npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
