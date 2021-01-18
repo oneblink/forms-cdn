@@ -31,35 +31,34 @@ function Form({
   const [fetchError, setFetchError] = React.useState(null)
   const [formIsDisabled, disableForm, enableForm] = useBooleanState(false)
 
-  const handleSubmit = React.useCallback(async (newFormSubmission) => {
-    try {
-      disableForm()
-      const formSubmissionResult: SubmissionTypes.FormSubmissionResult = {
-        ...newFormSubmission,
-        formsAppId,
-        jobId: null,
-        externalId,
-        draftId: null,
-        preFillFormDataId: null,
-        isInPendingQueue: false,
-        isOffline: false,
-        payment: null,
-        submissionId: null,
-        submissionTimestamp: null,
+  const handleSubmit = React.useCallback(
+    async (newFormSubmission: SubmissionTypes.NewFormSubmission) => {
+      try {
+        disableForm()
+        const formSubmission: SubmissionTypes.FormSubmission = {
+          ...newFormSubmission,
+          formsAppId,
+          externalId,
+          draftId: null,
+          jobId: null,
+          preFillFormDataId: null,
+        }
+
+        const formSubmissionResult = await submissionService.submit({
+          formSubmission,
+          paymentReceiptUrl: null,
+        })
+
+        window.location.href =
+          `${postSubmissionUrl}?submissionId=${formSubmissionResult.submissionId}`
+      } catch (e) {
+        console.error('An error has occurred while attempting to submit: ', e)
+      } finally {
+        enableForm()
       }
-
-      await submissionService.submit({
-        formSubmission: formSubmissionResult,
-        paymentReceiptUrl: null,
-      })
-
-      window.location.href = postSubmissionUrl
-    } catch (e) {
-      console.error('An error has occurred while attempting to submit: ', e)
-    } finally {
-      enableForm()
-    }
-  }, [])
+    },
+    [],
+  )
 
   const handleCancel = React.useCallback(() => {
     window.location.href = cancelRedirectUrl
