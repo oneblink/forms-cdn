@@ -37,7 +37,8 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "fixpack": "^4.0.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "webpack-dev-server": "^3.11.2"
   },
   "keywords": [],
   "license": "ISC",
@@ -46,7 +47,7 @@
     "build": "webpack --mode production",
     "eslint": "eslint --quiet --fix ./src/*.tsx",
     "postbuild": "ts-node ./scripts/post-build.ts",
-    "start": "webpack --mode development",
+    "start": "webpack serve",
     "test": "npm run eslint && npm run typescript",
     "typescript": "tsc --noEmit"
   }
