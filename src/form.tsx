@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { formService, submissionService } from '@oneblink/apps'
 import { OneBlinkForm, useBooleanState } from '@oneblink/apps-react'
+import '@oneblink/apps-react/dist/styles.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { SubmissionTypes } from '@oneblink/types'
 
