@@ -8,9 +8,9 @@ import { SubmissionTypes } from '@oneblink/types'
 type Props = {
   formId: number
   formsAppId: number
-  postSubmissionUrl: string
+  submissionRedirectUrl: string
   cancelRedirectUrl: string
-  preFillData?: { [key: string]: unknown }
+  preFillData?: Record<string, unknown>
   externalId?: string
   googleMapsApiKey?: string
   captchaSiteKey?: string
@@ -19,7 +19,7 @@ type Props = {
 function Form({
   formId,
   formsAppId,
-  postSubmissionUrl,
+  submissionRedirectUrl,
   cancelRedirectUrl,
   preFillData,
   externalId,
@@ -48,12 +48,11 @@ function Form({
           formSubmission,
           paymentReceiptUrl: null,
         })
-        const url = new URL(postSubmissionUrl)
+        const url = new URL(submissionRedirectUrl)
         url.searchParams.append(
           'submissionId',
           formSubmissionResult.submissionId,
         )
-        url.searchParams.append('externalId', externalId)
 
         window.location.href = url.href
       } catch (e) {
@@ -62,7 +61,7 @@ function Form({
         enableForm()
       }
     },
-    [disableForm, enableForm, externalId, formsAppId, postSubmissionUrl],
+    [disableForm, enableForm, externalId, formsAppId, submissionRedirectUrl],
   )
 
   const handleCancel = React.useCallback(() => {
