@@ -72,9 +72,12 @@ Deploy:Test:OneBlink:
   environment:
     name: OneBlink Test
   needs: ['Build:Test:OneBlink']
+  variables:
+    ONEBLINK_ACCESS_KEY: $ONEBLINK_ONEBLINK_ACCESS_KEY
+    ONEBLINK_SECRET_KEY: $ONEBLINK_ONEBLINK_SECRET_KEY
   script:
-    - oneblink cdn scope oneblink-forms.cdn.oneblink.io
-    - oneblink cdn deploy dist --env test --force
+    - npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
+    - npx oneblink cdn deploy dist --env test --force
   only:
     - master
     - /^hotfix.*$/i
@@ -85,9 +88,12 @@ Deploy:Test:CivicPlus:
   environment:
     name: CivicPlus Test
   needs: ['Build:Test:CivicPlus']
+  variables:
+    ONEBLINK_ACCESS_KEY: $CIVICPLUS_ONEBLINK_ACCESS_KEY
+    ONEBLINK_SECRET_KEY: $CIVICPLUS_ONEBLINK_SECRET_KEY
   script:
-    - civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
-    - civicplus cdn deploy dist --env test --force
+    - npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
+    - npx civicplus cdn deploy dist --env test --force
   only:
     - master
     - /^hotfix.*$/i
@@ -98,9 +104,12 @@ Deploy:Production:OneBlink:
   environment:
     name: OneBlink Production
   needs: ['Build:Production:OneBlink']
+  variables:
+    ONEBLINK_ACCESS_KEY: $ONEBLINK_ONEBLINK_ACCESS_KEY
+    ONEBLINK_SECRET_KEY: $ONEBLINK_ONEBLINK_SECRET_KEY
   script:
-    - oneblink cdn scope oneblink-forms.cdn.oneblink.io
-    - oneblink cdn deploy dist --env prod --force
+    - npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
+    - npx oneblink cdn deploy dist --env prod --force
   only:
     - ^\d+\.\d+\.\d+$
 
@@ -109,8 +118,11 @@ Deploy:Production:CivicPlus:
   environment:
     name: CivicPlus Production
   needs: ['Build:Production:CivicPlus']
+  variables:
+    ONEBLINK_ACCESS_KEY: $CIVICPLUS_ONEBLINK_ACCESS_KEY
+    ONEBLINK_SECRET_KEY: $CIVICPLUS_ONEBLINK_SECRET_KEY
   script:
-    - civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
-    - civicplus cdn deploy dist --env prod --force
+    - npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
+    - npx civicplus cdn deploy dist --env prod --force
   only:
     - ^\d+\.\d+\.\d+$

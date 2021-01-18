@@ -3,6 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
+
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
@@ -16,7 +17,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'latest.js',
-    library: ['OneBlink'],
+    library: ['OneBlinkForms'],
     libraryTarget: 'umd',
     publicPath: '/dist/',
   },
@@ -29,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['css-loader'],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
