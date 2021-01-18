@@ -7,10 +7,15 @@ import { parse } from 'semver'
 async function run() {
   const tag = process.env.CI_COMMIT_TAG
   if (!tag) {
+    console.log(
+      'This build is not for a git tag, we will assume it is for the "master" branch and building for the Test Environment. This will only result in the `latest.js` file being deployed.',
+    )
     return
   }
 
   const version = parse(tag)
+
+  console.log('Deploying:', version)
 
   const readdirAsync = util.promisify(fs.readdir)
   const readFileAsync = util.promisify(fs.readFile)
@@ -19,6 +24,8 @@ async function run() {
   const distPath = path.join(__dirname, '..', 'dist')
 
   const fileNames = await readdirAsync(distPath)
+
+  console.log('Duplicating files:', fileNames)
 
   for (const fileName of fileNames) {
     const content = await readFileAsync(path.join(distPath, fileName))
@@ -35,9 +42,12 @@ async function run() {
     const newFileNames = [majorFileName, minorFileName, patchFileName]
 
     for (const newFileName of newFileNames) {
+      console.log('Creating file:', newFileName)
       await writeFileAsync(path.join(distPath, newFileName), content, 'UTF-8')
     }
   }
+
+  console.log('Done :)')
 }
 
 run()
