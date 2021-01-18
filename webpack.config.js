@@ -1,18 +1,26 @@
 const path = require('path')
+
+const webpack = require('webpack')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+
 
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
-  plugins: [new NodePolyfillPlugin()],
+  plugins: [
+    new NodePolyfillPlugin(),
+    new webpack.DefinePlugin({
+      __TENANT__: `'${process.env.TENANT}'`,
+      __ENVIRONMENT__: `'${process.env.ENVIRONMENT}'`,
+    }),
+  ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'latest.js',
-    library: ['OneBlink'],
+    library: ['OneBlinkForms'],
     libraryTarget: 'umd',
     publicPath: '/dist/',
   },
-  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -22,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['css-loader'],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },

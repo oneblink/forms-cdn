@@ -9,9 +9,9 @@ import { SubmissionTypes } from '@oneblink/types'
 type Props = {
   formId: number
   formsAppId: number
-  postSubmissionUrl: string
+  submissionRedirectUrl: string
   cancelRedirectUrl: string
-  preFillData?: { [key: string]: unknown }
+  preFillData?: Record<string, unknown>
   externalId?: string
   googleMapsApiKey?: string
   captchaSiteKey?: string
@@ -29,7 +29,7 @@ const isSubmittingContainerStyles: React.CSSProperties = {
 function Form({
   formId,
   formsAppId,
-  postSubmissionUrl,
+  submissionRedirectUrl,
   cancelRedirectUrl,
   preFillData,
   externalId,
@@ -62,28 +62,33 @@ function Form({
           formSubmission,
           paymentReceiptUrl: null,
         })
+        const url = new URL(submissionRedirectUrl)
+        url.searchParams.append(
+          'submissionId',
+          formSubmissionResult.submissionId,
+        )
 
-        window.location.href = `${postSubmissionUrl}?submissionId=${formSubmissionResult.submissionId}`
+        window.location.href = url.href
       } catch (e) {
         console.error('An error has occurred while attempting to submit: ', e)
       } finally {
         stopSubmittingForm()
       }
     },
-    [],
+    [disableForm, enableForm, externalId, formsAppId, submissionRedirectUrl],
   )
 
   const handleCancel = React.useCallback(() => {
     window.location.href = cancelRedirectUrl
-  }, [])
+  }, [cancelRedirectUrl])
 
   React.useEffect(() => {
     const fetchForm = async () => {
       setIsFetchingForm(true)
 
       try {
-        const form = await formService.getForm(formId)
-        setForm(form)
+        const f = await formService.getForm(formId)
+        setForm(f)
       } catch (e) {
         setFetchError(e)
       } finally {
@@ -91,10 +96,8 @@ function Form({
       }
     }
 
-    if (!form && !isFetchingForm && !fetchError) {
-      fetchForm()
-    }
-  }, [isFetchingForm, form, formId])
+    fetchForm()
+  }, [formId])
 
   if (!form) {
     return null
