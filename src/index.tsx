@@ -7,11 +7,13 @@ import 'setimmediate'
 window.ONEBLINK_APPS_ENVIRONMENT = __ENVIRONMENT__
 switch (__TENANT__) {
   case 'civicplus': {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useTenantCivicPlus()
     break
   }
   case 'oneblink':
   default: {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useTenantOneBlink()
     break
   }
@@ -29,7 +31,7 @@ type Config = {
   captchaSiteKey?: string
 }
 
-export const renderForm = (config: Config) => {
+export const renderForm = (config: Config): void => {
   ReactDOM.render(
     <React.StrictMode>
       <Form
