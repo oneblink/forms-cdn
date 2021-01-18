@@ -75,7 +75,13 @@ function Form({
         stopSubmittingForm()
       }
     },
-    [disableForm, enableForm, externalId, formsAppId, submissionRedirectUrl],
+    [
+      startSubmittingForm,
+      stopSubmittingForm,
+      externalId,
+      formsAppId,
+      submissionRedirectUrl,
+    ],
   )
 
   const handleCancel = React.useCallback(() => {
