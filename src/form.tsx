@@ -2,6 +2,7 @@ import * as React from 'react'
 import { formService, submissionService } from '@oneblink/apps'
 import { OneBlinkForm, useBooleanState } from '@oneblink/apps-react'
 import '@oneblink/apps-react/dist/styles.css'
+import OnLoading from '@oneblink/apps-react/dist/components/OnLoading'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { SubmissionTypes } from '@oneblink/types'
 
@@ -14,6 +15,15 @@ type Props = {
   externalId?: string
   googleMapsApiKey?: string
   captchaSiteKey?: string
+}
+
+const isSubmittingContainerStyles: React.CSSProperties = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: 'fixed',
 }
 
 function Form({
@@ -29,12 +39,16 @@ function Form({
   const [form, setForm] = React.useState(null)
   const [isFetchingForm, setIsFetchingForm] = React.useState(false)
   const [fetchError, setFetchError] = React.useState(null)
-  const [formIsDisabled, disableForm, enableForm] = useBooleanState(false)
+  const [
+    isSubmittingForm,
+    startSubmittingForm,
+    stopSubmittingForm,
+  ] = useBooleanState(false)
 
   const handleSubmit = React.useCallback(
     async (newFormSubmission: SubmissionTypes.NewFormSubmission) => {
       try {
-        disableForm()
+        startSubmittingForm()
         const formSubmission: SubmissionTypes.FormSubmission = {
           ...newFormSubmission,
           formsAppId,
@@ -49,12 +63,11 @@ function Form({
           paymentReceiptUrl: null,
         })
 
-        window.location.href =
-          `${postSubmissionUrl}?submissionId=${formSubmissionResult.submissionId}`
+        window.location.href = `${postSubmissionUrl}?submissionId=${formSubmissionResult.submissionId}`
       } catch (e) {
         console.error('An error has occurred while attempting to submit: ', e)
       } finally {
-        enableForm()
+        stopSubmittingForm()
       }
     },
     [],
@@ -87,24 +100,33 @@ function Form({
     return null
   } else if (isFetchingForm) {
     return (
-      <div>
-        <p>fetching</p>
+      <div className="has-text-centered">
+        <OnLoading className="has-text-centered" />
+        <span>Retrieving form...</span>
       </div>
     )
   } else {
     // apps-react won't render a form and instead throws an error unless wrapped in a router tag
     return (
-      <Router>
-        <OneBlinkForm
-          form={form}
-          onCancel={handleCancel}
-          onSubmit={handleSubmit}
-          initialSubmission={preFillData}
-          captchaSiteKey={captchaSiteKey}
-          googleMapsApiKey={googleMapsApiKey}
-          disabled={formIsDisabled}
-        />
-      </Router>
+      <div>
+        {isSubmittingForm && (
+          <div style={isSubmittingContainerStyles}>
+            <OnLoading />
+            <span>Submitting form...</span>
+          </div>
+        )}
+        <Router>
+          <OneBlinkForm
+            form={form}
+            onCancel={handleCancel}
+            onSubmit={handleSubmit}
+            initialSubmission={preFillData}
+            captchaSiteKey={captchaSiteKey}
+            googleMapsApiKey={googleMapsApiKey}
+            disabled={isSubmittingForm}
+          />
+        </Router>
+      </div>
     )
   }
 }
