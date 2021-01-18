@@ -48,29 +48,34 @@ function Form({
           formSubmission,
           paymentReceiptUrl: null,
         })
+        const url = new URL(postSubmissionUrl)
+        url.searchParams.append(
+          'submissionId',
+          formSubmissionResult.submissionId,
+        )
+        url.searchParams.append('externalId', externalId)
 
-        window.location.href =
-          `${postSubmissionUrl}?submissionId=${formSubmissionResult.submissionId}`
+        window.location.href = url.href
       } catch (e) {
         console.error('An error has occurred while attempting to submit: ', e)
       } finally {
         enableForm()
       }
     },
-    [],
+    [disableForm, enableForm, externalId, formsAppId, postSubmissionUrl],
   )
 
   const handleCancel = React.useCallback(() => {
     window.location.href = cancelRedirectUrl
-  }, [])
+  }, [cancelRedirectUrl])
 
   React.useEffect(() => {
     const fetchForm = async () => {
       setIsFetchingForm(true)
 
       try {
-        const form = await formService.getForm(formId)
-        setForm(form)
+        const f = await formService.getForm(formId)
+        setForm(f)
       } catch (e) {
         setFetchError(e)
       } finally {
@@ -78,10 +83,8 @@ function Form({
       }
     }
 
-    if (!form && !isFetchingForm && !fetchError) {
-      fetchForm()
-    }
-  }, [isFetchingForm, form, formId])
+    fetchForm()
+  }, [formId])
 
   if (!form) {
     return null
