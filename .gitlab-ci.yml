@@ -1,0 +1,116 @@
+stages:
+  - test
+  - build
+  - deploy
+
+image: node:14
+before_script:
+  - npm install --global npm@6
+  - npm ci
+
+#
+# Test Stage
+#
+Test:
+  stage: test
+  script:
+    - npm test
+
+#
+# Build Stage
+#
+.Build: &Build
+  stage: build
+  artifacts:
+    paths:
+      - dist
+    expire_in: 1 week
+  script:
+    - npm run build
+
+Build:Test:OneBlink:
+  <<: *Build # Merge the contents of the 'Build' alias
+  variables:
+    TENANT: 'oneblink'
+    ENVIRONMENT: 'test'
+  only:
+    - master
+    - /^hotfix.*$/i
+    - ^\d+\.\d+\.\d+-test.\d+$
+
+Build:Test:CivicPlus:
+  <<: *Build # Merge the contents of the 'Build' alias
+  variables:
+    TENANT: 'civicplus'
+    ENVIRONMENT: 'test'
+  only:
+    - master
+    - /^hotfix.*$/i
+    - ^\d+\.\d+\.\d+-test.\d+$
+
+Build:Production:OneBlink:
+  <<: *Build # Merge the contents of the 'Build' alias
+  variables:
+    TENANT: 'oneblink'
+    ENVIRONMENT: 'prod'
+  only:
+    - ^\d+\.\d+\.\d+$
+
+Build:Production:CivicPlus:
+  <<: *Build # Merge the contents of the 'Build' alias
+  variables:
+    TENANT: 'civicplus'
+    ENVIRONMENT: 'prod'
+  only:
+    - ^\d+\.\d+\.\d+$
+
+#
+# Deploy Stage
+#
+Deploy:Test:OneBlink:
+  stage: deploy
+  environment:
+    name: OneBlink Test
+  needs: ['Build:Test:OneBlink']
+  script:
+    - oneblink cdn scope oneblink-forms.cdn.oneblink.io
+    - oneblink cdn deploy dist --env test --force
+  only:
+    - master
+    - /^hotfix.*$/i
+    - ^\d+\.\d+\.\d+-test.\d+$
+
+Deploy:Test:CivicPlus:
+  stage: deploy
+  environment:
+    name: CivicPlus Test
+  needs: ['Build:Test:CivicPlus']
+  script:
+    - civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
+    - civicplus cdn deploy dist --env test --force
+  only:
+    - master
+    - /^hotfix.*$/i
+    - ^\d+\.\d+\.\d+-test.\d+$
+
+Deploy:Production:OneBlink:
+  stage: deploy
+  environment:
+    name: OneBlink Production
+  needs: ['Build:Production:OneBlink']
+  script:
+    - oneblink cdn scope oneblink-forms.cdn.oneblink.io
+    - oneblink cdn deploy dist --env prod --force
+  only:
+    - ^\d+\.\d+\.\d+$
+
+Deploy:Production:CivicPlus:
+  stage: deploy
+  environment:
+    name: CivicPlus Production
+  needs: ['Build:Production:CivicPlus']
+  script:
+    - civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
+    - civicplus cdn deploy dist --env prod --force
+  only:
+    - ^\d+\.\d+\.\d+$

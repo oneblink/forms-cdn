@@ -1,7 +1,21 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { useTenantCivicPlus, useTenantOneBlink } from '@oneblink/apps'
 import Form from './form'
 import 'setimmediate'
+
+window.ONEBLINK_APPS_ENVIRONMENT = __ENVIRONMENT__
+switch (__TENANT__) {
+  case 'civicplus': {
+    useTenantCivicPlus()
+    break
+  }
+  case 'oneblink':
+  default: {
+    useTenantOneBlink()
+    break
+  }
+}
 
 type Config = {
   formId: number
