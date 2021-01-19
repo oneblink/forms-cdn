@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <!-- Must include Material Icons which are used by Form -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <script
+      charset="utf-8"
+      type="text/javascript"
+      src="../dist/latest.js"
+    ></script>
+  </head>
+
+  <body style="margin: 16px">
+    <div id="form"></div>
+  </body>
+  <script>
+    OneBlinkForms.render({
+      formId: 6773,
+      formsAppId: 954,
+      selector: '#form',
+      submissionRedirectUrl: 'https://google.com.au',
+      cancelRedirectUrl: 'https://google.com.au',
+    })
+  </script>
+</html>

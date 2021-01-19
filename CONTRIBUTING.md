@@ -6,7 +6,13 @@ This project adheres to [GitHub Flow](https://guides.github.com/introduction/flo
 
 ## Development
 
-Coming soon...
+To run the project locally:
+
+1. `npm run start` - This will serve an index.html file located in `public` dir which includes the project
+
+2. The served project will automatically open in your default browser.
+
+3. The files will be recompiled when you make changes, however you will need to manually refresh your browser.
 
 ## Test Release Process
 
