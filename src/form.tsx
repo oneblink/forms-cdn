@@ -17,13 +17,19 @@ type Props = {
   captchaSiteKey?: string
 }
 
-const isSubmittingContainerStyles: React.CSSProperties = {
+const isLoadingContainerStyles: React.CSSProperties = {
   width: '100%',
   height: '100%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   position: 'fixed',
+  zIndex: 200,
+  flexDirection: 'column',
+}
+
+const formIsSubmittingContainerStyles: React.CSSProperties = {
+  opacity: 0.7,
 }
 
 function Form({
@@ -104,13 +110,12 @@ function Form({
 
     fetchForm()
   }, [formId])
-
   if (!form) {
     return null
   } else if (isFetchingForm) {
     return (
-      <div className="has-text-centered">
-        <OnLoading className="has-text-centered" />
+      <div style={isLoadingContainerStyles}>
+        <OnLoading />
         <span>Retrieving form...</span>
       </div>
     )
@@ -119,21 +124,27 @@ function Form({
     return (
       <div>
         {isSubmittingForm && (
-          <div style={isSubmittingContainerStyles}>
+          <div style={isLoadingContainerStyles}>
             <OnLoading />
             <span>Submitting form...</span>
           </div>
         )}
         <Router>
-          <OneBlinkForm
-            form={form}
-            onCancel={handleCancel}
-            onSubmit={handleSubmit}
-            initialSubmission={preFillData}
-            captchaSiteKey={captchaSiteKey}
-            googleMapsApiKey={googleMapsApiKey}
-            disabled={isSubmittingForm}
-          />
+          <div
+            style={
+              isSubmittingForm ? formIsSubmittingContainerStyles : undefined
+            }
+          >
+            <OneBlinkForm
+              form={form}
+              onCancel={handleCancel}
+              onSubmit={handleSubmit}
+              initialSubmission={preFillData}
+              captchaSiteKey={captchaSiteKey}
+              googleMapsApiKey={googleMapsApiKey}
+              disabled={isSubmittingForm}
+            />
+          </div>
         </Router>
       </div>
     )
