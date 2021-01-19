@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { formService, submissionService } from '@oneblink/apps'
-import { OneBlinkForm, useBooleanState } from '@oneblink/apps-react'
+import { OneBlinkForm } from '@oneblink/apps-react'
 import '@oneblink/apps-react/dist/styles.css'
 import OnLoading from '@oneblink/apps-react/dist/components/OnLoading'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { SubmissionTypes } from '@oneblink/types'
+import ErrorModal from './ErrorModal'
 
 type Props = {
   formId: number
@@ -15,17 +16,6 @@ type Props = {
   externalId?: string
   googleMapsApiKey?: string
   captchaSiteKey?: string
-}
-
-const isLoadingContainerStyles: React.CSSProperties = {
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  position: 'fixed',
-  zIndex: 200,
-  flexDirection: 'column',
 }
 
 const formIsSubmittingContainerStyles: React.CSSProperties = {
@@ -42,19 +32,37 @@ function Form({
   googleMapsApiKey,
   captchaSiteKey,
 }: Props) {
-  const [form, setForm] = React.useState(null)
-  const [isFetchingForm, setIsFetchingForm] = React.useState(false)
-  const [fetchError, setFetchError] = React.useState(null)
-  const [
-    isSubmittingForm,
-    startSubmittingForm,
-    stopSubmittingForm,
-  ] = useBooleanState(false)
+  const [{ isFetching, form, fetchError }, setFetchingState] = React.useState({
+    isFetching: true,
+    form: null,
+    fetchError: null,
+  })
+  const fetchAgain = React.useCallback(() => {
+    setFetchingState({
+      isFetching: true,
+      form: null,
+      fetchError: null,
+    })
+  }, [])
+
+  const [{ isSubmitting, submitError }, setSubmittingState] = React.useState({
+    isSubmitting: false,
+    submitError: null,
+  })
+  const clearSubmitError = React.useCallback(() => {
+    setSubmittingState({
+      isSubmitting: false,
+      submitError: null,
+    })
+  }, [])
 
   const handleSubmit = React.useCallback(
     async (newFormSubmission: SubmissionTypes.NewFormSubmission) => {
       try {
-        startSubmittingForm()
+        setSubmittingState({
+          isSubmitting: true,
+          submitError: null,
+        })
         const formSubmission: SubmissionTypes.FormSubmission = {
           ...newFormSubmission,
           formsAppId,
@@ -77,17 +85,13 @@ function Form({
         window.location.href = url.href
       } catch (e) {
         console.error('An error has occurred while attempting to submit: ', e)
-      } finally {
-        stopSubmittingForm()
+        setSubmittingState({
+          isSubmitting: false,
+          submitError: e,
+        })
       }
     },
-    [
-      startSubmittingForm,
-      stopSubmittingForm,
-      externalId,
-      formsAppId,
-      submissionRedirectUrl,
-    ],
+    [externalId, formsAppId, submissionRedirectUrl],
   )
 
   const handleCancel = React.useCallback(() => {
@@ -95,60 +99,80 @@ function Form({
   }, [cancelRedirectUrl])
 
   React.useEffect(() => {
+    if (!isFetching) {
+      return
+    }
+
     const fetchForm = async () => {
-      setIsFetchingForm(true)
+      setFetchingState({
+        isFetching: true,
+        fetchError: null,
+        form: null,
+      })
 
       try {
         const f = await formService.getForm(formId)
-        setForm(f)
+        setFetchingState({
+          isFetching: false,
+          fetchError: null,
+          form: f,
+        })
       } catch (e) {
-        setFetchError(e)
-      } finally {
-        setIsFetchingForm(false)
+        setFetchingState({
+          isFetching: false,
+          fetchError: e,
+          form: null,
+        })
       }
     }
 
     fetchForm()
-  }, [formId])
-  if (!form) {
-    return null
-  } else if (isFetchingForm) {
+  }, [formId, isFetching])
+
+  React.useEffect(() => {
+    const submitButton = document.querySelector('.ob-button-submit')
+    if (submitButton) {
+      if (isSubmitting) {
+        submitButton.classList.add('is-loading')
+      } else {
+        submitButton.classList.remove('is-loading')
+      }
+    }
+  }, [isSubmitting])
+
+  if (isFetching) {
+    return <OnLoading className="has-text-centered" small />
+  }
+
+  if (fetchError) {
     return (
-      <div style={isLoadingContainerStyles}>
-        <OnLoading />
-        <span>Retrieving form...</span>
-      </div>
-    )
-  } else {
-    // apps-react won't render a form and instead throws an error unless wrapped in a router tag
-    return (
-      <div>
-        {isSubmittingForm && (
-          <div style={isLoadingContainerStyles}>
-            <OnLoading />
-            <span>Submitting form...</span>
-          </div>
-        )}
-        <Router>
-          <div
-            style={
-              isSubmittingForm ? formIsSubmittingContainerStyles : undefined
-            }
-          >
-            <OneBlinkForm
-              form={form}
-              onCancel={handleCancel}
-              onSubmit={handleSubmit}
-              initialSubmission={preFillData}
-              captchaSiteKey={captchaSiteKey}
-              googleMapsApiKey={googleMapsApiKey}
-              disabled={isSubmittingForm}
-            />
-          </div>
-        </Router>
+      <div className="has-text-centered">
+        <h3 className="title is-3">Error Loading Form</h3>
+        <p className="content has-text-danger">{fetchError.message}</p>
+        <button className="button" onClick={fetchAgain}>
+          Try Again
+        </button>
       </div>
     )
   }
+
+  return (
+    // apps-react won't render a form and instead throws an error unless wrapped in a router tag
+    <Router>
+      <div style={isSubmitting ? formIsSubmittingContainerStyles : undefined}>
+        <OneBlinkForm
+          form={form}
+          onCancel={handleCancel}
+          onSubmit={handleSubmit}
+          initialSubmission={preFillData}
+          captchaSiteKey={captchaSiteKey}
+          googleMapsApiKey={googleMapsApiKey}
+          disabled={isSubmitting}
+        />
+      </div>
+      <ErrorModal error={submitError} onClose={clearSubmitError} />
+    </Router>
+  )
 }
 
 export default Form
