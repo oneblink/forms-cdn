@@ -36,7 +36,7 @@ Build:Test:OneBlink:
   only:
     - master
     - /^hotfix.*$/i
-    - ^\d+\.\d+\.\d+-test.\d+$
+    - /^\d+\.\d+\.\d+-test.\d+$/i
 
 Build:Test:CivicPlus:
   <<: *Build # Merge the contents of the 'Build' alias
@@ -46,7 +46,7 @@ Build:Test:CivicPlus:
   only:
     - master
     - /^hotfix.*$/i
-    - ^\d+\.\d+\.\d+-test.\d+$
+    - /^\d+\.\d+\.\d+-test.\d+$/i
 
 Build:Production:OneBlink:
   <<: *Build # Merge the contents of the 'Build' alias
@@ -54,7 +54,7 @@ Build:Production:OneBlink:
     TENANT: 'oneblink'
     ENVIRONMENT: 'prod'
   only:
-    - ^\d+\.\d+\.\d+$
+    - /^\d+\.\d+\.\d+$/i
 
 Build:Production:CivicPlus:
   <<: *Build # Merge the contents of the 'Build' alias
@@ -62,7 +62,7 @@ Build:Production:CivicPlus:
     TENANT: 'civicplus'
     ENVIRONMENT: 'prod'
   only:
-    - ^\d+\.\d+\.\d+$
+    - /^\d+\.\d+\.\d+$/i
 
 #
 # Deploy Stage
@@ -81,7 +81,7 @@ Deploy:Test:OneBlink:
   only:
     - master
     - /^hotfix.*$/i
-    - ^\d+\.\d+\.\d+-test.\d+$
+    - /^\d+\.\d+\.\d+-test.\d+$/i
 
 Deploy:Test:CivicPlus:
   stage: deploy
@@ -97,7 +97,7 @@ Deploy:Test:CivicPlus:
   only:
     - master
     - /^hotfix.*$/i
-    - ^\d+\.\d+\.\d+-test.\d+$
+    - /^\d+\.\d+\.\d+-test.\d+$/i
 
 Deploy:Production:OneBlink:
   stage: deploy
@@ -111,7 +111,7 @@ Deploy:Production:OneBlink:
     - npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
     - npx oneblink cdn deploy dist --env prod --force
   only:
-    - ^\d+\.\d+\.\d+$
+    - /^\d+\.\d+\.\d+$/i
 
 Deploy:Production:CivicPlus:
   stage: deploy
@@ -125,4 +125,4 @@ Deploy:Production:CivicPlus:
     - npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
     - npx civicplus cdn deploy dist --env prod --force
   only:
-    - ^\d+\.\d+\.\d+$
+    - /^\d+\.\d+\.\d+$/i
