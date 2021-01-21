@@ -32,6 +32,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        // Need to transpile apps-react and apps sdk for ie11, but must exclude core-js polyfills
         test: /\.js$/,
         exclude: /core-js/,
         use: {
