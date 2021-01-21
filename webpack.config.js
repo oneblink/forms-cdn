@@ -33,6 +33,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        exclude: /core-js/,
         use: {
           loader: 'babel-loader',
           options: {
