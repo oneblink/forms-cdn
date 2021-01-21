@@ -3,7 +3,6 @@ const path = require('path')
 const webpack = require('webpack')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
-
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
@@ -31,6 +30,24 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/react',
+              [
+                '@babel/preset-env',
+                {
+                  useBuiltIns: 'entry',
+                  corejs: 3,
+                },
+              ],
+            ],
+          },
+        },
       },
     ],
   },
