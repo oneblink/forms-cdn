@@ -28,13 +28,13 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s?css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         // Need to transpile apps-react and apps sdk for ie11, but must exclude core-js polyfills
         test: /\.js$/,
-        exclude: /core-js/,
+        exclude: /core-js|quagga/,
         use: {
           loader: 'babel-loader',
           options: {

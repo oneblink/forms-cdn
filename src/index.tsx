@@ -4,6 +4,7 @@ import * as ReactDOM from 'react-dom'
 import { useTenantCivicPlus, useTenantOneBlink } from '@oneblink/apps'
 import Form from './form'
 import 'setimmediate'
+import './styles.scss'
 
 window.ONEBLINK_APPS_ENVIRONMENT = __ENVIRONMENT__
 switch (__TENANT__) {
@@ -68,16 +69,18 @@ export function render(options?: Record<string, unknown>): void {
 
   ReactDOM.render(
     <React.StrictMode>
-      <Form
-        formId={formId}
-        formsAppId={formsAppId}
-        preFillData={preFillData as Record<string, unknown> | undefined}
-        externalId={externalId}
-        googleMapsApiKey={googleMapsApiKey}
-        captchaSiteKey={captchaSiteKey}
-        submissionRedirectUrl={submissionRedirectUrl}
-        cancelRedirectUrl={cancelRedirectUrl}
-      />
+      <div className="oneblink-apps-react-styles">
+        <Form
+          formId={formId}
+          formsAppId={formsAppId}
+          preFillData={preFillData as Record<string, unknown> | undefined}
+          externalId={externalId}
+          googleMapsApiKey={googleMapsApiKey}
+          captchaSiteKey={captchaSiteKey}
+          submissionRedirectUrl={submissionRedirectUrl}
+          cancelRedirectUrl={cancelRedirectUrl}
+        />
+      </div>
     </React.StrictMode>,
     document.querySelector(selector),
   )

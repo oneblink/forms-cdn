@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { formService, submissionService } from '@oneblink/apps'
 import { OneBlinkForm } from '@oneblink/apps-react'
-import '@oneblink/apps-react/dist/styles.css'
 import OnLoading from '@oneblink/apps-react/dist/components/OnLoading'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { SubmissionTypes } from '@oneblink/types'
