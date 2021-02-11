@@ -28,20 +28,23 @@ The script to include comes in a few different ways to allow people to choose th
 
     <!-- CivicPlus -->
     <script src="https://civicplus-forms.cdn.transform.civicplus.com/{version}.js"></script>
+
+    <script>
+      window.addEventListener('load', function (event) {
+        OneBlinkForms.render({
+          selector: '#oneblink-form',
+          formId: 1,
+          formsAppId: 1,
+          submissionRedirectUrl: 'https://submitted.example.com',
+          cancelRedirectUrl: 'https://cancelled.example.com',
+          googleMapsApiKey: 'GOOGLE_MAPS_API_KEY',
+          captchaSiteKey: 'CAPTCHA_SITE_KEY',
+        })
+      })
+    </script>
   </head>
   <body>
     <div id="oneblink-form"></div>
-    <script>
-      OneBlinkForms.render({
-        selector: '#oneblink-form',
-        formId: 1,
-        formsAppId: 1,
-        submissionRedirectUrl: 'https://submitted.example.com',
-        cancelRedirectUrl: 'https://cancelled.example.com',
-        googleMapsApiKey: 'GOOGLE_MAPS_API_KEY',
-        captchaSiteKey: 'CAPTCHA_SITE_KEY',
-      })
-    </script>
   </body>
 </html>
 ```
