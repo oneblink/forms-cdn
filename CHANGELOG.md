@@ -2,6 +2,44 @@
 
 ## Unreleased
 
+### Dependencies
+
+- update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.13.10](https://github.com/babel/babel/releases/tag/v7.13.10) (from [7.12.13](https://github.com/babel/babel/releases/tag/v7.12.13))
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.13.10](https://github.com/babel/babel/releases/tag/v7.13.10) (from [7.12.13](https://github.com/babel/babel/releases/tag/v7.12.13))
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.6.0-beta.5](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [0.5.2-beta.2](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.1.15-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.1.11-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@oneblink/cli](https://www.npmjs.com/package/@oneblink/cli) to [0.1.10](https://github.com/oneblink/cli/releases/tag/v0.1.10) (from [0.1.9](https://github.com/oneblink/cli/releases/tag/v0.1.9))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 14.14.33 (from 14.14.26)
+
+- update [@types/react](https://www.npmjs.com/package/@types/react) to 17.0.3 (from 17.0.1)
+
+- update [@types/react-dom](https://www.npmjs.com/package/@types/react-dom) to 17.0.2 (from 17.0.0)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [4.17.0](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md) (from [4.15.0](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [4.17.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.17.0) (from [4.15.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.15.0))
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.9.1](https://github.com/zloirock/core-js/releases/tag/v3.9.1) (from [3.8.3](https://github.com/zloirock/core-js/releases/tag/v3.8.3))
+
+- update [css-loader](https://www.npmjs.com/package/css-loader) to [5.1.2](https://github.com/webpack-contrib/css-loader/releases/tag/v5.1.2) (from [5.0.1](https://github.com/webpack-contrib/css-loader/releases/tag/v5.0.1))
+
+- update [node-polyfill-webpack-plugin](https://www.npmjs.com/package/node-polyfill-webpack-plugin) to [1.0.3](https://github.com/Richienb/node-polyfill-webpack-plugin/releases/tag/v1.0.3) (from [1.0.2](https://github.com/Richienb/node-polyfill-webpack-plugin/releases/tag/v1.0.2))
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.32.8](https://github.com/sass/dart-sass/releases/tag/1.32.8) (from [1.32.7](https://github.com/sass/dart-sass/releases/tag/1.32.7))
+
+- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [8.0.18](https://github.com/TypeStrong/ts-loader/blob/master/CHANGELOG.md) (from [8.0.17](https://github.com/TypeStrong/ts-loader/releases/tag/v8.0.17))
+
+- update [typescript](https://www.npmjs.com/package/typescript) to 4.2.3 (from 4.1.5)
+
+- update [webpack](https://www.npmjs.com/package/webpack) to 5.24.4 (from 5.21.2)
+
+- update [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch) to [3.6.2](https://github.com/github/fetch/releases/tag/v3.6.2) (from [3.5.0](https://github.com/github/fetch/releases/tag/v3.5.0))
+
 ## 0.2.0 (2020-02-15) - Roger Roger
 
 ### Changed
