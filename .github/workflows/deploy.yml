@@ -1,0 +1,92 @@
+name: Deployment
+on:
+  push:
+    branches:
+      - 'master'
+      - 'hotfix/*'
+      - 'release/*'
+jobs:
+  #
+  # OneBlink Tenant
+  #
+  OneBlinkTest:
+    name: Test Deployment (OneBlink)
+    runs-on: ubuntu-latest
+    environment: OneBlink Test
+    env:
+      TENANT: 'oneblink'
+      ENVIRONMENT: 'test'
+      ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
+      ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install --global npm@6
+      - run: npm ci
+      - run: npm run build
+      - run: npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
+      - run: npx oneblink cdn deploy dist --env test --force
+  OneBlinkProduction:
+    name: Production Deployment (OneBlink)
+    needs: [OneBlinkTest]
+    runs-on: ubuntu-latest
+    environment: OneBlink Production
+    env:
+      TENANT: 'oneblink'
+      ENVIRONMENT: 'prod'
+      ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
+      ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install --global npm@6
+      - run: npm ci
+      - run: npm run build
+      - run: npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
+      - run: npx oneblink cdn deploy dist --env prod --force
+  #
+  # CivicPlus Tenant
+  #
+  CivicPlusTest:
+    name: Test Deployment (CivicPlus)
+    runs-on: ubuntu-latest
+    environment: CivicPlus Test
+    env:
+      TENANT: 'civicplus'
+      ENVIRONMENT: 'test'
+      ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
+      ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install --global npm@6
+      - run: npm ci
+      - run: npm run build
+      - run: npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
+      - run: npx civicplus cdn deploy dist --env test --force
+  CivicPlusProduction:
+    name: Production Deployment (CivicPlus)
+    needs: [CivicPlusTest]
+    runs-on: ubuntu-latest
+    environment: CivicPlus Test
+    env:
+      TENANT: 'civicplus'
+      ENVIRONMENT: 'prod'
+      ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
+      ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install --global npm@6
+      - run: npm ci
+      - run: npm run build
+      - run: npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
+      - run: npx civicplus cdn deploy dist --env prod --force
