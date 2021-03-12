@@ -1,4 +1,4 @@
-name: Deploy Test
+name: Deployment - Test Environment
 on:
   push:
     branches:
