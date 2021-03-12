@@ -10,7 +10,7 @@
 
 - update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.6.0-beta.5](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [0.5.2-beta.2](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
 
-- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.1.15-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.1.11-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.2.0-beta.4](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.1.11-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 - update [@oneblink/cli](https://www.npmjs.com/package/@oneblink/cli) to [0.1.10](https://github.com/oneblink/cli/releases/tag/v0.1.10) (from [0.1.9](https://github.com/oneblink/cli/releases/tag/v0.1.9))
 
