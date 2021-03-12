@@ -40,7 +40,7 @@
 
 - update [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch) to [3.6.2](https://github.com/github/fetch/releases/tag/v3.6.2) (from [3.5.0](https://github.com/github/fetch/releases/tag/v3.5.0))
 
-## 0.2.0 (2020-02-15) - Roger Roger
+## 0.2.0 (2020-02-15)
 
 ### Changed
 
