@@ -74,7 +74,7 @@ jobs:
     name: Production Deployment (CivicPlus)
     needs: [CivicPlusTest]
     runs-on: ubuntu-latest
-    environment: CivicPlus Test
+    environment: CivicPlus Production
     env:
       TENANT: 'civicplus'
       ENVIRONMENT: 'prod'
