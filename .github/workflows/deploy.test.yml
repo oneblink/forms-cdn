@@ -13,6 +13,8 @@ jobs:
     env:
       TENANT: 'oneblink'
       ENVIRONMENT: 'test'
+      ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
+      ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -29,6 +31,8 @@ jobs:
     env:
       TENANT: 'civicplus'
       ENVIRONMENT: 'test'
+      ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
+      ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
