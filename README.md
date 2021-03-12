@@ -1,15 +1,17 @@
-# Forms CDN
+# OneBlink Forms CDN
 
-Project to serve via CDN an embeddable OneBlink form.
+Project to serve via CDN to embed a OneBlink Form in your website.
 
 ## Scripts
 
-The script to include comes in a few different ways to allow people to choose the updates/breaks that want. Every deployment will upsert 4 files. If the next deployment is `1.2.3`, the following 4 files will be created if they don't exist, or updated if they do:
+The script to include comes in a few different ways to allow people to choose the updates/breaks that want. Every deployment will upsert 4 files. If the latest deployment was `1.2.3`, the following 4 files will be available to use:
 
-- `1.2.3.js` - for the people who are super cautious and never want there scripts to break (or be updated)
+- `1.2.3.js` - for the people who are super cautious and never want their scripts to break (or be updated)
 - `1.2.x.js` - for the people who are cautious but like to stay up to date
 - `1.x.x.js` - for the people who are cautious but prefer to be up to date
-- `latest.js` - or for the really hardcore who don't care if there website breaks
+- `latest.js` - or for the really hardcore who don't care if their website breaks
+
+**Note: `1.2.3.js` is just an example.** To check what the latest version is, please see the [Changelog](./CHANGELOG.md) or the [Releases Page](https://github.com/oneblink/forms-cdn/releases)
 
 ### Examples
 

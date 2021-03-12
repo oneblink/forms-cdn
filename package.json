@@ -1,9 +1,12 @@
 {
   "name": "forms-cdn",
-  "description": "",
-  "version": "0.1.0",
-  "author": "OneBlink",
+  "description": "Project to serve via CDN to embed a OneBlink Form in your website.",
+  "version": "0.0.0",
+  "author": "OneBlink <developers@oneblink.io> (https://oneblink.io)",
   "browserslist": "> 0.25%, not dead, safari >= 11, ios_saf >= 11, ie >= 11",
+  "bugs": {
+    "url": "https://github.com/oneblink/forms-cdn/issues"
+  },
   "dependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
@@ -53,9 +56,18 @@
     "prettier": "^2.2.1",
     "webpack-dev-server": "^3.11.2"
   },
+  "engines": {
+    "node": ">=14",
+    "npm": ">=6"
+  },
+  "homepage": "https://github.com/oneblink/forms-cdn",
   "keywords": [],
-  "license": "ISC",
-  "main": "index.js",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oneblink/forms-cdn.git"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "eslint": "eslint --quiet --fix ./src/*.tsx",
