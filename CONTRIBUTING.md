@@ -16,7 +16,7 @@ To run the project locally:
 
 ## Test Release Process
 
-1. Create a GitLab Tag that matches the following regex: `/^\d+\.\d+\.\d+-test.\d+$/` e.g. `1.0.0-test.1`.
+1. Create a Git Tag that matches the following regex: `/^\d+\.\d+\.\d+-test.\d+$/` e.g. `1.0.0-test.1`.
 
 ## Production Release Process
 
@@ -35,4 +35,4 @@ To run the project locally:
    git commit -m "[RELEASE] x.x.x"
    ```
 
-1. Create a GitLab Tag that matches the following regex: `/^\d+\.\d+\.\d+$/` e.g. `1.0.0`.
+1. Create a Git Tag that matches the following regex: `/^\d+\.\d+\.\d+$/` e.g. `1.0.0`.
