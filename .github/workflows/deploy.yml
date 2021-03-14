@@ -5,6 +5,8 @@ on:
       - 'master'
       - 'hotfix/*'
       - 'release/*'
+    tags:
+      - '*'
 jobs:
   #
   # OneBlink Tenant
@@ -30,7 +32,7 @@ jobs:
       - run: npx oneblink cdn deploy dist --env test --force
   OneBlinkProduction:
     name: Production Deployment (OneBlink)
-    needs: [OneBlinkTest]
+    if: startsWith(github.event.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     environment: OneBlink Production
     env:
@@ -72,7 +74,7 @@ jobs:
       - run: npx civicplus cdn deploy dist --env test --force
   CivicPlusProduction:
     name: Production Deployment (CivicPlus)
-    needs: [CivicPlusTest]
+    if: startsWith(github.event.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     environment: CivicPlus Production
     env:
