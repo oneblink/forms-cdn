@@ -1,29 +1,14 @@
-name: CI/CD
+name: Deployment
 on:
   push:
-    branches:
+    tags:
       - '*'
 jobs:
-  #
-  # Tests
-  #
-  Test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - run: npm install --global npm@6
-      - run: npm ci
-      - run: npm test
   #
   # OneBlink Tenant
   #
   OneBlinkTest:
     name: Test Deployment (OneBlink)
-    needs: [Test]
-    if: ${{ startsWith(github.event.head_commit.message, '[RELEASE]') }}
     runs-on: ubuntu-latest
     environment: OneBlink Test
     env:
@@ -43,8 +28,6 @@ jobs:
       - run: npx oneblink cdn deploy dist --env test --force
   OneBlinkProduction:
     name: Production Deployment (OneBlink)
-    needs: [Test]
-    if: ${{ startsWith(github.event.head_commit.message, '[RELEASE]') }}
     runs-on: ubuntu-latest
     environment: OneBlink Production
     env:
@@ -67,8 +50,6 @@ jobs:
   #
   CivicPlusTest:
     name: Test Deployment (CivicPlus)
-    needs: [Test]
-    if: ${{ startsWith(github.event.head_commit.message, '[RELEASE]') }}
     runs-on: ubuntu-latest
     environment: CivicPlus Test
     env:
@@ -88,8 +69,6 @@ jobs:
       - run: npx civicplus cdn deploy dist --env test --force
   CivicPlusProduction:
     name: Production Deployment (CivicPlus)
-    needs: [Test]
-    if: ${{ startsWith(github.event.head_commit.message, '[RELEASE]') }}
     runs-on: ubuntu-latest
     environment: CivicPlus Production
     env:
