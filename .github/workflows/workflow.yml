@@ -1,5 +1,8 @@
 name: CI/CD
-on: [push]
+on:
+  push:
+    branches:
+      - '*'
 jobs:
   #
   # Tests
@@ -20,7 +23,7 @@ jobs:
   OneBlinkTest:
     name: Test Deployment (OneBlink)
     needs: [Test]
-    if: startsWith(github.event.head_commit.message, '[RELEASE]')
+    if: ${{ startsWith(github.event.head_commit.message, '[RELEASE]') }}
     runs-on: ubuntu-latest
     environment: OneBlink Test
     env:
@@ -41,7 +44,7 @@ jobs:
   OneBlinkProduction:
     name: Production Deployment (OneBlink)
     needs: [Test]
-    if: startsWith(github.event.head_commit.message, '[RELEASE]')
+    if: ${{ startsWith(github.event.head_commit.message, '[RELEASE]') }}
     runs-on: ubuntu-latest
     environment: OneBlink Production
     env:
@@ -65,7 +68,7 @@ jobs:
   CivicPlusTest:
     name: Test Deployment (CivicPlus)
     needs: [Test]
-    if: startsWith(github.event.head_commit.message, '[RELEASE]')
+    if: ${{ startsWith(github.event.head_commit.message, '[RELEASE]') }}
     runs-on: ubuntu-latest
     environment: CivicPlus Test
     env:
@@ -86,7 +89,7 @@ jobs:
   CivicPlusProduction:
     name: Production Deployment (CivicPlus)
     needs: [Test]
-    if: startsWith(github.event.head_commit.message, '[RELEASE]')
+    if: ${{ startsWith(github.event.head_commit.message, '[RELEASE]') }}
     runs-on: ubuntu-latest
     environment: CivicPlus Production
     env:
