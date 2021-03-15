@@ -3,17 +3,10 @@ import path from 'path'
 import util from 'util'
 
 import { parse } from 'semver'
+import pkg from '../package.json'
 
 async function run() {
-  const tag = process.env.CI_COMMIT_TAG
-  if (!tag) {
-    console.log(
-      'This build is not for a git tag, we will assume it is for the "master" branch and building for the Test Environment. This will only result in the `latest.js` file being deployed.',
-    )
-    return
-  }
-
-  const version = parse(tag)
+  const version = parse(pkg.version)
 
   console.log('Deploying:', version)
 
