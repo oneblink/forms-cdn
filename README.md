@@ -4,16 +4,16 @@ Project to serve via CDN to embed a OneBlink Form in your website.
 
 ## Scripts
 
-The script to include comes in a few different ways to allow people to choose the updates/breaks that want. Every deployment will upsert 4 files. If the latest deployment was `1.2.3`, the following 4 files will be available to use:
+The script to include comes in a few different ways to allow you to choose the updates/breaks you want. Every deployment will upsert 4 files. If the latest deployment was `1.2.3`, the following 4 files will be available to use:
 
 - `1.2.3.js` - for the people who are super cautious and never want their scripts to break (or be updated)
 - `1.2.x.js` - for the people who are cautious but like to stay up to date
-- `1.x.x.js` - for the people who are cautious but prefer to be up to date
+- `1.x.x.js` - for the people who are cautious but prefer to be up to date **(we recommend using this version)**
 - `latest.js` - or for the really hardcore who don't care if their website breaks
 
-**Note: `1.2.3.js` is just an example.** To check what the latest version is, please see the [Changelog](./CHANGELOG.md) or the [Releases Page](https://github.com/oneblink/forms-cdn/releases)
+**Note: `1.2.3` is just an example.** To check what the latest version is, please see the [Latest Release](https://github.com/oneblink/forms-cdn/releases/latest) or for more information on historical releases, see the [Changelog](./CHANGELOG.md).
 
-### Examples
+## Example
 
 ```html
 <!DOCTYPE html>
@@ -37,8 +37,8 @@ The script to include comes in a few different ways to allow people to choose th
           selector: '#oneblink-form',
           formId: 1,
           formsAppId: 1,
-          submissionRedirectUrl: 'https://submitted.example.com',
-          cancelRedirectUrl: 'https://cancelled.example.com',
+          submissionRedirectUrl: 'https://example.com/submitted',
+          cancelRedirectUrl: 'https://example.com/cancelled',
           googleMapsApiKey: 'GOOGLE_MAPS_API_KEY',
           captchaSiteKey: 'CAPTCHA_SITE_KEY',
         })

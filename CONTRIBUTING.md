@@ -16,7 +16,23 @@ To run the project locally:
 
 ## Test Release Process
 
-1. Create a Git Tag that matches the following regex: `/^\d+\.\d+\.\d+-test.\d+$/` e.g. `1.0.0-test.1`.
+1. Checkout `master` and get the latest code
+
+   ```
+   git checkout master && git pull
+   ```
+
+1. Bump the version and create a release commit following regex: `/^\d+\.\d+\.\d+-test.\d+$/` e.g. `1.0.0-test.1`.
+
+   ```
+   npm version x.x.x-test.x --message "[RELEASE] %s"
+   ```
+
+1. Push changes to the `master` branch
+
+   ```
+   git push && git push --tags
+   ```
 
 ## Production Release Process
 
@@ -26,13 +42,30 @@ To run the project locally:
    git checkout master && git pull
    ```
 
-1. Update the [Changelog](./CHANGELOG.md) by replacing `Unreleased` with `x.x.x (YYYY-MM-DD)`
+1. Run CLI to check if dependencies have been updated
+
+   ```
+   npx package-diff-summary {last-tag}
+   ```
+
+1. Copy result (if there is one) under a _Dependencies_ heading in [Changelog](./CHANGELOG.md)
+
+1. Update the [Changelog](./CHANGELOG.md) by adding `x.x.x (YYYY-MM-DD)` under `Unreleased`
 
 1. Commit changes to the `master` branch
 
    ```
-   git add -A
-   git commit -m "[RELEASE] x.x.x"
+   git add -A && git commit -m "[CHANGELOG] x.x.x"
    ```
 
-1. Create a Git Tag that matches the following regex: `/^\d+\.\d+\.\d+$/` e.g. `1.0.0`.
+1. Bump the version and create a release commit
+
+   ```
+   npm version x.x.x --message "[RELEASE] %s"
+   ```
+
+1. Push changes to the `master` branch
+
+   ```
+   git push && git push --tags
+   ```
