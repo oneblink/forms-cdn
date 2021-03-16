@@ -1,10 +1,10 @@
 <!-- Element to inject OneBlink Form into -->
 <div id="oneblink-form"></div>
-<!-- Icons required in OneBlink Form. This can be moved to your <head></head> tag if you wish.-->
+<!-- Icons required in OneBlink Form. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-<!-- Script to load window.OneBlinkForms. This can be moved to your <head></head> tag if you wish. -->
+<!-- Script to load window.OneBlinkForms. -->
 <script src="{{scriptUrl}}"></script>
-<!-- Script to inject OneBlink Form into HTML element above. This can be moved to your <head></head> tag if you wish. -->
+<!-- Script to inject OneBlink Form into HTML element above. -->
 <script>
   window.addEventListener('load', function () {
     // See https://github.com/oneblink/forms-cdn for documentation
@@ -16,9 +16,13 @@
       // Change these to a URL you wish to send your users too
       submissionRedirectUrl: '',
       cancelRedirectUrl: '',
-      // (Conditionally Optional) A [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Required if the form contains a `location` form element.
+      // (Conditionally Optional) A Google Maps API Key
+      // https://developers.google.com/maps/documentation/javascript/get-api-key
+      // Required if the form contains a `location` form element.
       // googleMapsApiKey: '',
-      // (Conditionally Optional) A [reCAPTCHA Site Key](https://developers.google.com/recaptcha/intro). Required if the form contains a `captcha` form element.
+      // (Conditionally Optional) A reCAPTCHA Site Key
+      // https://developers.google.com/recaptcha/intro
+      // Required if the form contains a `captcha` form element.
       // captchaSiteKey: '',
       // (Optional) An identifier to match the form submission with in your system.
       // externalId: '',
