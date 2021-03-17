@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.0.0 (2020-03-17)
+
 ### Dependencies
 
 - update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.13.10](https://github.com/babel/babel/releases/tag/v7.13.10) (from [7.12.13](https://github.com/babel/babel/releases/tag/v7.12.13))
@@ -32,9 +34,9 @@
 
 - update [sass](https://www.npmjs.com/package/sass) to [1.32.8](https://github.com/sass/dart-sass/releases/tag/1.32.8) (from [1.32.7](https://github.com/sass/dart-sass/releases/tag/1.32.7))
 
-- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [8.0.18](https://github.com/TypeStrong/ts-loader/blob/master/CHANGELOG.md) (from [8.0.17](https://github.com/TypeStrong/ts-loader/releases/tag/v8.0.17))
+- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [8.0.18](https://github.com/TypeStrong/ts-loader/releases/tag/v8.0.18) (from [8.0.17](https://github.com/TypeStrong/ts-loader/blob/master/CHANGELOG.md))
 
-- update [typescript](https://www.npmjs.com/package/typescript) to 4.2.3 (from 4.1.5)
+- update [typescript](https://www.npmjs.com/package/typescript) to [4.2.3](https://github.com/microsoft/TypeScript/releases/tag/v4.2.3) (from 4.1.5)
 
 - update [webpack](https://www.npmjs.com/package/webpack) to 5.24.4 (from 5.21.2)
 
