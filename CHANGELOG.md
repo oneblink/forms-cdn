@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.6.1-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [0.6.0-beta.5](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.2.1-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.2.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 14.14.35 (from 14.14.33)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [4.18.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.18.0) (from [4.17.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.17.0))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [4.18.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.18.0) (from [4.17.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.17.0))
+
+- update [css-loader](https://www.npmjs.com/package/css-loader) to [5.1.3](https://github.com/webpack-contrib/css-loader/releases/tag/v5.1.3) (from [5.1.2](https://github.com/webpack-contrib/css-loader/releases/tag/v5.1.2))
+
+- update [webpack](https://www.npmjs.com/package/webpack) to [5.26.3](https://github.com/webpack/webpack/releases/tag/v5.26.3) (from [5.24.4](https://github.com/webpack/webpack/releases/tag/v5.24.4))
+
+- depend upon [dotenv](https://www.npmjs.com/package/dotenv) [8.2.0](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md)
+
 ## 1.0.0 (2020-03-17)
 
 ### Dependencies

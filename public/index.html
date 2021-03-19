@@ -8,15 +8,24 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
   <script charset="utf-8" type="text/javascript" src="../dist/latest.js"></script>
-
+  <script charset="utf-8" type="text/javascript" src="./configuration.js"></script>
   <script>
+    if (typeof window.__DEVELOPMENT_FORM_ID__ !== 'number') {
+      throw new Error('"window.__DEVELOPMENT_FORM_ID__" must be set to run locally. See CONTRIBUTING.md for more details')
+    }
+    if (typeof window.__DEVELOPMENT_FORMS_APP_ID__ !== 'number') {
+      throw new Error('"window.__DEVELOPMENT_FORMS_APP_ID__" must be set to run locally. See CONTRIBUTING.md for more details')
+    }
     window.addEventListener('load', function (event) {
       OneBlinkForms.render({
-        formId: 3243,
-        formsAppId: 954,
+        formId: window.__DEVELOPMENT_FORM_ID__,
+        formsAppId: window.__DEVELOPMENT_FORMS_APP_ID__,
         selector: '#form',
-        submissionRedirectUrl: 'https://google.com.au',
-        cancelRedirectUrl: 'https://google.com.au',
+        submissionRedirectUrl: window.__DEVELOPMENT_SUBMISSION_REDIRECT_URL__ || 'https://google.com.au',
+        cancelRedirectUrl: window.__DEVELOPMENT_CANCEL_REDIRECT_URL__ || 'https://google.com.au',
+        googleMapsApiKey: window.__DEVELOPMENT_GOOGLE_MAPS_API_KEY__,
+        captchaSiteKey: window.__DEVELOPMENT_CAPTCHA_SITE_KEY__,
+        externalId: window.__DEVELOPMENT_EXTERNAL_ID__,
       })
     });
   </script>
