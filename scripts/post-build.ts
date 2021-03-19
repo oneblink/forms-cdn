@@ -8,7 +8,7 @@ import pkg from '../package.json'
 async function run() {
   const version = parse(pkg.version)
 
-  console.log('Deploying:', version)
+  console.log('Building x.x.x files for version:', version)
 
   const readdirAsync = util.promisify(fs.readdir)
   const readFileAsync = util.promisify(fs.readFile)

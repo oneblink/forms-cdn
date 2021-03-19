@@ -8,11 +8,28 @@ This project adheres to [GitHub Flow](https://guides.github.com/introduction/flo
 
 To run the project locally:
 
+1. Create a `./public/configuration.js` file, replacing the values with your own:
+
+   ```js
+   window.__DEVELOPMENT_FORM_ID__ = 1
+   window.__DEVELOPMENT_FORMS_APP_ID__ = 1
+
+   // The following are optional as they have defaults in "index.html"
+   // window.__DEVELOPMENT_SUBMISSION_REDIRECT_URL__ = ''
+   // window.__DEVELOPMENT_CANCEL_REDIRECT_URL__ = ''
+   // window.__DEVELOPMENT_GOOGLE_MAPS_API_KEY__ = ''
+   // window.__DEVELOPMENT_CAPTCHA_SITE_KEY__ = ''
+   // window.__DEVELOPMENT_EXTERNAL_ID__ = ''
+   // window.__DEVELOPMENT_PRE_FILL_DATA__ = {}
+   ```
+
+1. Optionally create a `.env.local` file in the root of the project to override the values set in `.env`
+
 1. `npm run start` - This will serve an index.html file located in `public` dir which includes the project
 
-2. The served project will automatically open in your default browser.
+1. The served project will automatically open in your default browser.
 
-3. The files will be recompiled when you make changes, however you will need to manually refresh your browser.
+1. The files will be recompiled when you make changes, however you will need to manually refresh your browser.
 
 ## Test Release Process
 

@@ -2,6 +2,12 @@ const path = require('path')
 
 const webpack = require('webpack')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+const dotenv = require('dotenv')
+
+dotenv.config({
+  path: path.join(__dirname, '.env.local'),
+})
+dotenv.config()
 
 module.exports = {
   mode: 'development',

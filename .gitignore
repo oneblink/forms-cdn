@@ -2,3 +2,5 @@ node_modules
 dist
 scripts/release.sh
 .eslintcache
+.env.local
+public/configuration.js
