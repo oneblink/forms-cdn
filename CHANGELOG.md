@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.1.0 (2021-03-23)
+
 ### Dependencies
 
 - update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.6.1-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [0.6.0-beta.5](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
