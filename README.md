@@ -1,4 +1,4 @@
-# OneBlink Forms CDN
+# OneBlink Forms CDN [![tests](https://github.com/oneblink/apps-react/actions/workflows/test.yml/badge.svg)](https://github.com/oneblink/apps-react/actions)
 
 Project to serve via CDN to embed a OneBlink Form in your website.
 
