@@ -65,9 +65,9 @@ To run the project locally:
    npx package-diff-summary {last-tag}
    ```
 
-1. Copy result (if there is one) under a _Dependencies_ heading in [Changelog](./CHANGELOG.md)
+1. Copy result (if there is one) under a `### Dependencies` heading in [Changelog](./CHANGELOG.md)
 
-1. Update the [Changelog](./CHANGELOG.md) by adding `x.x.x (YYYY-MM-DD)` under `Unreleased`
+1. Update the [Changelog](./CHANGELOG.md) by adding `## [x.x.x] - YYYY-MM-DD` under `## Unreleased`
 
 1. Commit changes to the `master` branch
 
