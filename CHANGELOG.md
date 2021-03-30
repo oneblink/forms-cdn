@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [Unreleased]
 
 ### Dependencies
 
@@ -8,7 +8,7 @@
 
 - update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.2.2-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.2.1-beta.7](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
-## 1.1.0 (2021-03-23)
+## [1.1.0] - 2021-03-23
 
 ### Dependencies
 
@@ -28,7 +28,7 @@
 
 - depend upon [dotenv](https://www.npmjs.com/package/dotenv) [8.2.0](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md)
 
-## 1.0.0 (2020-03-17)
+## [1.0.0] - 2020-03-17
 
 ### Dependencies
 
@@ -68,12 +68,12 @@
 
 - update [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch) to [3.6.2](https://github.com/github/fetch/releases/tag/v3.6.2) (from [3.5.0](https://github.com/github/fetch/releases/tag/v3.5.0))
 
-## 0.2.0 (2020-02-15)
+## [0.2.0] - 2020-02-15
 
 ### Changed
 
 - CSS styles to be contained within Node that has form appended
 
-## 0.1.0 (2020-02-02)
+## [0.1.0] - 2020-02-02
 
 ### Initial Release
