@@ -36,10 +36,16 @@ To run the project locally:
 1. Checkout `master` and get the latest code
 
    ```
-   git checkout master && git pull
+   git checkout master
    ```
 
-1. Bump the version and create a release commit following regex: `/^\d+\.\d+\.\d+-test.\d+$/` e.g. `1.0.0-test.1`.
+1. Get the latest code
+
+   ```
+   git pull
+   ```
+
+1. Bump the version and create a release commit
 
    ```
    npm version x.x.x-test.x --message "[RELEASE] %s"
@@ -48,7 +54,13 @@ To run the project locally:
 1. Push changes to the `master` branch
 
    ```
-   git push && git push --tags
+   git push
+   ```
+
+1. Push new tag
+
+   ```
+   git push --tags
    ```
 
 ## Production Release Process
@@ -56,23 +68,31 @@ To run the project locally:
 1. Checkout `master` and get the latest code
 
    ```
-   git checkout master && git pull
+   git checkout master
    ```
 
-1. Run CLI to check if dependencies have been updated
+1. Get the latest code
 
    ```
-   npx package-diff-summary {last-tag}
+   git pull
    ```
+
+1. Run CLI `npx package-diff-summary {last-tag}`
 
 1. Copy result (if there is one) under a `### Dependencies` heading in [Changelog](./CHANGELOG.md)
 
 1. Update the [Changelog](./CHANGELOG.md) by adding `## [x.x.x] - YYYY-MM-DD` under `## Unreleased`
 
+1. Stage changes
+
+   ```
+   git add -A
+   ```
+
 1. Commit changes to the `master` branch
 
    ```
-   git add -A && git commit -m "[CHANGELOG] x.x.x"
+   git commit -m "[CHANGELOG] x.x.x"
    ```
 
 1. Bump the version and create a release commit
@@ -84,5 +104,11 @@ To run the project locally:
 1. Push changes to the `master` branch
 
    ```
-   git push && git push --tags
+   git push
+   ```
+
+1. Push new tag
+
+   ```
+   git push --tags
    ```
