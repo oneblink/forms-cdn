@@ -6,7 +6,7 @@
 
 - update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.7.2-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [0.7.0-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
 
-- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.2.3-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.2.2-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.2.3-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.2.2-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.1.1] - 2021-03-31
 
