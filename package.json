@@ -48,6 +48,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
+    "@oneblink/release-cli": "^1.0.0",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
@@ -73,6 +74,7 @@
     "build": "webpack --mode production",
     "eslint": "eslint --quiet --fix ./src/*.tsx",
     "postbuild": "ts-node ./scripts/post-build.ts",
+    "release": "oneblink-release",
     "start": "webpack serve",
     "test": "npm run eslint && npm run typescript",
     "typescript": "tsc --noEmit"
