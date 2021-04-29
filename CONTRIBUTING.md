@@ -33,7 +33,7 @@ To run the project locally:
 
 ## Test Release Process
 
-1. Checkout `master` and get the latest code
+1. Checkout `master`
 
    ```
    git checkout master
@@ -45,27 +45,15 @@ To run the project locally:
    git pull
    ```
 
-1. Bump the version and create a release commit
+1. Start the release process using a tag matching `x.x.x-test.x`
 
    ```
-   npm version x.x.x-test.x --message "[RELEASE] %s"
-   ```
-
-1. Push changes to the `master` branch
-
-   ```
-   git push
-   ```
-
-1. Push new tag
-
-   ```
-   git push --tags
+   npm run release
    ```
 
 ## Production Release Process
 
-1. Checkout `master` and get the latest code
+1. Checkout `master`
 
    ```
    git checkout master
@@ -77,38 +65,8 @@ To run the project locally:
    git pull
    ```
 
-1. Run CLI `npx package-diff-summary {last-tag}`
-
-1. Copy result (if there is one) under a `### Dependencies` heading in [Changelog](./CHANGELOG.md)
-
-1. Update the [Changelog](./CHANGELOG.md) by adding `## [x.x.x] - YYYY-MM-DD` under `## Unreleased`
-
-1. Stage changes
+1. Start the release process using a tag matching `x.x.x`
 
    ```
-   git add -A
-   ```
-
-1. Commit changes to the `master` branch
-
-   ```
-   git commit -m "[CHANGELOG] x.x.x"
-   ```
-
-1. Bump the version and create a release commit
-
-   ```
-   npm version x.x.x --message "[RELEASE] %s"
-   ```
-
-1. Push changes to the `master` branch
-
-   ```
-   git push
-   ```
-
-1. Push new tag
-
-   ```
-   git push --tags
+   npm run release
    ```
