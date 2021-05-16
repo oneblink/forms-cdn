@@ -40,7 +40,6 @@ The script to include comes in a few different ways to allow you to choose the u
           submissionRedirectUrl: 'https://example.com/submitted',
           cancelRedirectUrl: 'https://example.com/cancelled',
           googleMapsApiKey: 'GOOGLE_MAPS_API_KEY',
-          captchaSiteKey: 'CAPTCHA_SITE_KEY',
         })
       })
     </script>
@@ -61,6 +60,5 @@ The script to include comes in a few different ways to allow you to choose the u
 | `submissionRedirectUrl` | `string` | Yes         | The URL to redirect the user to after a successful submission. Will have `submissionId` added to query string before redirecting.                          |
 | `cancelRedirectUrl`     | `string` | Yes         | The URL to redirect the user to if they cancel the form.                                                                                                   |
 | `googleMapsApiKey`      | `string` | Conditional | A [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Required if the form contains a `location` form element. |
-| `captchaSiteKey`        | `string` | Conditional | A [reCAPTCHA Site Key](https://developers.google.com/recaptcha/intro). Required if the form contains a `captcha` form element.                             |
 | `externalId`            | `string` | No          | An identifier to match the form submission with in your system.                                                                                            |
 | `preFillData`           | `Object` | No          | The data to pre-fill the OneBlink Form.                                                                                                                    |

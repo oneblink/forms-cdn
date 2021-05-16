@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- reCAPTCHA to be automatic instead of requiring a site key passed as parameter
+
 ## [1.2.0] - 2021-05-13
 
 ### Dependencies

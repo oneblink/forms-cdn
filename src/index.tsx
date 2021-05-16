@@ -33,7 +33,6 @@ export function render(options?: Record<string, unknown>): void {
     cancelRedirectUrl,
     externalId,
     googleMapsApiKey,
-    captchaSiteKey,
     preFillData,
   } = options
   if (typeof selector !== 'string' || !selector) {
@@ -56,11 +55,6 @@ export function render(options?: Record<string, unknown>): void {
       '"options.externalId" must be a string or not supplied ',
     )
   }
-  if (captchaSiteKey !== undefined && typeof captchaSiteKey !== 'string') {
-    throw new TypeError(
-      '"options.captchaSiteKey" must be a string or not supplied ',
-    )
-  }
   if (googleMapsApiKey !== undefined && typeof googleMapsApiKey !== 'string') {
     throw new TypeError(
       '"options.googleMapsApiKey" must be a string or not supplied ',
@@ -76,7 +70,6 @@ export function render(options?: Record<string, unknown>): void {
           preFillData={preFillData as Record<string, unknown> | undefined}
           externalId={externalId}
           googleMapsApiKey={googleMapsApiKey}
-          captchaSiteKey={captchaSiteKey}
           submissionRedirectUrl={submissionRedirectUrl}
           cancelRedirectUrl={cancelRedirectUrl}
         />

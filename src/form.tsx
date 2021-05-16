@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { formService, submissionService } from '@oneblink/apps'
+import { getRequest } from '@oneblink/apps/dist/services/fetch'
+import tenants from '@oneblink/apps/dist/tenants'
 import { OneBlinkForm } from '@oneblink/apps-react'
 import OnLoading from '@oneblink/apps-react/dist/components/OnLoading'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { SubmissionTypes } from '@oneblink/types'
+import { FormsAppsTypes, SubmissionTypes } from '@oneblink/types'
 import ErrorModal from './ErrorModal'
 
 type Props = {
@@ -14,11 +16,18 @@ type Props = {
   preFillData?: Record<string, unknown>
   externalId?: string
   googleMapsApiKey?: string
-  captchaSiteKey?: string
 }
 
 const formIsSubmittingContainerStyles: React.CSSProperties = {
   opacity: 0.7,
+}
+
+async function getReCaptchaSiteKey(formsAppId: number) {
+  const url = `${tenants.current.apiOrigin}/forms-apps/${formsAppId}/hostname-configuration`
+  const formsAppConfiguration = await getRequest<
+    FormsAppsTypes.FormsAppConfiguration<FormsAppsTypes.BaseFormsAppStyles>
+  >(url)
+  return formsAppConfiguration.recaptchaPublicKey
 }
 
 function Form({
@@ -29,17 +38,19 @@ function Form({
   preFillData,
   externalId,
   googleMapsApiKey,
-  captchaSiteKey,
 }: Props) {
-  const [{ isFetching, form, fetchError }, setFetchingState] = React.useState({
-    isFetching: true,
-    form: null,
-    fetchError: null,
-  })
+  const [{ isFetching, form, captchaSiteKey, fetchError }, setFetchingState] =
+    React.useState({
+      isFetching: true,
+      form: null,
+      captchaSiteKey: undefined,
+      fetchError: null,
+    })
   const fetchAgain = React.useCallback(() => {
     setFetchingState({
       isFetching: true,
       form: null,
+      captchaSiteKey: undefined,
       fetchError: null,
     })
   }, [])
@@ -106,19 +117,25 @@ function Form({
       setFetchingState({
         isFetching: true,
         fetchError: null,
+        captchaSiteKey: undefined,
         form: null,
       })
 
       try {
-        const f = await formService.getForm(formId)
+        const [f, captchaSiteKey] = await Promise.all([
+          formService.getForm(formId),
+          getReCaptchaSiteKey(formsAppId),
+        ])
         setFetchingState({
           isFetching: false,
           fetchError: null,
+          captchaSiteKey,
           form: f,
         })
       } catch (e) {
         setFetchingState({
           isFetching: false,
+          captchaSiteKey: undefined,
           fetchError: e,
           form: null,
         })
@@ -126,7 +143,7 @@ function Form({
     }
 
     fetchForm()
-  }, [formId, isFetching])
+  }, [formId, formsAppId, isFetching])
 
   React.useEffect(() => {
     const submitButton = document.querySelector('.ob-button-submit')
