@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-### Changed
+### Fixed
 
 - reCAPTCHA to be automatic instead of requiring a site key passed as parameter
 
