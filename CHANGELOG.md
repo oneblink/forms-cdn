@@ -2,9 +2,51 @@
 
 ## [Unreleased]
 
+## [1.2.1] - 2021-05-19
+
 ### Fixed
 
 - reCAPTCHA to be automatic instead of requiring a site key passed as parameter
+
+### Dependencies
+
+- update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.14.2](https://github.com/babel/babel/releases/tag/v7.14.2) (from [7.13.16](https://github.com/babel/babel/releases/tag/v7.13.16))
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.14.2](https://github.com/babel/babel/releases/tag/v7.14.2) (from [7.13.15](https://github.com/babel/babel/releases/tag/v7.13.15))
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.8.2-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [0.8.1](https://github.com/oneblink/apps/releases/tag/v0.8.1))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.3.1-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.3.0](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 15.3.0 (from 15.0.1)
+
+- update [@types/react](https://www.npmjs.com/package/@types/react) to 17.0.5 (from 17.0.4)
+
+- update [@types/react-dom](https://www.npmjs.com/package/@types/react-dom) to 17.0.5 (from 17.0.3)
+
+- update [@types/semver](https://www.npmjs.com/package/@types/semver) to 7.3.6 (from 7.3.5)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [4.23.0](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md) (from [4.22.0](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [4.23.0](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md) (from [4.22.0](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md))
+
+- update [abortcontroller-polyfill](https://www.npmjs.com/package/abortcontroller-polyfill) to 1.7.3 (from 1.7.1)
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.12.1](https://github.com/zloirock/core-js/blob/master/CHANGELOG.md) (from [3.11.0](https://github.com/zloirock/core-js/releases/tag/v3.11.0))
+
+- update [dotenv](https://www.npmjs.com/package/dotenv) to [9.0.1](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md) (from [8.2.0](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md))
+
+- update [node-polyfill-webpack-plugin](https://www.npmjs.com/package/node-polyfill-webpack-plugin) to 1.1.2 (from 1.1.0)
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.32.13](https://github.com/sass/dart-sass/releases/tag/1.32.13) (from [1.32.11](https://github.com/sass/dart-sass/releases/tag/1.32.11))
+
+- update [sass-loader](https://www.npmjs.com/package/sass-loader) to [11.1.1](https://github.com/webpack-contrib/sass-loader/blob/master/CHANGELOG.md) (from [11.0.1](https://github.com/webpack-contrib/sass-loader/blob/master/CHANGELOG.md))
+
+- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [9.1.2](https://github.com/TypeStrong/ts-loader/releases/tag/v9.1.2) (from [9.1.1](https://github.com/TypeStrong/ts-loader/blob/master/CHANGELOG.md))
+
+- update [webpack](https://www.npmjs.com/package/webpack) to 5.37.0 (from 5.36.0)
+
+- update [webpack-cli](https://www.npmjs.com/package/webpack-cli) to [4.7.0](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md) (from [4.6.0](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md))
 
 ## [1.2.0] - 2021-05-13
 
