@@ -183,7 +183,7 @@ function Form({
           onCancel={handleCancel}
           onSubmit={handleSubmit}
           initialSubmission={preFillData}
-          captchaSiteKey={formsAppConfiguration.captchaSiteKey}
+          captchaSiteKey={formsAppConfiguration.recaptchaPublicKey}
           googleMapsApiKey={googleMapsApiKey}
           disabled={isSubmitting}
           buttons={formsAppConfiguration.styles.buttons}
