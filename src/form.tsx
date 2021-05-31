@@ -22,12 +22,12 @@ const formIsSubmittingContainerStyles: React.CSSProperties = {
   opacity: 0.7,
 }
 
-async function getReCaptchaSiteKey(formsAppId: number) {
+async function getFormsAppConfiguration(formsAppId: number) {
   const url = `${tenants.current.apiOrigin}/forms-apps/${formsAppId}/hostname-configuration`
   const formsAppConfiguration = await getRequest<
     FormsAppsTypes.FormsAppConfiguration<FormsAppsTypes.BaseFormsAppStyles>
   >(url)
-  return formsAppConfiguration.recaptchaPublicKey
+  return formsAppConfiguration
 }
 
 function Form({
@@ -39,18 +39,20 @@ function Form({
   externalId,
   googleMapsApiKey,
 }: Props) {
-  const [{ isFetching, form, captchaSiteKey, fetchError }, setFetchingState] =
-    React.useState({
-      isFetching: true,
-      form: null,
-      captchaSiteKey: undefined,
-      fetchError: null,
-    })
+  const [
+    { isFetching, form, formsAppConfiguration, fetchError },
+    setFetchingState,
+  ] = React.useState({
+    isFetching: true,
+    form: null,
+    formsAppConfiguration: undefined,
+    fetchError: null,
+  })
   const fetchAgain = React.useCallback(() => {
     setFetchingState({
       isFetching: true,
       form: null,
-      captchaSiteKey: undefined,
+      formsAppConfiguration: undefined,
       fetchError: null,
     })
   }, [])
@@ -117,25 +119,25 @@ function Form({
       setFetchingState({
         isFetching: true,
         fetchError: null,
-        captchaSiteKey: undefined,
+        formsAppConfiguration: undefined,
         form: null,
       })
 
       try {
-        const [f, captchaSiteKey] = await Promise.all([
+        const [f, formsAppConfiguration] = await Promise.all([
           formService.getForm(formId),
-          getReCaptchaSiteKey(formsAppId),
+          getFormsAppConfiguration(formsAppId),
         ])
         setFetchingState({
           isFetching: false,
           fetchError: null,
-          captchaSiteKey,
+          formsAppConfiguration,
           form: f,
         })
       } catch (e) {
         setFetchingState({
           isFetching: false,
-          captchaSiteKey: undefined,
+          formsAppConfiguration: undefined,
           fetchError: e,
           form: null,
         })
@@ -181,9 +183,10 @@ function Form({
           onCancel={handleCancel}
           onSubmit={handleSubmit}
           initialSubmission={preFillData}
-          captchaSiteKey={captchaSiteKey}
+          captchaSiteKey={formsAppConfiguration.captchaSiteKey}
           googleMapsApiKey={googleMapsApiKey}
           disabled={isSubmitting}
+          buttons={formsAppConfiguration.styles.buttons}
         />
       </div>
       <ErrorModal error={submitError} onClose={clearSubmitError} />

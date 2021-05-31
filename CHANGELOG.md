@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Setting of `buttons` for `OneBlinkForm`
+
 ## [1.2.2] - 2021-05-26
 
 ### Dependencies
