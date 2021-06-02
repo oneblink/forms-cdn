@@ -2,9 +2,15 @@
 
 ## [Unreleased]
 
+## [1.2.3] - 2021-06-02
+
 ### Added
 
 - Setting of `buttons` for `OneBlinkForm`
+
+### Dependencies
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.3.3-beta.6](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.3.2](https://github.com/oneblink/apps-react/releases/tag/v0.3.2))
 
 ## [1.2.2] - 2021-05-26
 
