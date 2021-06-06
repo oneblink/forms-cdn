@@ -2,6 +2,50 @@
 
 ## [Unreleased]
 
+## [1.2.4] - 2021-06-06
+
+### Dependencies
+
+- update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.14.3](https://github.com/babel/babel/releases/tag/v7.14.3) (from [7.14.2](https://github.com/babel/babel/releases/tag/v7.14.2))
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.14.4](https://github.com/babel/babel/releases/tag/v7.14.4) (from [7.14.2](https://github.com/babel/babel/releases/tag/v7.14.2))
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.9.2](https://github.com/oneblink/apps/releases/tag/v0.9.2) (from [0.9.0](https://github.com/oneblink/apps/releases/tag/v0.9.0))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.4.0](https://github.com/oneblink/apps-react/releases/tag/v0.4.0) (from [0.3.3-beta.6](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@oneblink/cli](https://www.npmjs.com/package/@oneblink/cli) to [0.2.0](https://github.com/oneblink/cli/releases/tag/v0.2.0) (from [0.1.13](https://github.com/oneblink/cli/releases/tag/v0.1.13))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 15.12.1 (from 15.3.0)
+
+- update [@types/react](https://www.npmjs.com/package/@types/react) to 17.0.9 (from 17.0.5)
+
+- update [@types/react-dom](https://www.npmjs.com/package/@types/react-dom) to 17.0.6 (from 17.0.5)
+
+- update [@types/react-loader-spinner](https://www.npmjs.com/package/@types/react-loader-spinner) to 4.0.0 (from 3.1.0)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [4.26.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.26.0) (from [4.23.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.23.0))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [4.26.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.26.0) (from [4.23.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.23.0))
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.14.0](https://github.com/zloirock/core-js/releases/tag/v3.14.0) (from [3.12.1](https://github.com/zloirock/core-js/releases/tag/v3.12.1))
+
+- update [css-loader](https://www.npmjs.com/package/css-loader) to [5.2.6](https://github.com/webpack-contrib/css-loader/releases/tag/v5.2.6) (from [5.2.4](https://github.com/webpack-contrib/css-loader/releases/tag/v5.2.4))
+
+- update [dotenv](https://www.npmjs.com/package/dotenv) to [10.0.0](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md) (from [9.0.1](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md))
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.34.1](https://github.com/sass/dart-sass/releases/tag/1.34.1) (from [1.32.13](https://github.com/sass/dart-sass/releases/tag/1.32.13))
+
+- update [sass-loader](https://www.npmjs.com/package/sass-loader) to [12.0.0](https://github.com/webpack-contrib/sass-loader/releases/tag/v12.0.0) (from [11.1.1](https://github.com/webpack-contrib/sass-loader/releases/tag/v11.1.1))
+
+- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [9.2.3](https://github.com/TypeStrong/ts-loader/releases/tag/v9.2.3) (from [9.1.2](https://github.com/TypeStrong/ts-loader/releases/tag/v9.1.2))
+
+- update [ts-node](https://www.npmjs.com/package/ts-node) to [10.0.0](https://github.com/TypeStrong/ts-node/releases/tag/v10.0.0) (from [9.1.1](https://github.com/TypeStrong/ts-node/releases/tag/v9.1.1))
+
+- update [typescript](https://www.npmjs.com/package/typescript) to [4.3.2](https://github.com/microsoft/TypeScript/releases/tag/v4.3.2) (from [4.2.4](https://github.com/microsoft/TypeScript/releases/tag/v4.2.4))
+
+- update [webpack](https://www.npmjs.com/package/webpack) to [5.38.1](https://github.com/webpack/webpack/releases/tag/v5.38.1) (from [5.37.0](https://github.com/webpack/webpack/releases/tag/v5.37.0))
+
 ## [1.2.3] - 2021-06-02
 
 ### Added
