@@ -2,6 +2,20 @@
 
 ## [Unreleased]
 
+## [1.2.8] - 2021-07-20
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.10.0](https://github.com/oneblink/apps/releases/tag/v0.10.0) (from [0.9.3-beta.6](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.4.8](https://github.com/oneblink/apps-react/releases/tag/v0.4.8) (from [0.4.4-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 16.3.3 (from 15.14.2)
+
+- update [css-loader](https://www.npmjs.com/package/css-loader) to [6.2.0](https://github.com/webpack-contrib/css-loader/releases/tag/v6.2.0) (from [5.2.7](https://github.com/webpack-contrib/css-loader/releases/tag/v5.2.7))
+
+- update [style-loader](https://www.npmjs.com/package/style-loader) to [3.1.0](https://github.com/webpack-contrib/style-loader/releases/tag/v3.1.0) (from [2.0.0](https://github.com/webpack-contrib/style-loader/releases/tag/v2.0.0))
+
 ## [1.2.7] - 2021-07-20
 
 ### Dependencies
