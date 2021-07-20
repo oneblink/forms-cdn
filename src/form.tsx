@@ -5,7 +5,7 @@ import tenants from '@oneblink/apps/dist/tenants'
 import { OneBlinkForm } from '@oneblink/apps-react'
 import OnLoading from '@oneblink/apps-react/dist/components/OnLoading'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { FormsAppsTypes, SubmissionTypes } from '@oneblink/types'
+import { FormsAppsTypes } from '@oneblink/types'
 import ErrorModal from './ErrorModal'
 
 type Props = {
@@ -69,13 +69,13 @@ function Form({
   }, [])
 
   const handleSubmit = React.useCallback(
-    async (newFormSubmission: SubmissionTypes.NewFormSubmission) => {
+    async (newFormSubmission: submissionService.NewFormSubmission) => {
       try {
         setSubmittingState({
           isSubmitting: true,
           submitError: null,
         })
-        const formSubmission: SubmissionTypes.FormSubmission = {
+        const formSubmission: submissionService.FormSubmission = {
           ...newFormSubmission,
           formsAppId,
           externalId,
