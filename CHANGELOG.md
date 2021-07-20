@@ -2,6 +2,48 @@
 
 ## [Unreleased]
 
+## [1.2.7] - 2021-07-20
+
+### Dependencies
+
+- update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.14.6](https://github.com/babel/babel/releases/tag/v7.14.6) (from [7.14.3](https://github.com/babel/babel/releases/tag/v7.14.3))
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.14.7](https://github.com/babel/babel/releases/tag/v7.14.7) (from [7.14.4](https://github.com/babel/babel/releases/tag/v7.14.4))
+
+- update [@babel/preset-react](https://www.npmjs.com/package/@babel/preset-react) to [7.14.5](https://github.com/babel/babel/releases/tag/v7.14.5) (from [7.13.13](https://github.com/babel/babel/releases/tag/v7.13.13))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 15.14.2 (from 15.12.1)
+
+- update [@types/react](https://www.npmjs.com/package/@types/react) to 17.0.14 (from 17.0.9)
+
+- update [@types/react-dom](https://www.npmjs.com/package/@types/react-dom) to 17.0.9 (from 17.0.6)
+
+- update [@types/react-router-dom](https://www.npmjs.com/package/@types/react-router-dom) to 5.1.8 (from 5.1.5)
+
+- update [@types/semver](https://www.npmjs.com/package/@types/semver) to 7.3.7 (from 7.3.6)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [4.28.4](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.28.4) (from [4.26.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.26.0))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [4.28.4](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.28.4) (from [4.26.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.26.0))
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.15.2](https://github.com/zloirock/core-js/releases/tag/v3.15.2) (from [3.14.0](https://github.com/zloirock/core-js/releases/tag/v3.14.0))
+
+- update [css-loader](https://www.npmjs.com/package/css-loader) to [5.2.7](https://github.com/webpack-contrib/css-loader/releases/tag/v5.2.7) (from [5.2.6](https://github.com/webpack-contrib/css-loader/releases/tag/v5.2.6))
+
+- update [node-polyfill-webpack-plugin](https://www.npmjs.com/package/node-polyfill-webpack-plugin) to [1.1.4](https://github.com/Richienb/node-polyfill-webpack-plugin/releases/tag/v1.1.4) (from [1.1.2](https://github.com/Richienb/node-polyfill-webpack-plugin/releases/tag/v1.1.2))
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.35.2](https://github.com/sass/dart-sass/releases/tag/1.35.2) (from [1.34.1](https://github.com/sass/dart-sass/releases/tag/1.34.1))
+
+- update [sass-loader](https://www.npmjs.com/package/sass-loader) to [12.1.0](https://github.com/webpack-contrib/sass-loader/releases/tag/v12.1.0) (from [12.0.0](https://github.com/webpack-contrib/sass-loader/releases/tag/v12.0.0))
+
+- update [ts-node](https://www.npmjs.com/package/ts-node) to [10.1.0](https://github.com/TypeStrong/ts-node/releases/tag/v10.1.0) (from [10.0.0](https://github.com/TypeStrong/ts-node/releases/tag/v10.0.0))
+
+- update [typescript](https://www.npmjs.com/package/typescript) to [4.3.5](https://github.com/microsoft/TypeScript/releases/tag/v4.3.5) (from [4.3.2](https://github.com/microsoft/TypeScript/releases/tag/v4.3.2))
+
+- update [webpack](https://www.npmjs.com/package/webpack) to [5.45.1](https://github.com/webpack/webpack/releases/tag/v5.45.1) (from [5.38.1](https://github.com/webpack/webpack/releases/tag/v5.38.1))
+
+- update [webpack-cli](https://www.npmjs.com/package/webpack-cli) to [4.7.2](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md) (from [4.7.0](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md))
+
 ## [1.2.6] - 2021-06-30
 
 ### Dependencies
