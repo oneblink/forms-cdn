@@ -63,11 +63,8 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   devServer: {
-    contentBase: 'public',
     open: true,
     liveReload: true,
-    watchContentBase: true,
     port: 3000,
-    injectClient: false,
   },
 }
