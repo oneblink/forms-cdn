@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.2.14] - 2021-08-31
+
 ### Fixed
 
 - post build script using invalid typescript
