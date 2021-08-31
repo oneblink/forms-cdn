@@ -36,7 +36,7 @@ async function run() {
 
     for (const newFileName of newFileNames) {
       console.log('Creating file:', newFileName)
-      await writeFileAsync(path.join(distPath, newFileName), content, 'UTF-8')
+      await writeFileAsync(path.join(distPath, newFileName), content)
     }
   }
 

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- post build script using invalid typescript
+
 ## [1.2.13] - 2021-08-31
 
 ### Dependencies
