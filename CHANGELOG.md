@@ -2,6 +2,36 @@
 
 ## [Unreleased]
 
+## [1.2.16] - 2021-09-08
+
+### Dependencies
+
+- update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.15.5](https://github.com/babel/babel/releases/tag/v7.15.5) (from [7.15.0](https://github.com/babel/babel/releases/tag/v7.15.0))
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.15.4](https://github.com/babel/babel/releases/tag/v7.15.4) (from [7.15.0](https://github.com/babel/babel/releases/tag/v7.15.0))
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.11.4](https://github.com/oneblink/apps/releases/tag/v0.11.4) (from [0.11.3-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.4.14](https://github.com/oneblink/apps-react/releases/tag/v0.4.14) (from [0.4.13-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 16.7.13 (from 16.7.2)
+
+- update [@types/react](https://www.npmjs.com/package/@types/react) to 17.0.20 (from 17.0.19)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [4.31.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.0) (from [4.29.3](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.29.3))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [4.31.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.0) (from [4.29.3](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.29.3))
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.17.2](https://github.com/zloirock/core-js/releases/tag/v3.17.2) (from [3.16.3](https://github.com/zloirock/core-js/releases/tag/v3.16.3))
+
+- update [react-router-dom](https://www.npmjs.com/package/react-router-dom) to [5.3.0](https://github.com/remix-run/react-router/releases/tag/v5.3.0) (from [5.2.0](https://github.com/remix-run/react-router/releases/tag/v5.2.0))
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.39.0](https://github.com/sass/dart-sass/releases/tag/1.39.0) (from [1.38.1](https://github.com/sass/dart-sass/releases/tag/1.38.1))
+
+- update [typescript](https://www.npmjs.com/package/typescript) to [4.4.2](https://github.com/microsoft/TypeScript/releases/tag/v4.4.2) (from [4.3.5](https://github.com/microsoft/TypeScript/releases/tag/v4.3.5))
+
+- update [webpack](https://www.npmjs.com/package/webpack) to [5.52.0](https://github.com/webpack/webpack/releases/tag/v5.52.0) (from [5.51.1](https://github.com/webpack/webpack/releases/tag/v5.51.1))
+
 ## [1.2.15] - 2021-09-01
 
 ### Dependencies
