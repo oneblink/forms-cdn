@@ -2,6 +2,38 @@
 
 ## [Unreleased]
 
+## [1.2.18] - 2021-09-20
+
+### Dependencies
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.15.6](https://github.com/babel/babel/releases/tag/v7.15.6) (from [7.15.4](https://github.com/babel/babel/releases/tag/v7.15.4))
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.11.5](https://github.com/oneblink/apps/releases/tag/v0.11.5) (from [0.11.4](https://github.com/oneblink/apps/releases/tag/v0.11.4))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.4.16](https://github.com/oneblink/apps-react/releases/tag/v0.4.16) (from [0.4.15](https://github.com/oneblink/apps-react/releases/tag/v0.4.15))
+
+- update [@oneblink/cli](https://www.npmjs.com/package/@oneblink/cli) to [0.2.2](https://github.com/oneblink/cli/releases/tag/v0.2.2) (from [0.2.1](https://github.com/oneblink/cli/releases/tag/v0.2.1))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 16.9.4 (from 16.7.13)
+
+- update [@types/react](https://www.npmjs.com/package/@types/react) to 17.0.21 (from 17.0.20)
+
+- update [@types/react-router-dom](https://www.npmjs.com/package/@types/react-router-dom) to 5.1.9 (from 5.1.8)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [4.31.1](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.1) (from [4.31.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.0))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [4.31.1](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.1) (from [4.31.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.0))
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.18.0](https://github.com/zloirock/core-js/releases/tag/v3.18.0) (from [3.17.2](https://github.com/zloirock/core-js/releases/tag/v3.17.2))
+
+- update [css-loader](https://www.npmjs.com/package/css-loader) to [6.3.0](https://github.com/webpack-contrib/css-loader/releases/tag/v6.3.0) (from [6.2.0](https://github.com/webpack-contrib/css-loader/releases/tag/v6.2.0))
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.41.1](https://github.com/sass/dart-sass/releases/tag/1.41.1) (from [1.39.0](https://github.com/sass/dart-sass/releases/tag/1.39.0))
+
+- update [typescript](https://www.npmjs.com/package/typescript) to [4.4.3](https://github.com/microsoft/TypeScript/releases/tag/v4.4.3) (from [4.4.2](https://github.com/microsoft/TypeScript/releases/tag/v4.4.2))
+
+- update [webpack](https://www.npmjs.com/package/webpack) to [5.53.0](https://github.com/webpack/webpack/releases/tag/v5.53.0) (from [5.52.0](https://github.com/webpack/webpack/releases/tag/v5.52.0))
+
 ## [1.2.17] - 2021-09-09
 
 ### Dependencies
