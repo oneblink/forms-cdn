@@ -2,6 +2,30 @@
 
 ## [Unreleased]
 
+## [1.2.19] - 2021-09-24
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.11.6](https://github.com/oneblink/apps/releases/tag/v0.11.6) (from [0.11.5](https://github.com/oneblink/apps/releases/tag/v0.11.5))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.4.17](https://github.com/oneblink/apps-react/releases/tag/v0.4.17) (from [0.4.16](https://github.com/oneblink/apps-react/releases/tag/v0.4.16))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 16.9.6 (from 16.9.4)
+
+- update [@types/react](https://www.npmjs.com/package/@types/react) to 17.0.24 (from 17.0.21)
+
+- update [@types/react-router-dom](https://www.npmjs.com/package/@types/react-router-dom) to 5.3.0 (from 5.1.9)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [4.31.2](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.2) (from [4.31.1](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.1))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [4.31.2](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.2) (from [4.31.1](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.1))
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.42.1](https://github.com/sass/dart-sass/releases/tag/1.42.1) (from [1.41.1](https://github.com/sass/dart-sass/releases/tag/1.41.1))
+
+- update [style-loader](https://www.npmjs.com/package/style-loader) to [3.3.0](https://github.com/webpack-contrib/style-loader/releases/tag/v3.3.0) (from [3.2.1](https://github.com/webpack-contrib/style-loader/releases/tag/v3.2.1))
+
+- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [9.2.6](https://github.com/TypeStrong/ts-loader/releases/tag/v9.2.6) (from [9.2.5](https://github.com/TypeStrong/ts-loader/releases/tag/v9.2.5))
+
 ## [1.2.18] - 2021-09-20
 
 ### Dependencies
