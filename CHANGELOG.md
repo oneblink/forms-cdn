@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.2.20] - 2021-09-24
+
+### Dependencies
+
+- update [@oneblink/types](https://github.com/oneblink/types)
+
 ## [1.2.19] - 2021-09-24
 
 ### Dependencies
