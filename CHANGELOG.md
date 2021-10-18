@@ -6,7 +6,7 @@
 
 ### Dependencies
 
-- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.4.18-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.4.17](https://github.com/oneblink/apps-react/releases/tag/v0.4.17))
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.4.19-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [0.4.17](https://github.com/oneblink/apps-react/releases/tag/v0.4.17))
 
 ## [1.2.20] - 2021-09-24
 
