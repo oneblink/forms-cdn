@@ -11,8 +11,8 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
-    "@oneblink/apps": "^0.11.7",
-    "@oneblink/apps-react": "^0.4.20-beta.2",
+    "@oneblink/apps": "^0.12.0",
+    "@oneblink/apps-react": "^0.5.0",
     "@oneblink/cli": "^0.2.2",
     "@oneblink/types": "github:oneblink/types",
     "@types/node": "^16.9.6",
@@ -21,8 +21,8 @@
     "@types/react-loader-spinner": "^4.0.0",
     "@types/react-router-dom": "^5.3.0",
     "@types/semver": "^7.3.8",
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "abortcontroller-polyfill": "^1.7.3",
     "babel-loader": "^8.2.2",
     "clsx": "^1.1.1",
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@oneblink/release-cli": "^1.0.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.0",
@@ -59,8 +59,8 @@
     "webpack-dev-server": "^4.2.1"
   },
   "engines": {
-    "node": ">=14",
-    "npm": ">=6"
+    "node": ">=16",
+    "npm": ">=8"
   },
   "homepage": "https://github.com/oneblink/forms-cdn",
   "keywords": [],
