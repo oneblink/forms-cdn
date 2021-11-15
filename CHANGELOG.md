@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## [1.2.24] - 2021-11-15
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.12.0](https://github.com/oneblink/apps/releases/tag/v0.12.0) (from [0.11.7](https://github.com/oneblink/apps/releases/tag/v0.11.7))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.5.0](https://github.com/oneblink/apps-react/releases/tag/v0.5.0) (from [0.4.20-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [5.4.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.4.0) (from [4.31.2](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.2))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [5.4.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.4.0) (from [4.31.2](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v4.31.2))
+
 ## [1.2.23] - 2021-11-01
 
 ### Dependencies
