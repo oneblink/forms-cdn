@@ -16,6 +16,7 @@ type Props = {
   preFillData?: Record<string, unknown>
   externalId?: string
   googleMapsApiKey?: string
+  abnLookupAuthenticationGuid?: string
 }
 
 const formIsSubmittingContainerStyles: React.CSSProperties = {
@@ -38,6 +39,7 @@ function Form({
   preFillData,
   externalId,
   googleMapsApiKey,
+  abnLookupAuthenticationGuid,
 }: Props) {
   const [
     { isFetching, form, formsAppConfiguration, fetchError },
@@ -187,6 +189,7 @@ function Form({
           googleMapsApiKey={googleMapsApiKey}
           disabled={isSubmitting}
           buttons={formsAppConfiguration.styles.buttons}
+          abnLookupAuthenticationGuid={abnLookupAuthenticationGuid}
         />
       </div>
       <ErrorModal error={submitError} onClose={clearSubmitError} />
