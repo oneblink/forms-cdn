@@ -10,9 +10,8 @@ type Props = {
 }
 
 function ErrorModal({ error, onClose }: Props) {
-  const [isShowingOriginalError, , , toggleOriginalError] = useBooleanState(
-    false,
-  )
+  const [isShowingOriginalError, , , toggleOriginalError] =
+    useBooleanState(false)
 
   if (!error) {
     return null
