@@ -2,6 +2,62 @@
 
 ## [Unreleased]
 
+## [1.2.33] - 2022-04-13
+
+### Dependencies
+
+- update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.17.9](https://github.com/babel/babel/releases/tag/v7.17.9) (from [7.15.5](https://github.com/babel/babel/releases/tag/v7.15.5))
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.16.11](https://github.com/babel/babel/releases/tag/v7.16.11) (from [7.15.6](https://github.com/babel/babel/releases/tag/v7.15.6))
+
+- update [@babel/preset-react](https://www.npmjs.com/package/@babel/preset-react) to [7.16.7](https://github.com/babel/babel/releases/tag/v7.16.7) (from [7.14.5](https://github.com/babel/babel/releases/tag/v7.14.5))
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [0.12.10](https://github.com/oneblink/apps/releases/tag/v0.12.10) (from [0.12.7](https://github.com/oneblink/apps/releases/tag/v0.12.7))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [0.6.1](https://github.com/oneblink/apps-react/releases/tag/v0.6.1) (from [0.5.7-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@oneblink/cli](https://www.npmjs.com/package/@oneblink/cli) to [0.3.0](https://github.com/oneblink/cli/releases/tag/v0.3.0) (from [0.2.2](https://github.com/oneblink/cli/releases/tag/v0.2.2))
+
+- update [@types/node](https://www.npmjs.com/package/@types/node) to 17.0.23 (from 16.9.6)
+
+- update [@types/react](https://www.npmjs.com/package/@types/react) to 17.0.43 (from 17.0.24)
+
+- update [@types/react-dom](https://www.npmjs.com/package/@types/react-dom) to 17.0.14 (from 17.0.9)
+
+- update [@types/react-router-dom](https://www.npmjs.com/package/@types/react-router-dom) to 5.3.3 (from 5.3.0)
+
+- update [@types/semver](https://www.npmjs.com/package/@types/semver) to 7.3.9 (from 7.3.8)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [5.19.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.19.0) (from [5.4.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.4.0))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [5.19.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.19.0) (from [5.4.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.4.0))
+
+- update [babel-loader](https://www.npmjs.com/package/babel-loader) to [8.2.4](https://github.com/babel/babel-loader/releases/tag/v8.2.4) (from [8.2.2](https://github.com/babel/babel-loader/blob/master/CHANGELOG.md))
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.21.1](https://github.com/zloirock/core-js/releases/tag/v3.21.1) (from [3.18.0](https://github.com/zloirock/core-js/releases/tag/v3.18.0))
+
+- update [css-loader](https://www.npmjs.com/package/css-loader) to [6.7.1](https://github.com/webpack-contrib/css-loader/releases/tag/v6.7.1) (from [6.3.0](https://github.com/webpack-contrib/css-loader/releases/tag/v6.3.0))
+
+- update [dotenv](https://www.npmjs.com/package/dotenv) to [16.0.0](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md) (from [10.0.0](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md))
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.50.0](https://github.com/sass/dart-sass/releases/tag/1.50.0) (from [1.42.1](https://github.com/sass/dart-sass/releases/tag/1.42.1))
+
+- update [sass-loader](https://www.npmjs.com/package/sass-loader) to [12.6.0](https://github.com/webpack-contrib/sass-loader/releases/tag/v12.6.0) (from [12.1.0](https://github.com/webpack-contrib/sass-loader/releases/tag/v12.1.0))
+
+- update [semver](https://www.npmjs.com/package/semver) to [7.3.7](https://github.com/npm/node-semver/releases/tag/v7.3.7) (from [7.3.5](https://github.com/npm/node-semver/blob/master/CHANGELOG.md))
+
+- update [style-loader](https://www.npmjs.com/package/style-loader) to [3.3.1](https://github.com/webpack-contrib/style-loader/releases/tag/v3.3.1) (from [3.3.0](https://github.com/webpack-contrib/style-loader/releases/tag/v3.3.0))
+
+- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [9.2.8](https://github.com/TypeStrong/ts-loader/releases/tag/v9.2.8) (from [9.2.6](https://github.com/TypeStrong/ts-loader/releases/tag/v9.2.6))
+
+- update [ts-node](https://www.npmjs.com/package/ts-node) to [10.7.0](https://github.com/TypeStrong/ts-node/releases/tag/v10.7.0) (from [10.2.1](https://github.com/TypeStrong/ts-node/releases/tag/v10.2.1))
+
+- update typescript to [4.6.3](https://github.com/microsoft/TypeScript/releases/tag/v4.6.3) (from [4.4.3](https://github.com/microsoft/TypeScript/releases/tag/v4.4.3))
+
+- update [webpack](https://www.npmjs.com/package/webpack) to [5.72.0](https://github.com/webpack/webpack/releases/tag/v5.72.0) (from [5.53.0](https://github.com/webpack/webpack/releases/tag/v5.53.0))
+
+- update [webpack-cli](https://www.npmjs.com/package/webpack-cli) to [4.9.2](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md) (from [4.8.0](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md))
+
 ## [1.2.32] - 2022-01-27
 
 ### Dependencies
