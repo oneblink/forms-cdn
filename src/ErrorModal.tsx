@@ -2,7 +2,7 @@ import * as React from 'react'
 import clsx from 'clsx'
 import { OneBlinkAppsError } from '@oneblink/apps'
 import { useBooleanState } from '@oneblink/apps-react'
-import Modal from '@oneblink/apps-react/dist/components/Modal'
+import Modal from '@oneblink/apps-react/dist/components/renderer/Modal'
 
 type Props = {
   error: OneBlinkAppsError | Error | null
