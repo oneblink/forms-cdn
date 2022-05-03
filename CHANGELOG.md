@@ -2,6 +2,34 @@
 
 ## [Unreleased]
 
+## [1.2.35] - 2022-05-03
+
+### Dependencies
+
+- update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.17.10](https://github.com/babel/babel/releases/tag/v7.17.10) (from [7.17.9](https://github.com/babel/babel/releases/tag/v7.17.9))
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.17.10](https://github.com/babel/babel/releases/tag/v7.17.10) (from [7.16.11](https://github.com/babel/babel/releases/tag/v7.16.11))
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [1.0.0](https://github.com/oneblink/apps/releases/tag/v1.0.0) (from [0.12.11](https://github.com/oneblink/apps/releases/tag/v0.12.11))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [1.0.0](https://github.com/oneblink/apps-react/releases/tag/v1.0.0) (from [0.6.2](https://github.com/oneblink/apps-react/releases/tag/v0.6.2))
+
+- no longer depend upon [@types/node](https://www.npmjs.com/package/@types/node)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [5.22.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.22.0) (from [5.20.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.20.0))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [5.22.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.22.0) (from [5.20.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.20.0))
+
+- update [babel-loader](https://www.npmjs.com/package/babel-loader) to [8.2.5](https://github.com/babel/babel-loader/releases/tag/v8.2.5) (from [8.2.4](https://github.com/babel/babel-loader/releases/tag/v8.2.4))
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.22.4](https://github.com/zloirock/core-js/releases/tag/v3.22.4) (from [3.22.0](https://github.com/zloirock/core-js/releases/tag/v3.22.0))
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.51.0](https://github.com/sass/dart-sass/releases/tag/1.51.0) (from [1.50.1](https://github.com/sass/dart-sass/releases/tag/1.50.1))
+
+- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [9.3.0](https://github.com/TypeStrong/ts-loader/releases/tag/v9.3.0) (from [9.2.8](https://github.com/TypeStrong/ts-loader/releases/tag/v9.2.8))
+
+- update [typescript](https://www.npmjs.com/package/typescript) to [4.6.4](https://github.com/microsoft/TypeScript/releases/tag/v4.6.4) (from [4.6.3](https://github.com/microsoft/TypeScript/releases/tag/v4.6.3))
+
 ## [1.2.34] - 2022-04-19
 
 ### Dependencies
