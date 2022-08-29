@@ -1,7 +1,7 @@
 {
   "name": "forms-cdn",
   "description": "Project to serve via CDN to embed a OneBlink Form in your website.",
-  "version": "1.2.41",
+  "version": "1.2.42",
   "author": "OneBlink <developers@oneblink.io> (https://oneblink.io)",
   "browserslist": "> 0.25%, not dead, safari >= 11, ios_saf >= 11, ie >= 11",
   "bugs": {
@@ -47,7 +47,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
-    "@oneblink/release-cli": "^1.0.0",
+    "@oneblink/release-cli": "^1.2.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",

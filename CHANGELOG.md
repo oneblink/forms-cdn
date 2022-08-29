@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [1.2.42] - 2022-08-29
+
+### Dependencies
+
+- update @oneblink/apps to 2.0.0-beta.1 (from [1.2.6](https://github.com/oneblink/apps/releases/tag/v1.2.6))
+
+- update @oneblink/apps-react to 2.0.0-beta.1 (from [1.2.5](https://github.com/oneblink/apps-react/releases/tag/v1.2.5))
+
 ## [1.2.41] - 2022-08-16
 
 ### Dependencies
