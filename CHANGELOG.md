@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.2.45] - 2022-10-19
+
+### Dependencies
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [2.4.0](https://github.com/oneblink/apps-react/releases/tag/v2.4.0) (from [2.3.0](https://github.com/oneblink/apps-react/releases/tag/v2.3.0))
+
 ## [1.2.44] - 2022-10-19
 
 ### Dependencies
