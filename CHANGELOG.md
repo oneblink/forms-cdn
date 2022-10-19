@@ -2,6 +2,54 @@
 
 ## [Unreleased]
 
+## [1.2.44] - 2022-10-19
+
+### Dependencies
+
+- update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.19.3](https://github.com/babel/babel/releases/tag/v7.19.3) (from [7.18.0](https://github.com/babel/babel/releases/tag/v7.18.0))
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.19.4](https://github.com/babel/babel/releases/tag/v7.19.4) (from [7.18.0](https://github.com/babel/babel/releases/tag/v7.18.0))
+
+- update [@babel/preset-react](https://www.npmjs.com/package/@babel/preset-react) to [7.18.6](https://github.com/babel/babel/releases/tag/v7.18.6) (from [7.17.12](https://github.com/babel/babel/releases/tag/v7.17.12))
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [3.0.0](https://github.com/oneblink/apps/releases/tag/v3.0.0) (from [2.1.0](https://github.com/oneblink/apps/releases/tag/v2.1.0))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [2.3.0](https://github.com/oneblink/apps-react/releases/tag/v2.3.0) (from [2.1.0](https://github.com/oneblink/apps-react/releases/tag/v2.1.0))
+
+- update [@oneblink/cli](https://www.npmjs.com/package/@oneblink/cli) to [1.1.0](https://github.com/oneblink/cli/releases/tag/1.1.0) (from [0.3.0](https://github.com/oneblink/cli/releases/tag/v0.3.0))
+
+- update [@types/semver](https://www.npmjs.com/package/@types/semver) to 7.3.12 (from 7.3.9)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [5.40.0](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md) (from [5.26.0](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [5.40.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.40.0) (from [5.26.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.26.0))
+
+- update [abortcontroller-polyfill](https://www.npmjs.com/package/abortcontroller-polyfill) to 1.7.5 (from 1.7.3)
+
+- update [clsx](https://www.npmjs.com/package/clsx) to [1.2.1](https://github.com/lukeed/clsx/releases/tag/v1.2.1) (from [1.1.1](https://github.com/lukeed/clsx/releases/tag/v1.1.1))
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.25.5](https://github.com/zloirock/core-js/releases/tag/v3.25.5) (from [3.22.7](https://github.com/zloirock/core-js/releases/tag/v3.22.7))
+
+- update [dotenv](https://www.npmjs.com/package/dotenv) to [16.0.3](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md) (from [16.0.1](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md))
+
+- update [node-polyfill-webpack-plugin](https://www.npmjs.com/package/node-polyfill-webpack-plugin) to 2.0.1 (from 1.1.4)
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.55.0](https://github.com/sass/dart-sass/releases/tag/1.55.0) (from [1.52.1](https://github.com/sass/dart-sass/releases/tag/1.52.1))
+
+- update [sass-loader](https://www.npmjs.com/package/sass-loader) to [13.1.0](https://github.com/webpack-contrib/sass-loader/blob/master/CHANGELOG.md) (from [13.0.0](https://github.com/webpack-contrib/sass-loader/blob/master/CHANGELOG.md))
+
+- update [semver](https://www.npmjs.com/package/semver) to [7.3.8](https://github.com/npm/node-semver/blob/master/CHANGELOG.md) (from [7.3.7](https://github.com/npm/node-semver/blob/master/CHANGELOG.md))
+
+- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [9.4.1](https://github.com/TypeStrong/ts-loader/releases/tag/9.4.1) (from [9.3.0](https://github.com/TypeStrong/ts-loader/blob/master/CHANGELOG.md))
+
+- update [ts-node](https://www.npmjs.com/package/ts-node) to 10.9.1 (from [10.8.0](https://github.com/TypeStrong/ts-node/releases/tag/v10.8.0))
+
+- update [typescript](https://www.npmjs.com/package/typescript) to 4.8.4 (from 4.7.2)
+
+- update [webpack](https://www.npmjs.com/package/webpack) to 5.74.0 (from 5.72.1)
+
+- update [webpack-cli](https://www.npmjs.com/package/webpack-cli) to [4.10.0](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md) (from [4.9.2](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md))
+
 ## [1.2.43] - 2022-09-13
 
 ### Dependencies
