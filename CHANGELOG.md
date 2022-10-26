@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.2.46] - 2022-10-26
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [3.0.1-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [3.0.0](https://github.com/oneblink/apps/releases/tag/v3.0.0))
+
 ## [1.2.45] - 2022-10-19
 
 ### Dependencies
