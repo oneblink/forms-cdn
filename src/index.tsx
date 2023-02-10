@@ -1,8 +1,10 @@
 import './polyfills'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { useTenantCivicPlus, useTenantOneBlink } from '@oneblink/apps'
 import Form from './form'
+import Receipt from './receipt'
 import 'setimmediate'
 import './styles.scss'
 
@@ -31,6 +33,7 @@ export function render(options?: Record<string, unknown>): void {
     formsAppId,
     submissionRedirectUrl,
     cancelRedirectUrl,
+    paymentReceiptUrl,
     externalId,
     googleMapsApiKey,
     preFillData,
@@ -50,6 +53,12 @@ export function render(options?: Record<string, unknown>): void {
   }
   if (!submissionRedirectUrl || typeof submissionRedirectUrl !== 'string') {
     throw new TypeError('"options.submissionRedirectUrl" must be a string ')
+  }
+  if (
+    paymentReceiptUrl !== undefined &&
+    typeof paymentReceiptUrl !== 'string'
+  ) {
+    throw new TypeError('"options.paymentReceiptUrl" must be a string ')
   }
   if (externalId !== undefined && typeof externalId !== 'string') {
     throw new TypeError(
@@ -73,16 +82,46 @@ export function render(options?: Record<string, unknown>): void {
   ReactDOM.render(
     <React.StrictMode>
       <div className="oneblink-apps-react-styles">
-        <Form
-          formId={formId}
-          formsAppId={formsAppId}
-          preFillData={preFillData as Record<string, unknown> | undefined}
-          externalId={externalId}
-          googleMapsApiKey={googleMapsApiKey}
-          submissionRedirectUrl={submissionRedirectUrl}
-          cancelRedirectUrl={cancelRedirectUrl}
-          abnLookupAuthenticationGuid={abnLookupAuthenticationGuid}
-        />
+        <Router>
+          <Form
+            formId={formId}
+            formsAppId={formsAppId}
+            preFillData={preFillData as Record<string, unknown> | undefined}
+            externalId={externalId}
+            googleMapsApiKey={googleMapsApiKey}
+            submissionRedirectUrl={submissionRedirectUrl}
+            cancelRedirectUrl={cancelRedirectUrl}
+            paymentReceiptUrl={paymentReceiptUrl}
+            abnLookupAuthenticationGuid={abnLookupAuthenticationGuid}
+          />
+        </Router>
+      </div>
+    </React.StrictMode>,
+    document.querySelector(selector),
+  )
+}
+
+export function renderPaymentReceipt(options?: {
+  selector: string
+  onDone: () => void | Promise<void>
+}) {
+  if (!options) {
+    throw new TypeError('"options" must be an object')
+  }
+  const { selector, onDone } = options
+  if (typeof selector !== 'string' || !selector) {
+    throw new TypeError('"options.selector" must be a string')
+  }
+  if (!onDone || typeof onDone !== 'function') {
+    throw new TypeError('"options.onDone" must be a function')
+  }
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <div className="oneblink-apps-react-styles">
+        <Router>
+          <Receipt onDone={onDone} />
+        </Router>
       </div>
     </React.StrictMode>,
     document.querySelector(selector),

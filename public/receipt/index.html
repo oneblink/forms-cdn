@@ -10,22 +10,10 @@
   <script charset="utf-8" type="text/javascript" src="../dist/latest.js"></script>
   <script charset="utf-8" type="text/javascript" src="./configuration.js"></script>
   <script>
-    if (typeof window.__DEVELOPMENT_FORM_ID__ !== 'number') {
-      throw new Error('"window.__DEVELOPMENT_FORM_ID__" must be set to run locally. See CONTRIBUTING.md for more details')
-    }
-    if (typeof window.__DEVELOPMENT_FORMS_APP_ID__ !== 'number') {
-      throw new Error('"window.__DEVELOPMENT_FORMS_APP_ID__" must be set to run locally. See CONTRIBUTING.md for more details')
-    }
     window.addEventListener('load', function (event) {
-      OneBlinkForms.render({
-        formId: window.__DEVELOPMENT_FORM_ID__,
-        formsAppId: window.__DEVELOPMENT_FORMS_APP_ID__,
-        selector: '#form',
-        submissionRedirectUrl: window.__DEVELOPMENT_SUBMISSION_REDIRECT_URL__ || 'https://google.com.au',
-        cancelRedirectUrl: window.__DEVELOPMENT_CANCEL_REDIRECT_URL__ || 'https://google.com.au',
-        paymentReceiptUrl: window.__DEVELOPMENT_PAYMENT_RECEIPT_URL__ || 'https://google.com.au',
-        googleMapsApiKey: window.__DEVELOPMENT_GOOGLE_MAPS_API_KEY__,
-        externalId: window.__DEVELOPMENT_EXTERNAL_ID__,
+      OneBlinkForms.renderPaymentReceipt({
+        selector: '#receipt',
+        onDone: () => console.log('All done!')
       })
     });
   </script>
@@ -38,7 +26,7 @@
     }
 
     /* Styles to center form */
-    #form {
+    #receipt {
       padding: 30px;
       max-width: 800px;
       margin: auto;
@@ -79,7 +67,7 @@
       </button>
     </div>
   </div>
-  <div id="form"></div>
+  <div id="receipt"></div>
   <div class="footer">
     <div>
       <h3>OK, I lied, it's not as good as I want it to be...</h3>

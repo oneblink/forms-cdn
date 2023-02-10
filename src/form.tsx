@@ -4,7 +4,7 @@ import { getRequest } from '@oneblink/apps/dist/services/fetch'
 import tenants from '@oneblink/apps/dist/tenants'
 import { OneBlinkForm } from '@oneblink/apps-react'
 import OnLoading from '@oneblink/apps-react/dist/components/renderer/OnLoading'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { FormsAppsTypes } from '@oneblink/types'
 import ErrorModal from './ErrorModal'
 
@@ -17,6 +17,7 @@ type Props = {
   externalId?: string
   googleMapsApiKey?: string
   abnLookupAuthenticationGuid?: string
+  paymentReceiptUrl?: string
 }
 
 const formIsSubmittingContainerStyles: React.CSSProperties = {
@@ -36,11 +37,13 @@ function Form({
   formsAppId,
   submissionRedirectUrl,
   cancelRedirectUrl,
+  paymentReceiptUrl,
   preFillData,
   externalId,
   googleMapsApiKey,
   abnLookupAuthenticationGuid,
 }: Props) {
+  const history = useHistory()
   const [
     { isFetching, form, formsAppConfiguration, fetchError },
     setFetchingState,
@@ -88,8 +91,15 @@ function Form({
 
         const formSubmissionResult = await submissionService.submit({
           formSubmission,
-          paymentReceiptUrl: null,
+          paymentReceiptUrl: paymentReceiptUrl,
         })
+        if (formSubmissionResult.submissionId && formSubmissionResult.payment) {
+          return submissionService.executePostSubmissionAction(
+            formSubmissionResult,
+            history.push,
+          )
+        }
+
         const url = new URL(submissionRedirectUrl)
         url.searchParams.append(
           'submissionId',
@@ -105,7 +115,13 @@ function Form({
         })
       }
     },
-    [externalId, formsAppId, submissionRedirectUrl],
+    [
+      externalId,
+      formsAppId,
+      submissionRedirectUrl,
+      paymentReceiptUrl,
+      history.push,
+    ],
   )
 
   const handleCancel = React.useCallback(() => {
@@ -178,7 +194,7 @@ function Form({
 
   return (
     // apps-react won't render a form and instead throws an error unless wrapped in a router tag
-    <Router>
+    <>
       <div style={isSubmitting ? formIsSubmittingContainerStyles : undefined}>
         <OneBlinkForm
           form={form}
@@ -193,7 +209,7 @@ function Form({
         />
       </div>
       <ErrorModal error={submitError} onClose={clearSubmitError} />
-    </Router>
+    </>
   )
 }
 
