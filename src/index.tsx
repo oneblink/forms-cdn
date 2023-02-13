@@ -82,6 +82,7 @@ export function render(options?: Record<string, unknown>): void {
   ReactDOM.render(
     <React.StrictMode>
       <div className="oneblink-apps-react-styles">
+        {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
         <Router>
           <Form
             formId={formId}
@@ -103,7 +104,7 @@ export function render(options?: Record<string, unknown>): void {
 
 export function renderPaymentReceipt(options?: {
   selector: string
-  onDone: () => void | Promise<void>
+  onDone: () => Promise<void>
 }) {
   if (!options) {
     throw new TypeError('"options" must be an object')
@@ -119,6 +120,7 @@ export function renderPaymentReceipt(options?: {
   ReactDOM.render(
     <React.StrictMode>
       <div className="oneblink-apps-react-styles">
+        {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
         <Router>
           <Receipt onDone={onDone} />
         </Router>

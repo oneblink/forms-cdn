@@ -1,11 +1,8 @@
 import * as React from 'react'
-import { formService, submissionService } from '@oneblink/apps'
-import { getRequest } from '@oneblink/apps/dist/services/fetch'
-import tenants from '@oneblink/apps/dist/tenants'
+import { formService, submissionService, formsAppService } from '@oneblink/apps'
 import { OneBlinkForm } from '@oneblink/apps-react'
 import OnLoading from '@oneblink/apps-react/dist/components/renderer/OnLoading'
 import { useHistory } from 'react-router-dom'
-import { FormsAppsTypes } from '@oneblink/types'
 import ErrorModal from './ErrorModal'
 
 type Props = {
@@ -22,14 +19,6 @@ type Props = {
 
 const formIsSubmittingContainerStyles: React.CSSProperties = {
   opacity: 0.7,
-}
-
-async function getFormsAppConfiguration(formsAppId: number) {
-  const url = `${tenants.current.apiOrigin}/forms-apps/${formsAppId}/hostname-configuration`
-  const formsAppConfiguration = await getRequest<
-    FormsAppsTypes.FormsAppConfiguration<FormsAppsTypes.BaseFormsAppStyles>
-  >(url)
-  return formsAppConfiguration
 }
 
 function Form({
@@ -144,7 +133,7 @@ function Form({
       try {
         const [f, formsAppConfiguration] = await Promise.all([
           formService.getForm(formId),
-          getFormsAppConfiguration(formsAppId),
+          formsAppService.getFormsAppConfiguration(formsAppId),
         ])
         setFetchingState({
           isFetching: false,
@@ -193,7 +182,6 @@ function Form({
   }
 
   return (
-    // apps-react won't render a form and instead throws an error unless wrapped in a router tag
     <>
       <div style={isSubmitting ? formIsSubmittingContainerStyles : undefined}>
         <OneBlinkForm
