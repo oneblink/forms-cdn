@@ -86,9 +86,7 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderReceiptPage({
           selector: '#receipt',
-          onDone: () => {
-            console.log('All done')
-          },
+          redirectUrl: 'https://example.com/receipt',
         })
       })
     </script>
@@ -99,7 +97,7 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property   | Type                                      | Required | Description                                                                                                                                                                                          |
-| ---------- | ----------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `selector` | `string`                                  | Yes      | The selector to find a HTML Element to render the payment receipt inside                                                                                                                             |
-| `onDone`   | `(FormSubmissionResult) => Promise<void>` | Yes      | The function to call when the user clicks 'Done'. See [FormSubmissionResult](https://oneblink.github.io/apps/modules/submissionService.html#FormSubmissionResult) for the structure of the argument. |
+| Property      | Type     | Required | Description                                                                |
+| ------------- | -------- | -------- | -------------------------------------------------------------------------- |
+| `selector`    | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside   |
+| `redirectUrl` | `string` | Yes      | The URL to redirect the user once they click 'Done' on the payment receipt |

@@ -104,17 +104,17 @@ export function render(options?: Record<string, unknown>): void {
 
 export function renderPaymentReceipt(options?: {
   selector: string
-  onDone: () => Promise<void>
+  redirectUrl: string
 }) {
   if (!options) {
     throw new TypeError('"options" must be an object')
   }
-  const { selector, onDone } = options
+  const { selector, redirectUrl } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
   }
-  if (!onDone || typeof onDone !== 'function') {
-    throw new TypeError('"options.onDone" must be a function')
+  if (!redirectUrl || typeof redirectUrl !== 'string') {
+    throw new TypeError('"options.redirectUrl" must be a function')
   }
 
   ReactDOM.render(
@@ -122,7 +122,7 @@ export function renderPaymentReceipt(options?: {
       <div className="oneblink-apps-react-styles">
         {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
         <Router>
-          <Receipt onDone={onDone} />
+          <Receipt redirectUrl={redirectUrl} />
         </Router>
       </div>
     </React.StrictMode>,
