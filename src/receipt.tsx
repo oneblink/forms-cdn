@@ -11,10 +11,8 @@ export default function Receipt({ redirectUrl, cancelRedirectUrl }: Props) {
   const onDone = React.useCallback(
     async (submissionResult: submissionService.FormSubmissionResult) => {
       const url = new URL(redirectUrl)
-      const searchString = url.search
-        ? `${url.search}&submissionId=${submissionResult.submissionId}`
-        : `?submissionId=${submissionResult.submissionId}`
-      window.location.href = `${url.origin}${searchString}`
+      url.searchParams.append('submissionId', submissionResult.submissionId)
+      window.location.href = url.href
     },
     [redirectUrl],
   )
