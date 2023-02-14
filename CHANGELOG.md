@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+###
+
+- add renderPaymentReceipt function
+
 ## [1.2.48] - 2022-12-12
 
 ### Dependencies

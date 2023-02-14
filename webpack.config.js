@@ -61,6 +61,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      react$: path.resolve('./node_modules/react'),
+      'react-dom$': path.resolve('./node_modules/react-dom'),
+      'react-router-dom$': path.resolve('./node_modules/react-router-dom'),
+      '@oneblink/apps$': path.resolve('./node_modules/@oneblink/apps'),
+    },
   },
   devServer: {
     open: true,

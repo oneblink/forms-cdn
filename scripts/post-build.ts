@@ -7,6 +7,9 @@ import pkg from '../package.json'
 
 async function run() {
   const version = parse(pkg.version)
+  if (!version) {
+    throw new Error('version not defined in package.json')
+  }
 
   console.log('Building x.x.x files for version:', version)
 

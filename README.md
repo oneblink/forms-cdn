@@ -13,7 +13,7 @@ The script to include comes in a few different ways to allow you to choose the u
 
 **Note: `1.2.3` is just an example.** To check what the latest version is, please see the [Latest Release](https://github.com/oneblink/forms-cdn/releases/latest) or for more information on historical releases, see the [Changelog](./CHANGELOG.md).
 
-## Example
+## Example - Form
 
 ```html
 <!DOCTYPE html>
@@ -59,6 +59,45 @@ The script to include comes in a few different ways to allow you to choose the u
 | `formsAppId`            | `number` | Yes         | The identifier of the OneBlink Forms App to submit the form to.                                                                                            |
 | `submissionRedirectUrl` | `string` | Yes         | The URL to redirect the user to after a successful submission. Will have `submissionId` added to query string before redirecting.                          |
 | `cancelRedirectUrl`     | `string` | Yes         | The URL to redirect the user to if they cancel the form.                                                                                                   |
+| `paymentReceiptUrl`     | `string` | Conditional | The URL to redirect the user to for displaying a payment receipt. Required if the form requires a payment.                                                 |
 | `googleMapsApiKey`      | `string` | Conditional | A [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Required if the form contains a `location` form element. |
 | `externalId`            | `string` | No          | An identifier to match the form submission with in your system.                                                                                            |
 | `preFillData`           | `Object` | No          | The data to pre-fill the OneBlink Form.                                                                                                                    |
+
+## Example - Receipt Page
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Must include Material Icons which are used by Form -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <!-- OneBlink -->
+    <script src="https://oneblink-forms.cdn.oneblink.io/{version}.js"></script>
+
+    <!-- CivicPlus -->
+    <script src="https://civicplus-forms.cdn.transform.civicplus.com/{version}.js"></script>
+
+    <script>
+      window.addEventListener('load', function (event) {
+        OneBlinkForms.renderReceiptPage({
+          selector: '#receipt',
+          redirectUrl: 'https://example.com/receipt',
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="oneblink-form"></div>
+  </body>
+</html>
+```
+
+| Property      | Type     | Required | Description                                                                |
+| ------------- | -------- | -------- | -------------------------------------------------------------------------- |
+| `selector`    | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside   |
+| `redirectUrl` | `string` | Yes      | The URL to redirect the user once they click 'Done' on the payment receipt |
