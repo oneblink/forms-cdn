@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { useTenantCivicPlus, useTenantOneBlink } from '@oneblink/apps'
 import Form from './form'
-import Receipt from './receipt'
+import PaymentReceipt from './PaymentReceipt'
 import 'setimmediate'
 import './styles.scss'
 
@@ -104,18 +104,18 @@ export function render(options?: Record<string, unknown>): void {
 
 export function renderPaymentReceipt(options?: {
   selector: string
-  redirectUrl: string
+  doneRedirectUrl: string
   cancelRedirectUrl: string
 }) {
   if (!options) {
     throw new TypeError('"options" must be an object')
   }
-  const { selector, redirectUrl, cancelRedirectUrl } = options
+  const { selector, doneRedirectUrl, cancelRedirectUrl } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
   }
-  if (!redirectUrl || typeof redirectUrl !== 'string') {
-    throw new TypeError('"options.redirectUrl" must be a string')
+  if (!doneRedirectUrl || typeof doneRedirectUrl !== 'string') {
+    throw new TypeError('"options.doneRedirectUrl" must be a function')
   }
   if (!cancelRedirectUrl || typeof cancelRedirectUrl !== 'string') {
     throw new TypeError('"options.cancelRedirectUrl" must be a string ')
@@ -126,8 +126,8 @@ export function renderPaymentReceipt(options?: {
       <div className="oneblink-apps-react-styles">
         {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
         <Router>
-          <Receipt
-            redirectUrl={redirectUrl}
+          <PaymentReceipt
+            doneRedirectUrl={doneRedirectUrl}
             cancelRedirectUrl={cancelRedirectUrl}
           />
         </Router>

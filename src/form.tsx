@@ -80,7 +80,7 @@ function Form({
 
         const formSubmissionResult = await submissionService.submit({
           formSubmission,
-          paymentReceiptUrl: paymentReceiptUrl,
+          paymentReceiptUrl,
         })
         if (formSubmissionResult.submissionId && formSubmissionResult.payment) {
           return submissionService.executePostSubmissionAction(
