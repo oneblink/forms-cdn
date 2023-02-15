@@ -64,7 +64,7 @@ The script to include comes in a few different ways to allow you to choose the u
 | `externalId`            | `string` | No          | An identifier to match the form submission with in your system.                                                                                            |
 | `preFillData`           | `Object` | No          | The data to pre-fill the OneBlink Form.                                                                                                                    |
 
-## Example - Receipt Page
+## Example - Payment Receipt Page
 
 ```html
 <!DOCTYPE html>
@@ -84,9 +84,10 @@ The script to include comes in a few different ways to allow you to choose the u
 
     <script>
       window.addEventListener('load', function (event) {
-        OneBlinkForms.renderReceiptPage({
+        OneBlinkForms.renderPaymentReceipt({
           selector: '#receipt',
-          redirectUrl: 'https://example.com/receipt',
+          doneRedirectUrl: 'https://example.com/finished-payment',
+          cancelRedirectUrl: 'https://example.com/cancelled-payment',
         })
       })
     </script>
@@ -97,7 +98,8 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property      | Type     | Required | Description                                                                |
-| ------------- | -------- | -------- | -------------------------------------------------------------------------- |
-| `selector`    | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside   |
-| `redirectUrl` | `string` | Yes      | The URL to redirect the user once they click 'Done' on the payment receipt |
+| Property            | Type     | Required | Description                                                                                           |
+| ------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| `selector`          | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside                              |
+| `doneRedirectUrl`   | `string` | Yes      | The URL to redirect the user once they click 'Done' on the payment receipt                            |
+| `cancelRedirectUrl` | `string` | Yes      | The URL to redirect the user if they click 'Cancel' on the payment receipt after a failed transaction |

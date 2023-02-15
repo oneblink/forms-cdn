@@ -9,10 +9,11 @@
   window.addEventListener('load', function () {
     // See https://github.com/oneblink/forms-cdn for documentation
     // on all of the options available when rendering a OneBlink Receipt Page
-    OneBlinkForms.renderReceiptPage({
+    OneBlinkForms.renderPaymentReceipt({
       selector: '#oneblink-receipt',
-      // Change this to a URL you wish to send your users too
-      redirectUrl: '',
+      // Change these to a URL you wish to send your users too
+      doneRedirectUrl: '',
+      cancelRedirectUrl: '',
     })
   })
 </script>
