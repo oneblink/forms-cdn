@@ -2,9 +2,17 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2023-02-16
+
 ###
 
 - add renderPaymentReceipt function
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [3.0.3](https://github.com/oneblink/apps/releases/tag/v3.0.3) (from [3.0.2-beta.5](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [2.6.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [2.5.1-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.2.48] - 2022-12-12
 
