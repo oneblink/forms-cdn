@@ -20,6 +20,7 @@ To run the project locally:
    // window.__DEVELOPMENT_GOOGLE_MAPS_API_KEY__ = ''
    // window.__DEVELOPMENT_EXTERNAL_ID__ = ''
    // window.__DEVELOPMENT_PRE_FILL_DATA__ = {}
+   // window.__DEVELOPMENT_ABN_LOOKUP_AUTHENTICATION_GUID__ = ''
    ```
 
 1. Optionally create a `.env.local` file in the root of the project to override the values set in `.env`

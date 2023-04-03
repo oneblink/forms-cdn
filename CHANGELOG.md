@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- `abnLookupAuthenticationGuid` missing from documentation and form template
+
 ## [1.3.4] - 2023-04-02
 
 ### Dependencies

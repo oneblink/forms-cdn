@@ -40,6 +40,7 @@ The script to include comes in a few different ways to allow you to choose the u
           submissionRedirectUrl: 'https://example.com/submitted',
           cancelRedirectUrl: 'https://example.com/cancelled',
           googleMapsApiKey: 'GOOGLE_MAPS_API_KEY',
+          abnLookupAuthenticationGuid: 'guid',
         })
       })
     </script>
@@ -52,17 +53,18 @@ The script to include comes in a few different ways to allow you to choose the u
 
 ## `OneBlinkForms.render()` Options
 
-| Property                | Type     | Required    | Description                                                                                                                                                |
-| ----------------------- | -------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `selector`              | `string` | Yes         | The selector to find a HTML Element to render the OneBlink Form inside.                                                                                    |
-| `formId`                | `number` | Yes         | The identifier of the OneBlink Form to render.                                                                                                             |
-| `formsAppId`            | `number` | Yes         | The identifier of the OneBlink Forms App to submit the form to.                                                                                            |
-| `submissionRedirectUrl` | `string` | Yes         | The URL to redirect the user to after a successful submission. Will have `submissionId` added to query string before redirecting.                          |
-| `cancelRedirectUrl`     | `string` | Yes         | The URL to redirect the user to if they cancel the form.                                                                                                   |
-| `paymentReceiptUrl`     | `string` | Conditional | The URL to redirect the user to for displaying a payment receipt. Required if the form requires a payment.                                                 |
-| `googleMapsApiKey`      | `string` | Conditional | A [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Required if the form contains a `location` form element. |
-| `externalId`            | `string` | No          | An identifier to match the form submission with in your system.                                                                                            |
-| `preFillData`           | `Object` | No          | The data to pre-fill the OneBlink Form.                                                                                                                    |
+| Property                      | Type     | Required    | Description                                                                                                                                                |
+| ----------------------------- | -------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `selector`                    | `string` | Yes         | The selector to find a HTML Element to render the OneBlink Form inside.                                                                                    |
+| `formId`                      | `number` | Yes         | The identifier of the OneBlink Form to render.                                                                                                             |
+| `formsAppId`                  | `number` | Yes         | The identifier of the OneBlink Forms App to submit the form to.                                                                                            |
+| `submissionRedirectUrl`       | `string` | Yes         | The URL to redirect the user to after a successful submission. Will have `submissionId` added to query string before redirecting.                          |
+| `cancelRedirectUrl`           | `string` | Yes         | The URL to redirect the user to if they cancel the form.                                                                                                   |
+| `paymentReceiptUrl`           | `string` | Conditional | The URL to redirect the user to for displaying a payment receipt. Required if the form requires a payment.                                                 |
+| `googleMapsApiKey`            | `string` | Conditional | A [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Required if the form contains a `location` form element. |
+| `externalId`                  | `string` | No          | An identifier to match the form submission with in your system.                                                                                            |
+| `preFillData`                 | `Object` | No          | The data to pre-fill the OneBlink Form.                                                                                                                    |
+| `abnLookupAuthenticationGuid` | `string` | No          | A authentication Guid for the [Australian Business Register ABN Lookup Web Service](https://abr.business.gov.au/Tools/WebServices)                         |
 
 ## Example - Payment Receipt Page
 
