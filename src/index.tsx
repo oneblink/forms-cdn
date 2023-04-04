@@ -37,7 +37,6 @@ export function render(options?: Record<string, unknown>): void {
     externalId,
     googleMapsApiKey,
     preFillData,
-    abnLookupAuthenticationGuid,
   } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
@@ -70,14 +69,6 @@ export function render(options?: Record<string, unknown>): void {
       '"options.googleMapsApiKey" must be a string or not supplied ',
     )
   }
-  if (
-    abnLookupAuthenticationGuid !== undefined &&
-    typeof abnLookupAuthenticationGuid !== 'string'
-  ) {
-    throw new TypeError(
-      '"options.abnLookupAuthenticationGuid" must be a string or not supplied ',
-    )
-  }
 
   ReactDOM.render(
     <React.StrictMode>
@@ -93,7 +84,6 @@ export function render(options?: Record<string, unknown>): void {
             submissionRedirectUrl={submissionRedirectUrl}
             cancelRedirectUrl={cancelRedirectUrl}
             paymentReceiptUrl={paymentReceiptUrl}
-            abnLookupAuthenticationGuid={abnLookupAuthenticationGuid}
           />
         </Router>
       </div>

@@ -13,7 +13,6 @@ type Props = {
   preFillData?: Record<string, unknown>
   externalId?: string
   googleMapsApiKey?: string
-  abnLookupAuthenticationGuid?: string
   paymentReceiptUrl?: string
 }
 
@@ -30,7 +29,6 @@ function Form({
   preFillData,
   externalId,
   googleMapsApiKey,
-  abnLookupAuthenticationGuid,
 }: Props) {
   const history = useHistory()
   const [
@@ -193,7 +191,9 @@ function Form({
           googleMapsApiKey={googleMapsApiKey}
           disabled={isSubmitting}
           buttons={formsAppConfiguration.styles.buttons}
-          abnLookupAuthenticationGuid={abnLookupAuthenticationGuid}
+          abnLookupAuthenticationGuid={
+            formsAppConfiguration.abnLookupAuthenticationGuid
+          }
         />
       </div>
       <ErrorModal error={submitError} onClose={clearSubmitError} />
