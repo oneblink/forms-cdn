@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Set `abnLookupAuthenticationGuid` using `formsAppConfiguration`
+
 ## [1.3.4] - 2023-04-02
 
 ### Dependencies
