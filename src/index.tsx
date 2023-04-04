@@ -79,11 +79,11 @@ export function render(options?: Record<string, unknown>): void {
             formId={formId}
             formsAppId={formsAppId}
             preFillData={preFillData as Record<string, unknown> | undefined}
-            externalId={externalId}
-            googleMapsApiKey={googleMapsApiKey}
+            externalId={externalId as string | undefined}
+            googleMapsApiKey={googleMapsApiKey as string | undefined}
             submissionRedirectUrl={submissionRedirectUrl}
             cancelRedirectUrl={cancelRedirectUrl}
-            paymentReceiptUrl={paymentReceiptUrl}
+            paymentReceiptUrl={paymentReceiptUrl as string | undefined}
           />
         </Router>
       </div>
