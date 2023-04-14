@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- `@microsoft/eslint-plugin-sdl` eslint plugin
+
 ### Changed
 
 - Set `abnLookupAuthenticationGuid` using `formsAppConfiguration`
