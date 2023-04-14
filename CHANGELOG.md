@@ -2,9 +2,51 @@
 
 ## [Unreleased]
 
+## [1.3.5] - 2023-04-14
+
 ### Changed
 
 - Set `abnLookupAuthenticationGuid` using `formsAppConfiguration`
+
+### Dependencies
+
+- update [@babel/core](https://www.npmjs.com/package/@babel/core) to [7.21.4](https://github.com/babel/babel/releases/tag/v7.21.4) (from [7.19.3](https://github.com/babel/babel/releases/tag/v7.19.3))
+
+- update [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) to [7.21.4](https://github.com/babel/babel/releases/tag/v7.21.4) (from [7.19.4](https://github.com/babel/babel/releases/tag/v7.19.4))
+
+- update @oneblink/apps to [3.1.1-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [3.0.4](https://github.com/oneblink/apps/releases/tag/v3.0.4))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [2.11.0-beta.9](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [2.10.0-beta.4](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@oneblink/cli](https://www.npmjs.com/package/@oneblink/cli) to [1.3.1](https://github.com/oneblink/cli/releases/tag/v1.3.1) (from [1.1.0](https://github.com/oneblink/cli/releases/tag/1.1.0))
+
+- update [@types/semver](https://www.npmjs.com/package/@types/semver) to 7.3.13 (from 7.3.12)
+
+- update [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) to [5.57.1](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md) (from [5.40.0](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md))
+
+- update [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) to [5.57.1](https://github.com/typescript-eslint/typescript-eslint/blob/master/CHANGELOG.md) (from [5.40.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.40.0))
+
+- update [babel-loader](https://www.npmjs.com/package/babel-loader) to [9.1.2](https://github.com/babel/babel-loader/releases/tag/v9.1.2) (from [8.2.5](https://github.com/babel/babel-loader/releases/tag/v8.2.5))
+
+- update [core-js](https://www.npmjs.com/package/core-js) to [3.30.0](https://github.com/zloirock/core-js/releases/tag/v3.30.0) (from [3.25.5](https://github.com/zloirock/core-js/releases/tag/v3.25.5))
+
+- update [css-loader](https://www.npmjs.com/package/css-loader) to [6.7.3](https://github.com/webpack-contrib/css-loader/releases/tag/v6.7.3) (from [6.7.1](https://github.com/webpack-contrib/css-loader/releases/tag/v6.7.1))
+
+- update [regenerator-runtime](https://www.npmjs.com/package/regenerator-runtime) to 0.13.11 (from 0.13.9)
+
+- update [sass](https://www.npmjs.com/package/sass) to [1.60.0](https://github.com/sass/dart-sass/releases/tag/1.60.0) (from [1.55.0](https://github.com/sass/dart-sass/releases/tag/1.55.0))
+
+- update [sass-loader](https://www.npmjs.com/package/sass-loader) to [13.2.2](https://github.com/webpack-contrib/sass-loader/releases/tag/v13.2.2) (from [13.1.0](https://github.com/webpack-contrib/sass-loader/releases/tag/v13.1.0))
+
+- update [style-loader](https://www.npmjs.com/package/style-loader) to [3.3.2](https://github.com/webpack-contrib/style-loader/releases/tag/v3.3.2) (from [3.3.1](https://github.com/webpack-contrib/style-loader/releases/tag/v3.3.1))
+
+- update [ts-loader](https://www.npmjs.com/package/ts-loader) to [9.4.2](https://github.com/TypeStrong/ts-loader/releases/tag/v9.4.2) (from [9.4.1](https://github.com/TypeStrong/ts-loader/releases/tag/9.4.1))
+
+- update [typescript](https://www.npmjs.com/package/typescript) to 5.0.3 (from 4.8.4)
+
+- update [webpack](https://www.npmjs.com/package/webpack) to 5.77.0 (from 5.74.0)
+
+- update [webpack-cli](https://www.npmjs.com/package/webpack-cli) to [5.0.1](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md) (from [4.10.0](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md))
 
 ## [1.3.4] - 2023-04-02
 
