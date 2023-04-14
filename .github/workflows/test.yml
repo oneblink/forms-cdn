@@ -1,16 +1,23 @@
 name: Test
+
 on: [push]
+
 jobs:
-  #
-  # Tests
-  #
   Test:
-    runs-on: ubuntu-latest
+    name: Test Node.js ${{ matrix.node }} on ${{ matrix.os }}
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node: ['18']
+        os: [ubuntu-latest]
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: ${{ matrix.node }}
       - run: npm install --global npm@8
       - run: npm ci
       - run: npm test
