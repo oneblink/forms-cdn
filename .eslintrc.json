@@ -5,7 +5,8 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "project": "./tsconfig.json"
   },
   "settings": {
     "react": {
@@ -17,6 +18,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:@microsoft/eslint-plugin-sdl/recommended",
     "prettier"
   ],
   "plugins": ["react", "react-hooks", "@typescript-eslint"],

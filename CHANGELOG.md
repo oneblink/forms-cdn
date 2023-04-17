@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- `@microsoft/eslint-plugin-sdl` eslint plugin
+
 ## [1.3.5] - 2023-04-14
 
 ### Changed
