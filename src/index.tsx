@@ -7,6 +7,7 @@ import Form from './form'
 import PaymentReceipt from './PaymentReceipt'
 import 'setimmediate'
 import './styles.scss'
+import { IsOfflineContextProvider } from '@oneblink/apps-react'
 
 window.ONEBLINK_APPS_ENVIRONMENT = __ENVIRONMENT__
 switch (__TENANT__) {
@@ -75,16 +76,18 @@ export function render(options?: Record<string, unknown>): void {
       <div className="oneblink-apps-react-styles">
         {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
         <Router>
-          <Form
-            formId={formId}
-            formsAppId={formsAppId}
-            preFillData={preFillData as Record<string, unknown> | undefined}
-            externalId={externalId as string | undefined}
-            googleMapsApiKey={googleMapsApiKey as string | undefined}
-            submissionRedirectUrl={submissionRedirectUrl}
-            cancelRedirectUrl={cancelRedirectUrl}
-            paymentReceiptUrl={paymentReceiptUrl as string | undefined}
-          />
+          <IsOfflineContextProvider>
+            <Form
+              formId={formId}
+              formsAppId={formsAppId}
+              preFillData={preFillData as Record<string, unknown> | undefined}
+              externalId={externalId as string | undefined}
+              googleMapsApiKey={googleMapsApiKey as string | undefined}
+              submissionRedirectUrl={submissionRedirectUrl}
+              cancelRedirectUrl={cancelRedirectUrl}
+              paymentReceiptUrl={paymentReceiptUrl as string | undefined}
+            />
+          </IsOfflineContextProvider>
         </Router>
       </div>
     </React.StrictMode>,
