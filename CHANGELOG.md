@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- support for receipt generation and server validation based on the form configuration
+
 ## [1.3.14] - 2023-06-05
 
 ### Dependencies

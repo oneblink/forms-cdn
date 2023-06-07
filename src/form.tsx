@@ -79,6 +79,9 @@ function Form({
         const formSubmissionResult = await submissionService.submit({
           formSubmission,
           paymentReceiptUrl,
+          isPendingQueueEnabled: false,
+          shouldRunServerValidation: true,
+          shouldRunExternalIdGeneration: true,
         })
         if (formSubmissionResult.submissionId && formSubmissionResult.payment) {
           return submissionService.executePostSubmissionAction(
@@ -194,6 +197,7 @@ function Form({
           abnLookupAuthenticationGuid={
             formsAppConfiguration.abnLookupAuthenticationGuid
           }
+          isPendingQueueEnabled={false}
         />
       </div>
       <ErrorModal error={submitError} onClose={clearSubmitError} />
