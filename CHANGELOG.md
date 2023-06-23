@@ -2,9 +2,19 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2023-06-23
+
 ### Added
 
 - support for receipt generation and server validation based on the form configuration
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [5.0.0-beta.15](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [4.1.0-beta.8](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [4.0.0-beta.14](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [3.1.0-beta.10](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@oneblink/sdk-core](https://www.npmjs.com/package/@oneblink/sdk-core) to [3.1.0-beta.4](https://github.com/oneblink/sdk-core-js/blob/master/CHANGELOG.md) (from [3.0.0-beta.2](https://github.com/oneblink/sdk-core-js/blob/master/CHANGELOG.md))
 
 ## [1.3.14] - 2023-06-05
 
