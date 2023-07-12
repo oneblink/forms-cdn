@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.4.2] - 2023-07-12
+
+### Dependencies
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [4.2.0-beta.4](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [4.1.0-beta.8](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
 ## [1.4.1] - 2023-07-03
 
 ### Dependencies
