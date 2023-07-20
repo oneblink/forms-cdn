@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { formService, submissionService, formsAppService } from '@oneblink/apps'
+import { formService, submissionService, formsAppService, OneBlinkAppsError } from '@oneblink/apps'
 import { OneBlinkForm } from '@oneblink/apps-react'
 import OnLoading from '@oneblink/apps-react/dist/components/renderer/OnLoading'
 import { useHistory } from 'react-router-dom'
@@ -83,6 +83,16 @@ function Form({
           shouldRunServerValidation: true,
           shouldRunExternalIdGeneration: true,
         })
+        if (
+          formSubmissionResult.isOffline 
+        ) {
+          throw new OneBlinkAppsError(
+            'You cannot submit this form while offline, please try again when connectivity is restored.',
+            {
+              isOffline: true,
+            },
+          )
+        }
         if (formSubmissionResult.submissionId && formSubmissionResult.payment) {
           return submissionService.executePostSubmissionAction(
             formSubmissionResult,
