@@ -14,7 +14,7 @@
     "@oneblink/apps": "^6.0.0-beta.4",
     "@oneblink/apps-react": "^4.3.0-beta.10",
     "@oneblink/cli": "^2.1.0",
-    "@oneblink/sdk-core": "^3.2.0",
+    "@oneblink/sdk-core": "^4.0.0-beta.1",
     "@oneblink/types": "github:oneblink/types",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
