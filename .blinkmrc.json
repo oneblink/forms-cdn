@@ -1,9 +1,5 @@
 {
   "cdn": {
-    "scope": "oneblink-forms.cdn.oneblink.io",
-    "objectParams": {
-      "Expires": 60,
-      "ACL": "public-read"
-    }
+    "scope": "oneblink-forms.cdn.oneblink.io"
   }
 }
