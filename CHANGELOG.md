@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.4.6] - 2023-08-11
+
+### Dependencies
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [5.0.1-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [5.0.0-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
 ## [1.4.5] - 2023-08-10
 
 ### Dependencies
