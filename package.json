@@ -12,7 +12,7 @@
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "@oneblink/apps": "^6.4.0-beta.2",
-    "@oneblink/apps-react": "^5.1.0",
+    "@oneblink/apps-react": "^5.1.4-beta.1",
     "@oneblink/cli": "^3.2.0",
     "@oneblink/sdk-core": "^4.1.0",
     "@oneblink/types": "github:oneblink/types",
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@microsoft/eslint-plugin-sdl": "^0.2.0",
-    "@oneblink/release-cli": "^2.0.3",
+    "@oneblink/release-cli": "^2.1.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^5.0.0",
