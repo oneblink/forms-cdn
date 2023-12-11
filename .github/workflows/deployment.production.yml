@@ -16,11 +16,11 @@ jobs:
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm install --global npm@8
+      - run: npm install --global npm@10
       - run: npm ci
       - run: npm run build
       - run: npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
@@ -38,11 +38,11 @@ jobs:
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm install --global npm@8
+      - run: npm install --global npm@10
       - run: npm ci
       - run: npm run build
       - run: npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
