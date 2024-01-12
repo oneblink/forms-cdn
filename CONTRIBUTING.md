@@ -52,20 +52,14 @@ To run the project locally:
 
 ## Production Release Process
 
-1. Checkout `master`
+1.  Install the release CLI globally
 
-   ```
-   git checkout master
-   ```
+    ```
+    npm i -g @oneblink/release-cli
+    ```
 
-1. Get the latest code
+1.  Start a product release and follow the prompts to release this repository
 
-   ```
-   git pull
-   ```
-
-1. Start the release process using a tag matching `x.x.x`
-
-   ```
-   npm run release
-   ```
+    ```
+    oneblink-release product
+    ```
