@@ -5,9 +5,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { useTenantCivicPlus, useTenantOneBlink } from '@oneblink/apps'
 import Form from './form'
 import PaymentReceipt from './PaymentReceipt'
-import 'setimmediate'
 import './styles.scss'
 import { IsOfflineContextProvider } from '@oneblink/apps-react'
+import PaymentForm from './PaymentForm'
 
 window.ONEBLINK_APPS_ENVIRONMENT = __ENVIRONMENT__
 switch (__TENANT__) {
@@ -35,6 +35,7 @@ export function render(options?: Record<string, unknown>): void {
     submissionRedirectUrl,
     cancelRedirectUrl,
     paymentReceiptUrl,
+    paymentFormUrl,
     externalId,
     googleMapsApiKey,
     preFillData,
@@ -59,6 +60,9 @@ export function render(options?: Record<string, unknown>): void {
     typeof paymentReceiptUrl !== 'string'
   ) {
     throw new TypeError('"options.paymentReceiptUrl" must be a string ')
+  }
+  if (paymentFormUrl !== undefined && typeof paymentFormUrl !== 'string') {
+    throw new TypeError('"options.paymentFormUrl" must be a string ')
   }
   if (externalId !== undefined && typeof externalId !== 'string') {
     throw new TypeError(
@@ -86,6 +90,7 @@ export function render(options?: Record<string, unknown>): void {
               submissionRedirectUrl={submissionRedirectUrl}
               cancelRedirectUrl={cancelRedirectUrl}
               paymentReceiptUrl={paymentReceiptUrl as string | undefined}
+              paymentFormUrl={paymentFormUrl as string | undefined}
             />
           </IsOfflineContextProvider>
         </Router>
@@ -108,7 +113,7 @@ export function renderPaymentReceipt(options?: {
     throw new TypeError('"options.selector" must be a string')
   }
   if (!doneRedirectUrl || typeof doneRedirectUrl !== 'string') {
-    throw new TypeError('"options.doneRedirectUrl" must be a function')
+    throw new TypeError('"options.doneRedirectUrl" must be a string')
   }
   if (!cancelRedirectUrl || typeof cancelRedirectUrl !== 'string') {
     throw new TypeError('"options.cancelRedirectUrl" must be a string ')
@@ -123,6 +128,34 @@ export function renderPaymentReceipt(options?: {
             doneRedirectUrl={doneRedirectUrl}
             cancelRedirectUrl={cancelRedirectUrl}
           />
+        </Router>
+      </div>
+    </React.StrictMode>,
+    document.querySelector(selector),
+  )
+}
+
+export function renderPaymentForm(options?: {
+  selector: string
+  formsAppId: number
+}) {
+  if (!options) {
+    throw new TypeError('"options" must be an object')
+  }
+  const { selector, formsAppId } = options
+  if (typeof selector !== 'string' || !selector) {
+    throw new TypeError('"options.selector" must be a string')
+  }
+  if (typeof formsAppId !== 'number' || Number.isNaN(formsAppId)) {
+    throw new TypeError('"options.formsAppId" must be a number')
+  }
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <div className="oneblink-apps-react-styles">
+        {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
+        <Router>
+          <PaymentForm formsAppId={formsAppId} />
         </Router>
       </div>
     </React.StrictMode>,
