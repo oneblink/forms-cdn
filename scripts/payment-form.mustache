@@ -1,0 +1,17 @@
+<!-- Element to inject OneBlink Payment Form Page into -->
+<div id="oneblink-receipt"></div>
+<!-- Icons required in OneBlink Payment Form Page. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<!-- Script to load window.OneBlinkForms. -->
+<script src="{{scriptUrl}}"></script>
+<!-- Script to inject OneBlink Payment Form Page into HTML element above. -->
+<script>
+  window.addEventListener('load', function () {
+    // See https://github.com/oneblink/forms-cdn for documentation
+    // on all of the options available when rendering a OneBlink Payment Form Page
+    OneBlinkForms.renderPaymentForm({
+      selector: '#oneblink-payment-form',
+      formsAppId: {{formsAppId}},
+    })
+  })
+</script>

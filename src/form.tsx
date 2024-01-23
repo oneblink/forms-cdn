@@ -1,19 +1,26 @@
 import * as React from 'react'
-import { formService, submissionService, formsAppService, OneBlinkAppsError } from '@oneblink/apps'
-import { OneBlinkForm } from '@oneblink/apps-react'
+import {
+  formService,
+  submissionService,
+  formsAppService,
+  OneBlinkAppsError,
+} from '@oneblink/apps'
+import { OneBlinkForm, useLoadDataState } from '@oneblink/apps-react'
 import OnLoading from '@oneblink/apps-react/dist/components/renderer/OnLoading'
 import { useHistory } from 'react-router-dom'
 import ErrorModal from './ErrorModal'
+import { FormsAppsTypes } from '@oneblink/types'
 
 type Props = {
   formId: number
   formsAppId: number
   submissionRedirectUrl: string
   cancelRedirectUrl: string
-  preFillData?: Record<string, unknown>
-  externalId?: string
-  googleMapsApiKey?: string
-  paymentReceiptUrl?: string
+  preFillData: Record<string, unknown> | undefined
+  externalId: string | undefined
+  googleMapsApiKey: string | undefined
+  paymentReceiptUrl: string | undefined
+  paymentFormUrl: string | undefined
 }
 
 const formIsSubmittingContainerStyles: React.CSSProperties = {
@@ -29,25 +36,9 @@ function Form({
   preFillData,
   externalId,
   googleMapsApiKey,
+  paymentFormUrl,
 }: Props) {
   const history = useHistory()
-  const [
-    { isFetching, form, formsAppConfiguration, fetchError },
-    setFetchingState,
-  ] = React.useState({
-    isFetching: true,
-    form: null,
-    formsAppConfiguration: undefined,
-    fetchError: null,
-  })
-  const fetchAgain = React.useCallback(() => {
-    setFetchingState({
-      isFetching: true,
-      form: null,
-      formsAppConfiguration: undefined,
-      fetchError: null,
-    })
-  }, [])
 
   const [{ isSubmitting, submitError }, setSubmittingState] = React.useState({
     isSubmitting: false,
@@ -82,10 +73,9 @@ function Form({
           isPendingQueueEnabled: false,
           shouldRunServerValidation: true,
           shouldRunExternalIdGeneration: true,
+          paymentFormUrl,
         })
-        if (
-          formSubmissionResult.isOffline 
-        ) {
+        if (formSubmissionResult.isOffline) {
           throw new OneBlinkAppsError(
             'You cannot submit this form while offline, please try again when connectivity is restored.',
             {
@@ -116,10 +106,11 @@ function Form({
       }
     },
     [
-      externalId,
       formsAppId,
-      submissionRedirectUrl,
+      externalId,
       paymentReceiptUrl,
+      paymentFormUrl,
+      submissionRedirectUrl,
       history.push,
     ],
   )
@@ -128,42 +119,16 @@ function Form({
     window.location.href = cancelRedirectUrl
   }, [cancelRedirectUrl])
 
-  React.useEffect(() => {
-    if (!isFetching) {
-      return
-    }
+  const loadState = React.useCallback(async () => {
+    return await Promise.all([
+      formService.getForm(formId),
+      formsAppService.getFormsAppConfiguration(formsAppId) as Promise<
+        FormsAppsTypes.FormsAppConfiguration<FormsAppsTypes.FormsListStyles>
+      >,
+    ])
+  }, [formId, formsAppId])
 
-    const fetchForm = async () => {
-      setFetchingState({
-        isFetching: true,
-        fetchError: null,
-        formsAppConfiguration: undefined,
-        form: null,
-      })
-
-      try {
-        const [f, formsAppConfiguration] = await Promise.all([
-          formService.getForm(formId),
-          formsAppService.getFormsAppConfiguration(formsAppId),
-        ])
-        setFetchingState({
-          isFetching: false,
-          fetchError: null,
-          formsAppConfiguration,
-          form: f,
-        })
-      } catch (e) {
-        setFetchingState({
-          isFetching: false,
-          formsAppConfiguration: undefined,
-          fetchError: e,
-          form: null,
-        })
-      }
-    }
-
-    fetchForm()
-  }, [formId, formsAppId, isFetching])
+  const [state, refresh] = useLoadDataState(loadState)
 
   React.useEffect(() => {
     const submitButton = document.querySelector('.ob-button-submit')
@@ -176,21 +141,23 @@ function Form({
     }
   }, [isSubmitting])
 
-  if (isFetching) {
+  if (state.status === 'LOADING') {
     return <OnLoading className="has-text-centered" small />
   }
 
-  if (fetchError) {
+  if (state.status === 'ERROR') {
     return (
       <div className="has-text-centered">
         <h3 className="title is-3">Error Loading Form</h3>
-        <p className="content has-text-danger">{fetchError.message}</p>
-        <button className="button" onClick={fetchAgain}>
+        <p className="content has-text-danger">{state.error.message}</p>
+        <button className="button" onClick={refresh}>
           Try Again
         </button>
       </div>
     )
   }
+
+  const [form, formsAppConfiguration] = state.result
 
   return (
     <>
