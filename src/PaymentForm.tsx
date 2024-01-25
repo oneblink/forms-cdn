@@ -41,6 +41,8 @@ export default function PaymentForm({ formsAppId }: { formsAppId: number }) {
       onCompleted={onCompleted}
       onCancelled={onCompleted}
       captchaSiteKey={state.result.recaptchaPublicKey}
+      appImageUrl={state.result.pwaSettings?.homeScreenIconUrl}
+      title={state.result.pwaSettings?.homeScreenName}
     />
   )
 }
