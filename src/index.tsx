@@ -8,6 +8,7 @@ import PaymentReceipt from './PaymentReceipt'
 import './styles.scss'
 import { IsOfflineContextProvider } from '@oneblink/apps-react'
 import PaymentForm from './PaymentForm'
+import { ModalContainerProvider } from '@oneblink/apps-react/dist/components/renderer/Modal'
 
 window.ONEBLINK_APPS_ENVIRONMENT = __ENVIRONMENT__
 switch (__TENANT__) {
@@ -77,7 +78,7 @@ export function render(options?: Record<string, unknown>): void {
 
   ReactDOM.render(
     <React.StrictMode>
-      <div className="oneblink-apps-react-styles">
+      <ModalContainerProvider className="oneblink-apps-react-styles">
         {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
         <Router>
           <IsOfflineContextProvider>
@@ -94,7 +95,7 @@ export function render(options?: Record<string, unknown>): void {
             />
           </IsOfflineContextProvider>
         </Router>
-      </div>
+      </ModalContainerProvider>
     </React.StrictMode>,
     document.querySelector(selector),
   )
@@ -121,7 +122,7 @@ export function renderPaymentReceipt(options?: {
 
   ReactDOM.render(
     <React.StrictMode>
-      <div className="oneblink-apps-react-styles">
+      <ModalContainerProvider className="oneblink-apps-react-styles">
         {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
         <Router>
           <PaymentReceipt
@@ -129,7 +130,7 @@ export function renderPaymentReceipt(options?: {
             cancelRedirectUrl={cancelRedirectUrl}
           />
         </Router>
-      </div>
+      </ModalContainerProvider>
     </React.StrictMode>,
     document.querySelector(selector),
   )
@@ -152,12 +153,12 @@ export function renderPaymentForm(options?: {
 
   ReactDOM.render(
     <React.StrictMode>
-      <div className="oneblink-apps-react-styles">
+      <ModalContainerProvider className="oneblink-apps-react-styles">
         {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
         <Router>
           <PaymentForm formsAppId={formsAppId} />
         </Router>
-      </div>
+      </ModalContainerProvider>
     </React.StrictMode>,
     document.querySelector(selector),
   )
