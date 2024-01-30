@@ -2,9 +2,21 @@
 
 ## [Unreleased]
 
+## [1.5.0] - 2024-01-30
+
 ### Added
 
 - `renderPaymentForm()` function
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [9.0.0-beta.6](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [8.1.0-beta.2](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [5.7.0-beta.9](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [5.6.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@oneblink/sdk-core](https://www.npmjs.com/package/@oneblink/sdk-core) to [5.3.0-beta.1](https://github.com/oneblink/sdk-core-js/blob/master/CHANGELOG.md) (from [5.2.0-beta.2](https://github.com/oneblink/sdk-core-js/blob/master/CHANGELOG.md))
+
+- no longer depend upon [setimmediate](https://www.npmjs.com/package/setimmediate)
 
 ## [1.4.14] - 2024-01-18
 
