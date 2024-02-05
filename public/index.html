@@ -11,24 +11,36 @@
   <script charset="utf-8" type="text/javascript" src="./configuration.js"></script>
   <script>
     if (typeof window.__DEVELOPMENT_FORM_ID__ !== 'number') {
-      throw new Error('"window.__DEVELOPMENT_FORM_ID__" must be set to run locally. See CONTRIBUTING.md for more details')
+      throw new Error(
+        '"window.__DEVELOPMENT_FORM_ID__" must be set to run locally. See CONTRIBUTING.md for more details',
+      )
     }
     if (typeof window.__DEVELOPMENT_FORMS_APP_ID__ !== 'number') {
-      throw new Error('"window.__DEVELOPMENT_FORMS_APP_ID__" must be set to run locally. See CONTRIBUTING.md for more details')
+      throw new Error(
+        '"window.__DEVELOPMENT_FORMS_APP_ID__" must be set to run locally. See CONTRIBUTING.md for more details',
+      )
     }
     window.addEventListener('load', function (event) {
       OneBlinkForms.render({
         formId: window.__DEVELOPMENT_FORM_ID__,
         formsAppId: window.__DEVELOPMENT_FORMS_APP_ID__,
         selector: '#form',
-        submissionRedirectUrl: window.__DEVELOPMENT_SUBMISSION_REDIRECT_URL__ || 'https://google.com.au',
-        cancelRedirectUrl: window.__DEVELOPMENT_CANCEL_REDIRECT_URL__ || 'https://google.com.au',
-        paymentReceiptUrl: window.__DEVELOPMENT_PAYMENT_RECEIPT_URL__ || `${window.location.origin}/payment-receipt.html`,
-        paymentFormUrl: window.__DEVELOPMENT_PAYMENT_FORM_URL__ || `${window.location.origin}/payment-form.html`,
+        submissionRedirectUrl:
+          window.__DEVELOPMENT_SUBMISSION_REDIRECT_URL__ ||
+          'https://google.com.au',
+        cancelRedirectUrl:
+          window.__DEVELOPMENT_CANCEL_REDIRECT_URL__ ||
+          'https://google.com.au',
+        paymentReceiptUrl:
+          window.__DEVELOPMENT_PAYMENT_RECEIPT_URL__ ||
+          `${window.location.origin}/payment-receipt.html`,
+        paymentFormUrl:
+          window.__DEVELOPMENT_PAYMENT_FORM_URL__ ||
+          `${window.location.origin}/payment-form.html`,
         googleMapsApiKey: window.__DEVELOPMENT_GOOGLE_MAPS_API_KEY__,
         externalId: window.__DEVELOPMENT_EXTERNAL_ID__,
       })
-    });
+    })
   </script>
 
   <style>
@@ -75,9 +87,7 @@
     <div>
       <h1>Best Website Ever!!!</h1>
       <h3>Well, it would be if more people thought it was good...</h3>
-      <button class="button">
-        My .button Class
-      </button>
+      <button class="button">My .button Class</button>
     </div>
   </div>
   <div id="form"></div>
