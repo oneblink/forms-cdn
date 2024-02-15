@@ -22,9 +22,10 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'latest.js',
+    chunkFilename: '[name].chunk.js',
     library: ['OneBlinkForms'],
     libraryTarget: 'umd',
-    publicPath: '/dist/',
+    publicPath: `${process.env.PUBLIC_URL}/`,
   },
   module: {
     rules: [

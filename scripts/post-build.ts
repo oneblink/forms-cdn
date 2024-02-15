@@ -21,9 +21,14 @@ async function run() {
 
   const fileNames = await readdirAsync(distPath)
 
-  console.log('Duplicating files:', fileNames)
+  const nonChunkFileNames = fileNames.filter(
+    (fileName) =>
+      !fileName.endsWith('.chunk.js') &&
+      !fileName.endsWith('.chunk.js.LICENSE.txt'),
+  )
+  console.log('Duplicating files:', nonChunkFileNames)
 
-  for (const fileName of fileNames) {
+  for (const fileName of nonChunkFileNames) {
     const content = await readFileAsync(path.join(distPath, fileName))
 
     const majorFileName = fileName.replace('latest', `${version.major}.x.x`)
