@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- `publicPath` in webpack output
+
 ## [1.5.1] - 2024-02-07
 
 ### Dependencies
