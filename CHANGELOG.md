@@ -2,9 +2,17 @@
 
 ## [Unreleased]
 
+## [1.5.2] - 2024-02-18
+
 ### Changed
 
 - `publicPath` in webpack output
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [10.1.0-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [9.0.0](https://github.com/oneblink/apps/releases/tag/v9.0.0))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [5.9.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [5.8.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.5.1] - 2024-02-07
 
