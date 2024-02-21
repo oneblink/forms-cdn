@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [1.5.3] - 2024-02-21
+
+### Dependencies
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [5.10.0-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [5.9.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update [@oneblink/sdk-core](https://www.npmjs.com/package/@oneblink/sdk-core) to [5.4.0](https://github.com/oneblink/sdk-core-js/releases/tag/v5.4.0) (from [5.3.0](https://github.com/oneblink/sdk-core-js/releases/tag/v5.3.0))
+
 ## [1.5.2] - 2024-02-18
 
 ### Changed
