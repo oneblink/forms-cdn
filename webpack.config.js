@@ -4,6 +4,10 @@ const webpack = require('webpack')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 const dotenv = require('dotenv')
 
+const { parse } = require('semver')
+const pkg = require('./package.json')
+const version = parse(pkg.version)
+
 dotenv.config({
   path: path.join(__dirname, '.env.local'),
 })
@@ -11,7 +15,18 @@ dotenv.config()
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.tsx',
+  entry: {
+    latest: { filename: 'latest.js', import: './src/index.tsx' },
+    major: { filename: `${version.major}.x.x.js`, import: './src/index.tsx' },
+    minor: {
+      filename: `${version.major}.${version.minor}.x.js`,
+      import: './src/index.tsx',
+    },
+    patch: {
+      filename: `${version.major}.${version.minor}.${version.patch}.js`,
+      import: './src/index.tsx',
+    },
+  },
   plugins: [
     new NodePolyfillPlugin(),
     new webpack.DefinePlugin({
@@ -21,11 +36,27 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'latest.js',
-    chunkFilename: '[name].chunk.js',
     library: ['OneBlinkForms'],
+    chunkFilename: `[name].${version.major}.${version.minor}.${version.patch}.js`,
     libraryTarget: 'umd',
     publicPath: `${process.env.PUBLIC_URL}/`,
+  },
+  optimization: {
+    moduleIds: 'deterministic',
+    splitChunks: {
+      cacheGroups: {
+        arcgis: {
+          test: /[\\/]node_modules[\\/]((@arcgis)|(@esri))[\\/]/,
+          name: 'arcgis',
+          chunks: 'all',
+        },
+        vendor: {
+          test: /[\\/]node_modules[\\/](?!(@arcgis)|(@esri))[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
   module: {
     rules: [

@@ -73,7 +73,6 @@
   "scripts": {
     "build": "webpack --mode production",
     "eslint": "eslint --quiet --fix ./src/*.tsx",
-    "postbuild": "ts-node ./scripts/post-build.ts",
     "release": "oneblink-release repository --no-name",
     "start": "webpack serve",
     "test": "npm run eslint && npm run typescript",
