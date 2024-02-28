@@ -40,10 +40,10 @@ module.exports = {
     chunkFilename: `[name].${version.major}.${version.minor}.${version.patch}.js`,
     libraryTarget: 'umd',
     publicPath: `${process.env.PUBLIC_URL}/`,
+    chunkLoadTimeout: 600000,
   },
   optimization: {
     moduleIds: 'deterministic',
-    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         arcgis: {
