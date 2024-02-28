@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- build config to create single arcgis chunk
+
 ## [1.5.3] - 2024-02-21
 
 ### Dependencies
