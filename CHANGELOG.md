@@ -2,9 +2,19 @@
 
 ## [Unreleased]
 
+## [1.5.4] - 2024-03-06
+
 ### Added
 
 - build config to create single arcgis chunk
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [11.0.0-beta.2](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [10.1.0-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [5.11.0-beta.4](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [5.10.0-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- no longer depend upon [@oneblink/sdk-core](https://www.npmjs.com/package/@oneblink/sdk-core)
 
 ## [1.5.3] - 2024-02-21
 
