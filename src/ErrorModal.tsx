@@ -2,6 +2,7 @@ import * as React from 'react'
 import clsx from 'clsx'
 import { OneBlinkAppsError } from '@oneblink/apps'
 import { useBooleanState } from '@oneblink/apps-react'
+import MaterialIcon from '@oneblink/apps-react/dist/components/MaterialIcon'
 import Modal from '@oneblink/apps-react/dist/components/renderer/Modal'
 
 type Props = {
@@ -62,9 +63,9 @@ function ErrorModal({ error, onClose }: Props) {
       <>
         <p>{error.message}</p>
         {displayError.isOffline && (
-          <i className="material-icons has-text-warning icon-x-large">
+          <MaterialIcon className="has-text-warning icon-x-large">
             wifi_off
-          </i>
+          </MaterialIcon>
         )}
         {!!displayError.originalError && isShowingOriginalError && (
           <div className="content has-margin-top-6">
