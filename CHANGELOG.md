@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.5.7] - 2024-04-10
+
+### Dependencies
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [5.12.2-beta.6](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [5.12.1-beta.4](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
 ## [1.5.6] - 2024-03-25
 
 ##### Release Name: Hotfix Reforesting
