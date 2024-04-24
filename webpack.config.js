@@ -100,6 +100,11 @@ module.exports = {
       'react-router-dom$': path.resolve('./node_modules/react-router-dom'),
       '@oneblink/apps$': path.resolve('./node_modules/@oneblink/apps'),
     },
+    fallback: {
+      http: false,
+      https: false,
+      http2: false,
+    },
   },
   devServer: {
     open: true,
