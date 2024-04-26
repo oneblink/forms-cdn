@@ -104,6 +104,7 @@ module.exports = {
       http: false,
       https: false,
       http2: false,
+      'stream/consumers': false,
     },
   },
   devServer: {
