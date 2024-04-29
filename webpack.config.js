@@ -1,7 +1,6 @@
 const path = require('path')
 
 const webpack = require('webpack')
-const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 const dotenv = require('dotenv')
 
 const { parse } = require('semver')
@@ -28,7 +27,6 @@ module.exports = {
     },
   },
   plugins: [
-    new NodePolyfillPlugin(),
     new webpack.DefinePlugin({
       __TENANT__: `'${process.env.TENANT}'`,
       __ENVIRONMENT__: `'${process.env.ENVIRONMENT}'`,
@@ -101,9 +99,13 @@ module.exports = {
       '@oneblink/apps$': path.resolve('./node_modules/@oneblink/apps'),
     },
     fallback: {
+      timers: require.resolve('timers-browserify'),
+      buffer: require.resolve('buffer/'),
+      events: require.resolve('events/'),
       http: false,
       https: false,
       http2: false,
+      stream: false,
     },
   },
   devServer: {
