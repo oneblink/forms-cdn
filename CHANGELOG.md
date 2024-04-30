@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+## [1.5.8] - 2024-04-30
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [11.1.0-beta.14](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [11.0.1-beta.4](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [5.13.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [5.12.2-beta.6](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- no longer depend upon [node-polyfill-webpack-plugin](https://www.npmjs.com/package/node-polyfill-webpack-plugin)
+
+- depend upon [buffer](https://www.npmjs.com/package/buffer) 6.0.3
+
+- depend upon [events](https://www.npmjs.com/package/events) [3.3.0](https://github.com/browserify/events/releases/tag/v3.3.0)
+
+- depend upon [timers-browserify](https://www.npmjs.com/package/timers-browserify) [2.0.12](https://github.com/jryans/timers-browserify/blob/master/CHANGELOG.md)
+
 ## [1.5.7] - 2024-04-10
 
 ### Dependencies
