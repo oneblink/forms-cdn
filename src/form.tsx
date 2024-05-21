@@ -62,8 +62,6 @@ function Form({
           ...newFormSubmission,
           formsAppId,
           externalId,
-          formSubmissionDraftId: null,
-          jobId: null,
           preFillFormDataId: null,
         }
 
