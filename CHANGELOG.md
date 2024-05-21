@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.5.11] - 2024-05-21
+
 ### Fixed
 
 - form submissions passing `formSubmissionDraftId` and `jobId` as `null` instead of `undefined`
