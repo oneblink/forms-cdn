@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- form submissions passing `formSubmissionDraftId` and `jobId` as `null` instead of `undefined`
+
 ## [1.5.10] - 2024-05-20
 
 ### Dependencies
