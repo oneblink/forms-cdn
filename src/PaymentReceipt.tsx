@@ -14,7 +14,10 @@ export default function PaymentReceipt({
   const onDone = React.useCallback(
     async (submissionResult: submissionService.FormSubmissionResult) => {
       const url = new URL(doneRedirectUrl)
-      url.searchParams.append('submissionId', submissionResult.submissionId)
+      url.searchParams.append(
+        'submissionId',
+        submissionResult.submissionId || '',
+      )
       window.location.href = url.href
     },
     [doneRedirectUrl],
