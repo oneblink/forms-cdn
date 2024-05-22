@@ -5,7 +5,10 @@
 ### Added
 
 - `strict` type checking
-- `googleMapsApiKey` from forms app config used if google map api key had not been set in options
+
+### Changed
+
+- Use `googleMapsApiKey` from forms app config if no key is passed in
 
 ## [1.5.11] - 2024-05-21
 
