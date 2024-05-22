@@ -18,7 +18,7 @@ type Props = {
   cancelRedirectUrl: string
   preFillData: Record<string, unknown> | undefined
   externalId: string | undefined
-  googleMapsApiKey: string | undefined
+  optionsGoogleMapsApiKey: string | undefined
   paymentReceiptUrl: string | undefined
   paymentFormUrl: string | undefined
 }
@@ -35,7 +35,7 @@ function Form({
   paymentReceiptUrl,
   preFillData,
   externalId,
-  googleMapsApiKey,
+  optionsGoogleMapsApiKey,
   paymentFormUrl,
 }: Props) {
   const history = useHistory()
@@ -159,6 +159,8 @@ function Form({
   }
 
   const [form, formsAppConfiguration] = state.result
+  const googleMapsApiKey =
+    optionsGoogleMapsApiKey || formsAppConfiguration.googleMapsApiKey
 
   return (
     <>

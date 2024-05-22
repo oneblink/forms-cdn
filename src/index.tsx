@@ -87,7 +87,7 @@ export function render(options?: Record<string, unknown>): void {
               formsAppId={formsAppId}
               preFillData={preFillData as Record<string, unknown> | undefined}
               externalId={externalId as string | undefined}
-              googleMapsApiKey={googleMapsApiKey as string | undefined}
+              optionsGoogleMapsApiKey={googleMapsApiKey as string | undefined}
               submissionRedirectUrl={submissionRedirectUrl}
               cancelRedirectUrl={cancelRedirectUrl}
               paymentReceiptUrl={paymentReceiptUrl as string | undefined}
