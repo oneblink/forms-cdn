@@ -40,7 +40,10 @@ function Form({
 }: Props) {
   const history = useHistory()
 
-  const [{ isSubmitting, submitError }, setSubmittingState] = React.useState({
+  const [{ isSubmitting, submitError }, setSubmittingState] = React.useState<{
+    isSubmitting: boolean
+    submitError: Error | null
+  }>({
     isSubmitting: false,
     submitError: null,
   })
@@ -91,7 +94,7 @@ function Form({
         const url = new URL(submissionRedirectUrl)
         url.searchParams.append(
           'submissionId',
-          formSubmissionResult.submissionId,
+          formSubmissionResult.submissionId || '',
         )
 
         window.location.href = url.href
@@ -99,7 +102,7 @@ function Form({
         console.error('An error has occurred while attempting to submit: ', e)
         setSubmittingState({
           isSubmitting: false,
-          submitError: e,
+          submitError: e as Error,
         })
       }
     },
