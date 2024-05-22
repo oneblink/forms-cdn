@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- `strict` type checking
+
 ## [1.5.11] - 2024-05-21
 
 ### Fixed
