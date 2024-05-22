@@ -35,7 +35,7 @@ function Form({
   paymentReceiptUrl,
   preFillData,
   externalId,
-  googleMapsApiKey,
+  googleMapsApiKey: optionsGoogleMapsApiKey,
   paymentFormUrl,
 }: Props) {
   const history = useHistory()
@@ -159,6 +159,8 @@ function Form({
   }
 
   const [form, formsAppConfiguration] = state.result
+  const googleMapsApiKey =
+    optionsGoogleMapsApiKey || formsAppConfiguration.googleMapsApiKey
 
   return (
     <>

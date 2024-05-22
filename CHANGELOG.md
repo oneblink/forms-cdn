@@ -6,6 +6,10 @@
 
 - `strict` type checking
 
+### Changed
+
+- Use `googleMapsApiKey` from forms app config if no key is passed in
+
 ## [1.5.11] - 2024-05-21
 
 ### Fixed
