@@ -17,7 +17,6 @@ To run the project locally:
    // The following are optional as they have defaults in "index.html"
    // window.__DEVELOPMENT_SUBMISSION_REDIRECT_URL__ = ''
    // window.__DEVELOPMENT_CANCEL_REDIRECT_URL__ = ''
-   // window.__DEVELOPMENT_GOOGLE_MAPS_API_KEY__ = ''
    // window.__DEVELOPMENT_EXTERNAL_ID__ = ''
    // window.__DEVELOPMENT_PRE_FILL_DATA__ = {}
    ```
