@@ -4,11 +4,11 @@
 
 ### Added
 
-- `strict` type checking
+- Google Maps API Key will now be inherited from the Forms App used to render the form via the `formsAppId` option. The `googleMapsApiKey` option in `OneBlinkForms.render()` function has been **Deprecated** but can still be passed in to allow for backward compatibility. The `googleMapsApiKey` option may be removed in a future release.
 
-### Changed
+### Fixed
 
-- Use `googleMapsApiKey` from forms app config if no key is passed in
+- typescript errors not being reported, change `strict` type checking to `true`.
 
 ## [1.5.11] - 2024-05-21
 

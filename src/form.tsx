@@ -18,6 +18,7 @@ type Props = {
   cancelRedirectUrl: string
   preFillData: Record<string, unknown> | undefined
   externalId: string | undefined
+  /** @deprecated `googleMapsApiKey` is now inherited from the Forms App Google Maps API Key integration */
   googleMapsApiKey: string | undefined
   paymentReceiptUrl: string | undefined
   paymentFormUrl: string | undefined
