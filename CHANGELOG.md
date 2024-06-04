@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.6.0] - 2024-06-04
+
 ### Added
 
 - Google Maps API Key will now be inherited from the Forms App used to render the form via the `formsAppId` option. The `googleMapsApiKey` option in `OneBlinkForms.render()` function has been **Deprecated** but can still be passed in to allow for backward compatibility. The `googleMapsApiKey` option may be removed in a future release.
@@ -9,6 +11,12 @@
 ### Fixed
 
 - typescript errors not being reported, change `strict` type checking to `true`.
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [12.0.1-beta.6](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [12.0.0-beta.16](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [6.1.0-beta.10](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [6.0.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.5.11] - 2024-05-21
 
