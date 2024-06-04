@@ -14,7 +14,6 @@ jobs:
     env:
       TENANT: 'oneblink'
       ENVIRONMENT: 'test'
-      PUBLIC_URL: https://oneblink-forms-test.cdn.oneblink.io
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
     steps:
@@ -37,7 +36,6 @@ jobs:
     env:
       TENANT: 'civicplus'
       ENVIRONMENT: 'test'
-      PUBLIC_URL: https://civicplus-forms-test.cdn.transform.civicplus.com
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
     steps:

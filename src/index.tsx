@@ -1,4 +1,3 @@
-import './polyfills'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -10,8 +9,9 @@ import { IsOfflineContextProvider } from '@oneblink/apps-react'
 import PaymentForm from './PaymentForm'
 import { ModalContainerProvider } from '@oneblink/apps-react/dist/components/renderer/Modal'
 
-window.ONEBLINK_APPS_ENVIRONMENT = __ENVIRONMENT__
-switch (__TENANT__) {
+window.ONEBLINK_APPS_ENVIRONMENT =
+  import.meta.env.VITE_ONEBLINK_APPS_ENVIRONMENT
+switch (import.meta.env.VITE_ONEBLINK_APPS_TENANT) {
   case 'civicplus': {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useTenantCivicPlus()
