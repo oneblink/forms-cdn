@@ -4,3 +4,4 @@ scripts/release.sh
 .eslintcache
 .env.local
 public/configuration.js
+.webpack
