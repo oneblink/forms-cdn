@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- `token` option to allow for authenticated forms to be submitted
+
 ## [1.6.4] - 2024-07-10
 
 ### Dependencies

@@ -2,7 +2,11 @@ import './polyfills'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { useTenantCivicPlus, useTenantOneBlink } from '@oneblink/apps'
+import {
+  authService,
+  useTenantCivicPlus,
+  useTenantOneBlink,
+} from '@oneblink/apps'
 import Form from './form'
 import PaymentReceipt from './PaymentReceipt'
 import './styles.scss'
@@ -40,6 +44,7 @@ export function render(options?: Record<string, unknown>): void {
     externalId,
     googleMapsApiKey,
     preFillData,
+    token,
   } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
@@ -75,6 +80,11 @@ export function render(options?: Record<string, unknown>): void {
       '"options.googleMapsApiKey" must be a string or not supplied ',
     )
   }
+  if (token !== undefined && typeof token !== 'string') {
+    throw new TypeError('"options.token" must be a string or not supplied ')
+  }
+
+  authService.setFormsKeyToken(token)
 
   ReactDOM.render(
     <React.StrictMode>
@@ -86,12 +96,12 @@ export function render(options?: Record<string, unknown>): void {
               formId={formId}
               formsAppId={formsAppId}
               preFillData={preFillData as Record<string, unknown> | undefined}
-              externalId={externalId as string | undefined}
-              googleMapsApiKey={googleMapsApiKey as string | undefined}
+              externalId={externalId}
+              googleMapsApiKey={googleMapsApiKey}
               submissionRedirectUrl={submissionRedirectUrl}
               cancelRedirectUrl={cancelRedirectUrl}
-              paymentReceiptUrl={paymentReceiptUrl as string | undefined}
-              paymentFormUrl={paymentFormUrl as string | undefined}
+              paymentReceiptUrl={paymentReceiptUrl}
+              paymentFormUrl={paymentFormUrl}
             />
           </IsOfflineContextProvider>
         </Router>
@@ -105,11 +115,12 @@ export function renderPaymentReceipt(options?: {
   selector: string
   doneRedirectUrl: string
   cancelRedirectUrl: string
+  token?: string
 }) {
   if (!options) {
     throw new TypeError('"options" must be an object')
   }
-  const { selector, doneRedirectUrl, cancelRedirectUrl } = options
+  const { selector, doneRedirectUrl, cancelRedirectUrl, token } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
   }
@@ -119,6 +130,11 @@ export function renderPaymentReceipt(options?: {
   if (!cancelRedirectUrl || typeof cancelRedirectUrl !== 'string') {
     throw new TypeError('"options.cancelRedirectUrl" must be a string ')
   }
+  if (token !== undefined && typeof token !== 'string') {
+    throw new TypeError('"options.token" must be a string or not supplied ')
+  }
+
+  authService.setFormsKeyToken(token)
 
   ReactDOM.render(
     <React.StrictMode>
@@ -139,17 +155,23 @@ export function renderPaymentReceipt(options?: {
 export function renderPaymentForm(options?: {
   selector: string
   formsAppId: number
+  token?: string
 }) {
   if (!options) {
     throw new TypeError('"options" must be an object')
   }
-  const { selector, formsAppId } = options
+  const { selector, formsAppId, token } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
   }
   if (typeof formsAppId !== 'number' || Number.isNaN(formsAppId)) {
     throw new TypeError('"options.formsAppId" must be a number')
   }
+  if (token !== undefined && typeof token !== 'string') {
+    throw new TypeError('"options.token" must be a string or not supplied ')
+  }
+
+  authService.setFormsKeyToken(token)
 
   ReactDOM.render(
     <React.StrictMode>
