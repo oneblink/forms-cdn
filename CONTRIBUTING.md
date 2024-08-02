@@ -19,6 +19,7 @@ To run the project locally:
    // window.__DEVELOPMENT_CANCEL_REDIRECT_URL__ = ''
    // window.__DEVELOPMENT_EXTERNAL_ID__ = ''
    // window.__DEVELOPMENT_PRE_FILL_DATA__ = {}
+   // window.__DEVELOPMENT_TOKEN__ = '' // Set this for authenticated forms
    ```
 
 1. Optionally create a `.env.local` file in the root of the project to override the values set in `.env`
