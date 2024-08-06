@@ -61,9 +61,6 @@ function Form({
     })
   }, [])
 
-  const [formNotPublishedError, setFormNotPublishedError] =
-    React.useState<string>()
-
   const handleSubmit = React.useCallback(
     async (newFormSubmission: submissionService.NewFormSubmission) => {
       try {
@@ -159,7 +156,7 @@ function Form({
     return []
   }, [state])
 
-  React.useEffect(() => {
+  const formNotPublishedError = React.useMemo(() => {
     if (!form) {
       return
     }
@@ -170,9 +167,7 @@ function Form({
     const now = new Date()
     // If now is before startDate or after endDate
     if ((startDate && now < startDate) || (endDate && now > endDate)) {
-      setFormNotPublishedError(
-        sanitizeHtml(form.unpublishedUserMessage || defaultUnpublishedHTML),
-      )
+      return sanitizeHtml(form.unpublishedUserMessage || defaultUnpublishedHTML)
     }
   }, [form])
 
