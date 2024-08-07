@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- support for form publish dates
+
 ## [1.7.0] - 2024-08-07
 
 ### Added
