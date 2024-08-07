@@ -6,6 +6,7 @@ import {
   OneBlinkAppsError,
 } from '@oneblink/apps'
 import { OneBlinkForm, useLoadDataState } from '@oneblink/apps-react'
+import sanitizeHtml from '@oneblink/apps-react/dist/services/sanitize-html'
 import OnLoading from '@oneblink/apps-react/dist/components/renderer/OnLoading'
 import { useHistory } from 'react-router-dom'
 import ErrorModal from './ErrorModal'
@@ -27,6 +28,11 @@ type Props = {
 const formIsSubmittingContainerStyles: React.CSSProperties = {
   opacity: 0.7,
 }
+
+const defaultUnpublishedHTML = `
+<p style="font-size:1.5em">Form Unavailable</p>
+<p>This form is currently unpublished.</p>
+`
 
 function Form({
   formId,
@@ -143,6 +149,28 @@ function Form({
     }
   }, [isSubmitting])
 
+  const [form, formsAppConfiguration] = React.useMemo(() => {
+    if (state.status === 'SUCCESS') {
+      return state.result
+    }
+    return []
+  }, [state])
+
+  const formNotPublishedError = React.useMemo(() => {
+    if (!form) {
+      return
+    }
+    const startDate = form.publishStartDate
+      ? new Date(form.publishStartDate)
+      : null
+    const endDate = form.publishEndDate ? new Date(form.publishEndDate) : null
+    const now = new Date()
+    // If now is before startDate or after endDate
+    if ((startDate && now < startDate) || (endDate && now > endDate)) {
+      return sanitizeHtml(form.unpublishedUserMessage || defaultUnpublishedHTML)
+    }
+  }, [form])
+
   if (state.status === 'LOADING') {
     return <OnLoading className="has-text-centered" small />
   }
@@ -159,7 +187,18 @@ function Form({
     )
   }
 
-  const [form, formsAppConfiguration] = state.result
+  if (formNotPublishedError || !form || !formsAppConfiguration) {
+    return (
+      <div
+        className="ob-form-unpublished-user-message__content ql-editor"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: formNotPublishedError || defaultUnpublishedHTML,
+        }}
+      ></div>
+    )
+  }
+
   const googleMapsApiKey =
     optionsGoogleMapsApiKey || formsAppConfiguration.googleMapsApiKey
 
