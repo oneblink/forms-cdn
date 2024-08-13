@@ -2,9 +2,17 @@
 
 ## [Unreleased]
 
+## [1.8.0] - 2024-08-13
+
 ### Added
 
 - support for form publish dates
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [14.1.0-beta.2](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [14.0.1-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [6.3.0-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [6.2.3-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.7.0] - 2024-08-07
 
