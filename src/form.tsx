@@ -127,14 +127,25 @@ function Form({
     window.location.href = cancelRedirectUrl
   }, [cancelRedirectUrl])
 
-  const loadState = React.useCallback(async () => {
-    return await Promise.all([
-      formService.getForm(formId),
-      formsAppService.getFormsAppConfiguration(formsAppId) as Promise<
-        FormsAppsTypes.FormsAppConfiguration<FormsAppsTypes.FormsListStyles>
-      >,
-    ])
-  }, [formId, formsAppId])
+  const loadState = React.useCallback(
+    async (abortSignal: AbortSignal) => {
+      return await Promise.all([
+        formService.getForm({
+          formId,
+          abortSignal,
+          formsAppId: undefined,
+          formSlug: undefined,
+        }),
+        formsAppService.getFormsAppConfiguration(
+          formsAppId,
+          abortSignal,
+        ) as Promise<
+          FormsAppsTypes.FormsAppConfiguration<FormsAppsTypes.FormsListStyles>
+        >,
+      ])
+    },
+    [formId, formsAppId],
+  )
 
   const [state, refresh] = useLoadDataState(loadState)
 
