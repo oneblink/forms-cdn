@@ -41,6 +41,8 @@ export default function PaymentForm({ formsAppId }: { formsAppId: number }) {
       onCompleted={onCompleted}
       onCancelled={onCompleted}
       captchaSiteKey={state.result.recaptchaPublicKey}
+      //@ts-expect-error TODO: Update apps-react when merged
+      captchaType={state.result.recaptchaKeyType}
       appImageUrl={state.result.pwaSettings?.homeScreenIconUrl}
       title={state.result.pwaSettings?.homeScreenName}
     />

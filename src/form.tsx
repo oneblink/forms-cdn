@@ -222,6 +222,8 @@ function Form({
           onSubmit={handleSubmit}
           initialSubmission={preFillData}
           captchaSiteKey={formsAppConfiguration.recaptchaPublicKey}
+          //@ts-expect-error TODO: Update apps-react when merged
+          captchaType={formsAppConfiguration.recaptchaKeyType}
           googleMapsApiKey={googleMapsApiKey}
           disabled={isSubmitting}
           buttons={formsAppConfiguration.styles.buttons}

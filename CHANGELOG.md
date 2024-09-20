@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- `recaptchaKeyType` to be passed into form
+
 ## [1.8.2] - 2024-09-03
 
 ### Dependencies
