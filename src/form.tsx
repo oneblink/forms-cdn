@@ -222,6 +222,7 @@ function Form({
           onSubmit={handleSubmit}
           initialSubmission={preFillData}
           captchaSiteKey={formsAppConfiguration.recaptchaPublicKey}
+          captchaType={formsAppConfiguration.recaptchaKeyType}
           googleMapsApiKey={googleMapsApiKey}
           disabled={isSubmitting}
           buttons={formsAppConfiguration.styles.buttons}
