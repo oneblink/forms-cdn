@@ -2,9 +2,17 @@
 
 ## [Unreleased]
 
+## [1.8.4] - 2024-09-30
+
 ### Added
 
 - `recaptchaKeyType` to be passed into form
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [16.1.0-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [16.0.0-beta.2](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [6.7.0-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [6.6.0-beta.7](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.8.3] - 2024-09-25
 
