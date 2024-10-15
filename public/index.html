@@ -31,9 +31,11 @@
         cancelRedirectUrl:
           window.__DEVELOPMENT_CANCEL_REDIRECT_URL__ ||
           'https://google.com.au',
+        // "paymentReceiptUrl" is only required with payments
         paymentReceiptUrl:
           window.__DEVELOPMENT_PAYMENT_RECEIPT_URL__ ||
           `${window.location.origin}/payment-receipt.html`,
+        // "paymentFormUrl" is only required with payments
         paymentFormUrl:
           window.__DEVELOPMENT_PAYMENT_FORM_URL__ ||
           `${window.location.origin}/payment-form.html`,

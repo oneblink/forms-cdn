@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Payment parameter comments to `index.html`
+
 ## [1.8.5] - 2024-10-08
 
 ### Dependencies
