@@ -230,6 +230,7 @@ function Form({
             formsAppConfiguration.abnLookupAuthenticationGuid
           }
           isPendingQueueEnabled={false}
+          shouldUseNavigableValidationErrorsNotification={false}
         />
       </div>
       <ErrorModal error={submitError} onClose={clearSubmitError} />
