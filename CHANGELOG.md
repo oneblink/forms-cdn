@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Payment parameter comments to `form.mustache`
+
 ## [1.8.6] - 2024-10-20
 
 ### Dependencies
