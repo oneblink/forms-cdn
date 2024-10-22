@@ -1,7 +1,7 @@
 {
   "name": "forms-cdn",
   "description": "Project to serve via CDN to embed a OneBlink Form in your website.",
-  "version": "1.8.6-test.2",
+  "version": "1.8.6",
   "author": "OneBlink <developers@oneblink.io> (https://oneblink.io)",
   "browserslist": "> 0.25%, not dead, safari >= 11, ios_saf >= 11, ie >= 11",
   "bugs": {
@@ -12,7 +12,7 @@
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "@oneblink/apps": "^16.1.0",
-    "@oneblink/apps-react": "^6.9.0-beta.5",
+    "@oneblink/apps-react": "^6.9.0-beta.13",
     "@oneblink/cli": "^3.5.1",
     "@types/react": "^17.0.73",
     "@types/react-dom": "^17.0.25",
