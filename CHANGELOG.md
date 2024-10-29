@@ -2,9 +2,17 @@
 
 ## [Unreleased]
 
+## [1.8.7] - 2024-10-29
+
 ### Added
 
 - Payment parameter comments to `form.mustache`
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [17.0.0-beta.2](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [16.1.0](https://github.com/oneblink/apps/releases/tag/v16.1.0))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [6.9.1-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [6.9.0-beta.13](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.8.6] - 2024-10-20
 
