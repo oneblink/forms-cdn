@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Added
+
+- `renderCalendarBookingForm()` function
+- `renderCalendarBookingRescheduleForm()` function
+- `renderCalendarBookingCancelForm()` function
+
 ## [1.8.8] - 2024-11-13
 
 ### Dependencies
