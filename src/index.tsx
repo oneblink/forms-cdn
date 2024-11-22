@@ -13,6 +13,9 @@ import './styles.scss'
 import { IsOfflineContextProvider } from '@oneblink/apps-react'
 import PaymentForm from './PaymentForm'
 import { ModalContainerProvider } from '@oneblink/apps-react/dist/components/renderer/Modal'
+import CalendarBookingForm from './CalendarBookingForm'
+import CalendarBookingRescheduleForm from './CalendarBookingRescheduleForm'
+import CalendarBookingCancelForm from './CalendarBookingCancelForm'
 
 window.ONEBLINK_APPS_ENVIRONMENT = __ENVIRONMENT__
 switch (__TENANT__) {
@@ -41,6 +44,9 @@ export function render(options?: Record<string, unknown>): void {
     cancelRedirectUrl,
     paymentReceiptUrl,
     paymentFormUrl,
+    calendarBookingFormUrl,
+    calendarBookingRescheduleFormUrl,
+    calendarBookingCancelFormUrl,
     externalId,
     googleMapsApiKey,
     preFillData,
@@ -69,6 +75,40 @@ export function render(options?: Record<string, unknown>): void {
   }
   if (paymentFormUrl !== undefined && typeof paymentFormUrl !== 'string') {
     throw new TypeError('"options.paymentFormUrl" must be a string ')
+  }
+  if (
+    calendarBookingFormUrl !== undefined &&
+    typeof calendarBookingFormUrl !== 'string'
+  ) {
+    throw new TypeError('"options.calendarBookingFormUrl" must be a string')
+  }
+  if (
+    calendarBookingRescheduleFormUrl !== undefined &&
+    typeof calendarBookingRescheduleFormUrl !== 'string'
+  ) {
+    throw new TypeError(
+      '"options.calendarBookingRescheduleFormUrl" must be a string',
+    )
+  }
+  if (
+    calendarBookingCancelFormUrl !== undefined &&
+    typeof calendarBookingCancelFormUrl !== 'string'
+  ) {
+    throw new TypeError(
+      '"options.calendarBookingCancelFormUrl" must be a string',
+    )
+  }
+  if (calendarBookingFormUrl) {
+    if (!calendarBookingRescheduleFormUrl) {
+      throw new TypeError(
+        '"options.calendarBookingRescheduleFormUrl" must be supplied when supplying "options.calendarBookingFormUrl"',
+      )
+    }
+    if (!calendarBookingCancelFormUrl) {
+      throw new TypeError(
+        '"options.calendarBookingCancelFormUrl" must be supplied when supplying "options.calendarBookingFormUrl"',
+      )
+    }
   }
   if (externalId !== undefined && typeof externalId !== 'string') {
     throw new TypeError(
@@ -102,6 +142,11 @@ export function render(options?: Record<string, unknown>): void {
               cancelRedirectUrl={cancelRedirectUrl}
               paymentReceiptUrl={paymentReceiptUrl}
               paymentFormUrl={paymentFormUrl}
+              calendarBookingFormUrl={calendarBookingFormUrl}
+              calendarBookingRescheduleFormUrl={
+                calendarBookingRescheduleFormUrl
+              }
+              calendarBookingCancelFormUrl={calendarBookingCancelFormUrl}
             />
           </IsOfflineContextProvider>
         </Router>
@@ -139,13 +184,10 @@ export function renderPaymentReceipt(options?: {
   ReactDOM.render(
     <React.StrictMode>
       <ModalContainerProvider className="oneblink-apps-react-styles">
-        {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
-        <Router>
-          <PaymentReceipt
-            doneRedirectUrl={doneRedirectUrl}
-            cancelRedirectUrl={cancelRedirectUrl}
-          />
-        </Router>
+        <PaymentReceipt
+          doneRedirectUrl={doneRedirectUrl}
+          cancelRedirectUrl={cancelRedirectUrl}
+        />
       </ModalContainerProvider>
     </React.StrictMode>,
     document.querySelector(selector),
@@ -176,10 +218,74 @@ export function renderPaymentForm(options?: {
   ReactDOM.render(
     <React.StrictMode>
       <ModalContainerProvider className="oneblink-apps-react-styles">
-        {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
-        <Router>
-          <PaymentForm formsAppId={formsAppId} />
-        </Router>
+        <PaymentForm formsAppId={formsAppId} />
+      </ModalContainerProvider>
+    </React.StrictMode>,
+    document.querySelector(selector),
+  )
+}
+
+export function renderCalendarBookingForm(options?: {
+  selector: string
+  doneRedirectUrl: string
+}) {
+  if (!options) {
+    throw new TypeError('"options" must be an object')
+  }
+  const { selector, doneRedirectUrl } = options
+  if (typeof selector !== 'string' || !selector) {
+    throw new TypeError('"options.selector" must be a string')
+  }
+  if (typeof doneRedirectUrl !== 'string' || !doneRedirectUrl) {
+    throw new TypeError('"options.doneRedirectUrl" must be a string')
+  }
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <ModalContainerProvider className="oneblink-apps-react-styles">
+        <CalendarBookingForm doneRedirectUrl={doneRedirectUrl} />
+      </ModalContainerProvider>
+    </React.StrictMode>,
+    document.querySelector(selector),
+  )
+}
+
+export function renderCalendarBookingRescheduleForm(options?: {
+  selector: string
+}) {
+  if (!options) {
+    throw new TypeError('"options" must be an object')
+  }
+  const { selector } = options
+  if (typeof selector !== 'string' || !selector) {
+    throw new TypeError('"options.selector" must be a string')
+  }
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <ModalContainerProvider className="oneblink-apps-react-styles">
+        <CalendarBookingRescheduleForm />
+      </ModalContainerProvider>
+    </React.StrictMode>,
+    document.querySelector(selector),
+  )
+}
+
+export function renderCalendarBookingCancelForm(options?: {
+  selector: string
+}) {
+  if (!options) {
+    throw new TypeError('"options" must be an object')
+  }
+  const { selector } = options
+  if (typeof selector !== 'string' || !selector) {
+    throw new TypeError('"options.selector" must be a string')
+  }
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <ModalContainerProvider className="oneblink-apps-react-styles">
+        <CalendarBookingCancelForm />
       </ModalContainerProvider>
     </React.StrictMode>,
     document.querySelector(selector),
