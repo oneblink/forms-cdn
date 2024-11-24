@@ -141,3 +141,113 @@ The script to include comes in a few different ways to allow you to choose the u
 | ------------ | -------- | -------- | ------------------------------------------------------------------------ |
 | `selector`   | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside |
 | `formsAppId` | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from    |
+
+## Example - Calendar Booking Form Page
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Must include Material Icons which are used by Form -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <!-- OneBlink -->
+    <script src="https://oneblink-forms.cdn.oneblink.io/{version}.js"></script>
+
+    <!-- CivicPlus -->
+    <script src="https://civicplus-forms.cdn.transform.civicplus.com/{version}.js"></script>
+
+    <script>
+      window.addEventListener('load', function (event) {
+        OneBlinkForms.renderCalendarBookingForm({
+          selector: '#oneblink-booking-form',
+          doneRedirectUrl: 'https://example.com/done',
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="oneblink-booking-form"></div>
+  </body>
+</html>
+```
+
+| Property          | Type     | Required | Description                                                                     |
+| ----------------- | -------- | -------- | ------------------------------------------------------------------------------- |
+| `selector`        | `string` | Yes      | The selector to find a HTML Element to render the booking form inside           |
+| `doneRedirectUrl` | `string` | Yes      | The URL to redirect the user once they click 'Done' on the booking receipt page |
+
+## Example - Calendar Booking Cancel Form Page
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Must include Material Icons which are used by Form -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <!-- OneBlink -->
+    <script src="https://oneblink-forms.cdn.oneblink.io/{version}.js"></script>
+
+    <!-- CivicPlus -->
+    <script src="https://civicplus-forms.cdn.transform.civicplus.com/{version}.js"></script>
+
+    <script>
+      window.addEventListener('load', function (event) {
+        OneBlinkForms.renderCalendarBookingCancelForm({
+          selector: '#oneblink-cancel-booking-form',
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="oneblink-cancel-booking-form"></div>
+  </body>
+</html>
+```
+
+| Property   | Type     | Required | Description                                                                  |
+| ---------- | -------- | -------- | ---------------------------------------------------------------------------- |
+| `selector` | `string` | Yes      | The selector to find a HTML Element to render the cancel booking form inside |
+
+## Example - Calendar Booking Reschedule Form Page
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Must include Material Icons which are used by Form -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <!-- OneBlink -->
+    <script src="https://oneblink-forms.cdn.oneblink.io/{version}.js"></script>
+
+    <!-- CivicPlus -->
+    <script src="https://civicplus-forms.cdn.transform.civicplus.com/{version}.js"></script>
+
+    <script>
+      window.addEventListener('load', function (event) {
+        OneBlinkForms.renderCalendarBookingRescheduleForm({
+          selector: '#oneblink-reschedule-booking-form',
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="oneblink-reschedule-booking-form"></div>
+  </body>
+</html>
+```
+
+| Property   | Type     | Required | Description                                                                      |
+| ---------- | -------- | -------- | -------------------------------------------------------------------------------- |
+| `selector` | `string` | Yes      | The selector to find a HTML Element to render the reschedule booking form inside |
