@@ -1,0 +1,16 @@
+<!-- Element to inject OneBlink Calendar Booking Reschedule Form into -->
+<div id="oneblink-calendar-booking-reschedule-form"></div>
+<!-- Icons required in OneBlink Calendar Booking Reschedule Form. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<!-- Script to load window.OneBlinkForms. -->
+<script src="{{scriptUrl}}"></script>
+<!-- Script to inject OneBlink Calendar Booking Reschedule Form into HTML element above. -->
+<script>
+  window.addEventListener('load', function () {
+    // See https://github.com/oneblink/forms-cdn for documentation
+    // on all of the options available when rendering a OneBlink Calendar Booking Reschedule Form
+    OneBlinkForms.renderCalendarBookingRescheduleForm({
+      selector: '#oneblink-calendar-booking-reschedule-form',
+    })
+  })
+</script>

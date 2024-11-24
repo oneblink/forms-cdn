@@ -23,6 +23,9 @@ type Props = {
   googleMapsApiKey: string | undefined
   paymentReceiptUrl: string | undefined
   paymentFormUrl: string | undefined
+  calendarBookingFormUrl: string | undefined
+  calendarBookingRescheduleFormUrl: string | undefined
+  calendarBookingCancelFormUrl: string | undefined
 }
 
 const formIsSubmittingContainerStyles: React.CSSProperties = {
@@ -44,6 +47,9 @@ function Form({
   externalId,
   googleMapsApiKey: optionsGoogleMapsApiKey,
   paymentFormUrl,
+  calendarBookingFormUrl,
+  calendarBookingRescheduleFormUrl,
+  calendarBookingCancelFormUrl,
 }: Props) {
   const history = useHistory()
 
@@ -82,6 +88,14 @@ function Form({
           shouldRunServerValidation: true,
           shouldRunExternalIdGeneration: true,
           paymentFormUrl,
+          schedulingUrlConfiguration:
+            calendarBookingCancelFormUrl && calendarBookingRescheduleFormUrl
+              ? {
+                  schedulingReceiptUrl: '',
+                  schedulingCancelUrl: calendarBookingCancelFormUrl,
+                  schedulingRescheduleUrl: calendarBookingRescheduleFormUrl,
+                }
+              : undefined,
         })
         if (formSubmissionResult.isOffline) {
           throw new OneBlinkAppsError(
@@ -91,7 +105,22 @@ function Form({
             },
           )
         }
-        if (formSubmissionResult.submissionId && formSubmissionResult.payment) {
+
+        if (
+          formSubmissionResult.submissionId &&
+          formSubmissionResult.scheduling &&
+          formSubmissionResult.scheduling.submissionEvent.type === 'NYLAS' &&
+          calendarBookingFormUrl
+        ) {
+          const url = new URL(calendarBookingFormUrl)
+          url.searchParams.append(
+            'submissionId',
+            formSubmissionResult.submissionId,
+          )
+          formSubmissionResult.scheduling.bookingUrl = url.href
+        }
+
+        if (formSubmissionResult.payment || formSubmissionResult.scheduling) {
           return submissionService.executePostSubmissionAction(
             formSubmissionResult,
             history.push,
@@ -118,6 +147,9 @@ function Form({
       externalId,
       paymentReceiptUrl,
       paymentFormUrl,
+      calendarBookingCancelFormUrl,
+      calendarBookingRescheduleFormUrl,
+      calendarBookingFormUrl,
       submissionRedirectUrl,
       history.push,
     ],
