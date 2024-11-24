@@ -1,14 +1,14 @@
 import * as React from 'react'
+import { CalendarBookingsForm } from '@oneblink/apps-react'
 
 export default function CalendarBookingForm({
   doneRedirectUrl,
 }: {
   doneRedirectUrl: string
 }) {
-  const onDone = React.useCallback(() => {
+  const onDone = React.useCallback(async () => {
     window.location.replace(doneRedirectUrl)
   }, [doneRedirectUrl])
 
-  // TODO implement when @oneblink/apps-react is ready
-  return <div>Coming soon... {onDone}</div>
+  return <CalendarBookingsForm onDone={onDone} />
 }
