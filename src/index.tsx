@@ -7,15 +7,17 @@ import {
   useTenantCivicPlus,
   useTenantOneBlink,
 } from '@oneblink/apps'
+import { IsOfflineContextProvider } from '@oneblink/apps-react'
+import { ModalContainerProvider } from '@oneblink/apps-react/dist/components/renderer/Modal'
 import Form from './form'
 import PaymentReceipt from './PaymentReceipt'
 import './styles.scss'
-import { IsOfflineContextProvider } from '@oneblink/apps-react'
 import PaymentForm from './PaymentForm'
-import { ModalContainerProvider } from '@oneblink/apps-react/dist/components/renderer/Modal'
 import CalendarBookingForm from './CalendarBookingForm'
 import CalendarBookingRescheduleForm from './CalendarBookingRescheduleForm'
 import CalendarBookingCancelForm from './CalendarBookingCancelForm'
+import ThemeProvider from './ThemeProvider'
+import FormsAppConfigLoader from './FormsAppConfigLoader'
 
 window.ONEBLINK_APPS_ENVIRONMENT = __ENVIRONMENT__
 switch (__TENANT__) {
@@ -217,9 +219,13 @@ export function renderPaymentForm(options?: {
 
   ReactDOM.render(
     <React.StrictMode>
-      <ModalContainerProvider className="oneblink-apps-react-styles">
-        <PaymentForm formsAppId={formsAppId} />
-      </ModalContainerProvider>
+      <FormsAppConfigLoader formsAppId={options.formsAppId}>
+        {({ formsAppConfiguration }) => (
+          <ModalContainerProvider className="oneblink-apps-react-styles">
+            <PaymentForm formsAppConfiguration={formsAppConfiguration} />
+          </ModalContainerProvider>
+        )}
+      </FormsAppConfigLoader>
     </React.StrictMode>,
     document.querySelector(selector),
   )
@@ -227,14 +233,18 @@ export function renderPaymentForm(options?: {
 
 export function renderCalendarBookingForm(options?: {
   selector: string
+  formsAppId: number
   doneRedirectUrl: string
 }) {
   if (!options) {
     throw new TypeError('"options" must be an object')
   }
-  const { selector, doneRedirectUrl } = options
+  const { selector, formsAppId, doneRedirectUrl } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
+  }
+  if (typeof formsAppId !== 'number' || Number.isNaN(formsAppId)) {
+    throw new TypeError('"options.formsAppId" must be a number')
   }
   if (typeof doneRedirectUrl !== 'string' || !doneRedirectUrl) {
     throw new TypeError('"options.doneRedirectUrl" must be a string')
@@ -242,9 +252,15 @@ export function renderCalendarBookingForm(options?: {
 
   ReactDOM.render(
     <React.StrictMode>
-      <ModalContainerProvider className="oneblink-apps-react-styles">
-        <CalendarBookingForm doneRedirectUrl={doneRedirectUrl} />
-      </ModalContainerProvider>
+      <FormsAppConfigLoader formsAppId={options.formsAppId}>
+        {({ formsAppConfiguration }) => (
+          <ThemeProvider formsAppConfiguration={formsAppConfiguration}>
+            <ModalContainerProvider className="oneblink-apps-react-styles">
+              <CalendarBookingForm doneRedirectUrl={doneRedirectUrl} />
+            </ModalContainerProvider>
+          </ThemeProvider>
+        )}
+      </FormsAppConfigLoader>
     </React.StrictMode>,
     document.querySelector(selector),
   )
@@ -252,20 +268,30 @@ export function renderCalendarBookingForm(options?: {
 
 export function renderCalendarBookingRescheduleForm(options?: {
   selector: string
+  formsAppId: number
 }) {
   if (!options) {
     throw new TypeError('"options" must be an object')
   }
-  const { selector } = options
+  const { selector, formsAppId } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
+  }
+  if (typeof formsAppId !== 'number' || Number.isNaN(formsAppId)) {
+    throw new TypeError('"options.formsAppId" must be a number')
   }
 
   ReactDOM.render(
     <React.StrictMode>
-      <ModalContainerProvider className="oneblink-apps-react-styles">
-        <CalendarBookingRescheduleForm />
-      </ModalContainerProvider>
+      <FormsAppConfigLoader formsAppId={options.formsAppId}>
+        {({ formsAppConfiguration }) => (
+          <ThemeProvider formsAppConfiguration={formsAppConfiguration}>
+            <ModalContainerProvider className="oneblink-apps-react-styles">
+              <CalendarBookingRescheduleForm />
+            </ModalContainerProvider>
+          </ThemeProvider>
+        )}
+      </FormsAppConfigLoader>
     </React.StrictMode>,
     document.querySelector(selector),
   )
@@ -273,20 +299,30 @@ export function renderCalendarBookingRescheduleForm(options?: {
 
 export function renderCalendarBookingCancelForm(options?: {
   selector: string
+  formsAppId: number
 }) {
   if (!options) {
     throw new TypeError('"options" must be an object')
   }
-  const { selector } = options
+  const { selector, formsAppId } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
+  }
+  if (typeof formsAppId !== 'number' || Number.isNaN(formsAppId)) {
+    throw new TypeError('"options.formsAppId" must be a number')
   }
 
   ReactDOM.render(
     <React.StrictMode>
-      <ModalContainerProvider className="oneblink-apps-react-styles">
-        <CalendarBookingCancelForm />
-      </ModalContainerProvider>
+      <FormsAppConfigLoader formsAppId={options.formsAppId}>
+        {({ formsAppConfiguration }) => (
+          <ThemeProvider formsAppConfiguration={formsAppConfiguration}>
+            <ModalContainerProvider className="oneblink-apps-react-styles">
+              <CalendarBookingCancelForm />
+            </ModalContainerProvider>
+          </ThemeProvider>
+        )}
+      </FormsAppConfigLoader>
     </React.StrictMode>,
     document.querySelector(selector),
   )
