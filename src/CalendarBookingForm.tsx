@@ -8,10 +8,20 @@ export default function CalendarBookingForm({
   doneRedirectUrl: string
 }) {
   const onDone = React.useCallback(
-    async (submissionResult: submissionService.FormSubmissionResult) => {
+    async (formSubmissionResult: submissionService.FormSubmissionResult) => {
+      if (formSubmissionResult.payment) {
+        return await submissionService.executePostSubmissionAction(
+          formSubmissionResult,
+          window.location.replace,
+        )
+      }
+
       const url = new URL(doneRedirectUrl)
-      if (submissionResult.submissionId) {
-        url.searchParams.append('submissionId', submissionResult.submissionId)
+      if (formSubmissionResult.submissionId) {
+        url.searchParams.append(
+          'submissionId',
+          formSubmissionResult.submissionId,
+        )
       }
       window.location.replace(url.href)
     },
