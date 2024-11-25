@@ -164,6 +164,7 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderCalendarBookingForm({
           selector: '#oneblink-booking-form',
+          formsAppId: 1,
           doneRedirectUrl: 'https://example.com/done',
         })
       })
@@ -178,6 +179,7 @@ The script to include comes in a few different ways to allow you to choose the u
 | Property          | Type     | Required | Description                                                                     |
 | ----------------- | -------- | -------- | ------------------------------------------------------------------------------- |
 | `selector`        | `string` | Yes      | The selector to find a HTML Element to render the booking form inside           |
+| `formsAppId`      | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from           |
 | `doneRedirectUrl` | `string` | Yes      | The URL to redirect the user once they click 'Done' on the booking receipt page |
 
 ## Example - Calendar Booking Cancel Form Page
@@ -202,6 +204,7 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderCalendarBookingCancelForm({
           selector: '#oneblink-cancel-booking-form',
+          formsAppId: 1,
         })
       })
     </script>
@@ -212,9 +215,10 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property   | Type     | Required | Description                                                                  |
-| ---------- | -------- | -------- | ---------------------------------------------------------------------------- |
-| `selector` | `string` | Yes      | The selector to find a HTML Element to render the cancel booking form inside |
+| Property     | Type     | Required | Description                                                                  |
+| ------------ | -------- | -------- | ---------------------------------------------------------------------------- |
+| `selector`   | `string` | Yes      | The selector to find a HTML Element to render the cancel booking form inside |
+| `formsAppId` | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from        |
 
 ## Example - Calendar Booking Reschedule Form Page
 
@@ -238,6 +242,7 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderCalendarBookingRescheduleForm({
           selector: '#oneblink-reschedule-booking-form',
+          formsAppId: 1,
         })
       })
     </script>
@@ -248,6 +253,7 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property   | Type     | Required | Description                                                                      |
-| ---------- | -------- | -------- | -------------------------------------------------------------------------------- |
-| `selector` | `string` | Yes      | The selector to find a HTML Element to render the reschedule booking form inside |
+| Property     | Type     | Required | Description                                                                      |
+| ------------ | -------- | -------- | -------------------------------------------------------------------------------- |
+| `selector`   | `string` | Yes      | The selector to find a HTML Element to render the reschedule booking form inside |
+| `formsAppId` | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from            |
