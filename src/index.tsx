@@ -186,10 +186,12 @@ export function renderPaymentReceipt(options?: {
   ReactDOM.render(
     <React.StrictMode>
       <ModalContainerProvider className="oneblink-apps-react-styles">
-        <PaymentReceipt
-          doneRedirectUrl={doneRedirectUrl}
-          cancelRedirectUrl={cancelRedirectUrl}
-        />
+        <Router>
+          <PaymentReceipt
+            doneRedirectUrl={doneRedirectUrl}
+            cancelRedirectUrl={cancelRedirectUrl}
+          />
+        </Router>
       </ModalContainerProvider>
     </React.StrictMode>,
     document.querySelector(selector),
@@ -221,9 +223,11 @@ export function renderPaymentForm(options?: {
     <React.StrictMode>
       <FormsAppConfigLoader formsAppId={options.formsAppId}>
         {({ formsAppConfiguration }) => (
-          <ModalContainerProvider className="oneblink-apps-react-styles">
-            <PaymentForm formsAppConfiguration={formsAppConfiguration} />
-          </ModalContainerProvider>
+          <Router>
+            <ModalContainerProvider className="oneblink-apps-react-styles">
+              <PaymentForm formsAppConfiguration={formsAppConfiguration} />
+            </ModalContainerProvider>
+          </Router>
         )}
       </FormsAppConfigLoader>
     </React.StrictMode>,
@@ -254,11 +258,13 @@ export function renderCalendarBookingForm(options?: {
     <React.StrictMode>
       <FormsAppConfigLoader formsAppId={options.formsAppId}>
         {({ formsAppConfiguration }) => (
-          <ThemeProvider formsAppConfiguration={formsAppConfiguration}>
-            <ModalContainerProvider className="oneblink-apps-react-styles">
-              <CalendarBookingForm doneRedirectUrl={doneRedirectUrl} />
-            </ModalContainerProvider>
-          </ThemeProvider>
+          <Router>
+            <ThemeProvider formsAppConfiguration={formsAppConfiguration}>
+              <ModalContainerProvider className="oneblink-apps-react-styles">
+                <CalendarBookingForm doneRedirectUrl={doneRedirectUrl} />
+              </ModalContainerProvider>
+            </ThemeProvider>
+          </Router>
         )}
       </FormsAppConfigLoader>
     </React.StrictMode>,
@@ -285,11 +291,13 @@ export function renderCalendarBookingRescheduleForm(options?: {
     <React.StrictMode>
       <FormsAppConfigLoader formsAppId={options.formsAppId}>
         {({ formsAppConfiguration }) => (
-          <ThemeProvider formsAppConfiguration={formsAppConfiguration}>
-            <ModalContainerProvider className="oneblink-apps-react-styles">
-              <CalendarBookingRescheduleForm />
-            </ModalContainerProvider>
-          </ThemeProvider>
+          <Router>
+            <ThemeProvider formsAppConfiguration={formsAppConfiguration}>
+              <ModalContainerProvider className="oneblink-apps-react-styles">
+                <CalendarBookingRescheduleForm />
+              </ModalContainerProvider>
+            </ThemeProvider>
+          </Router>
         )}
       </FormsAppConfigLoader>
     </React.StrictMode>,
@@ -316,11 +324,13 @@ export function renderCalendarBookingCancelForm(options?: {
     <React.StrictMode>
       <FormsAppConfigLoader formsAppId={options.formsAppId}>
         {({ formsAppConfiguration }) => (
-          <ThemeProvider formsAppConfiguration={formsAppConfiguration}>
-            <ModalContainerProvider className="oneblink-apps-react-styles">
-              <CalendarBookingCancelForm />
-            </ModalContainerProvider>
-          </ThemeProvider>
+          <Router>
+            <ThemeProvider formsAppConfiguration={formsAppConfiguration}>
+              <ModalContainerProvider className="oneblink-apps-react-styles">
+                <CalendarBookingCancelForm />
+              </ModalContainerProvider>
+            </ThemeProvider>
+          </Router>
         )}
       </FormsAppConfigLoader>
     </React.StrictMode>,

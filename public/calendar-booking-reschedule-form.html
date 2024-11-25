@@ -1,0 +1,78 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+  <!-- Must include Material Icons which are used by Form -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+  <script charset="utf-8" type="text/javascript" src="../dist/latest.js"></script>
+  <script charset="utf-8" type="text/javascript" src="./configuration.js"></script>
+  <script>
+    window.addEventListener('load', function (event) {
+      OneBlinkForms.renderCalendarBookingRescheduleForm({
+        selector: '#oneblink-calendar-booking-reschedule-form',
+        formsAppId: window.__DEVELOPMENT_FORMS_APP_ID__,
+      })
+    })
+  </script>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Styles to center form */
+    #oneblink-calendar-booking-reschedule-form {
+      padding: 30px;
+    }
+
+    nylas-scheduling {
+      margin: auto;
+    }
+
+    /* Styles to prove @oneblink/apps-react styles are contained */
+    .button {
+      background: blue;
+      color: white;
+    }
+
+    .footer,
+    .hero {
+      background: lightblue;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      padding: 50px;
+    }
+
+    .hero {
+      margin-bottom: 50px;
+    }
+
+    .footer {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero">
+    <div>
+      <h1>Best Website Ever!!!</h1>
+      <h3>Well, it would be if more people thought it was good...</h3>
+      <button class="button">My .button Class</button>
+    </div>
+  </div>
+  <div id="oneblink-calendar-booking-reschedule-form"></div>
+  <div class="footer">
+    <div>
+      <h3>OK, I lied, it's not as good as I want it to be...</h3>
+    </div>
+  </div>
+</body>
+
+</html>
