@@ -1,12 +1,12 @@
 import * as React from 'react'
-import {
-  PaymentForm as PaymentFormComponent,
-  useLoadDataState,
-} from '@oneblink/apps-react'
-import { formsAppService } from '@oneblink/apps'
-import OnLoading from '@oneblink/apps-react/dist/components/renderer/OnLoading'
+import { PaymentForm as PaymentFormComponent } from '@oneblink/apps-react'
+import { FormsAppsTypes } from '@oneblink/types'
 
-export default function PaymentForm({ formsAppId }: { formsAppId: number }) {
+export default function PaymentForm({
+  formsAppConfiguration,
+}: {
+  formsAppConfiguration: FormsAppsTypes.FormsAppConfiguration
+}) {
   const onCompleted = React.useCallback(
     ({ paymentReceiptUrl }: { paymentReceiptUrl: string }) => {
       window.location.replace(paymentReceiptUrl)
@@ -14,36 +14,14 @@ export default function PaymentForm({ formsAppId }: { formsAppId: number }) {
     [],
   )
 
-  const loadFormsAppConfiguration = React.useCallback(async () => {
-    return await formsAppService.getFormsAppConfiguration(formsAppId)
-  }, [formsAppId])
-
-  const [state, refresh] = useLoadDataState(loadFormsAppConfiguration)
-
-  if (state.status === 'LOADING') {
-    return <OnLoading className="has-text-centered" small />
-  }
-
-  if (state.status === 'ERROR') {
-    return (
-      <div className="has-text-centered">
-        <h3 className="title is-3">Error Loading Configuration</h3>
-        <p className="content has-text-danger">{state.error.message}</p>
-        <button className="button" onClick={refresh}>
-          Try Again
-        </button>
-      </div>
-    )
-  }
-
   return (
     <PaymentFormComponent
       onCompleted={onCompleted}
       onCancelled={onCompleted}
-      captchaSiteKey={state.result.recaptchaPublicKey}
-      captchaType={state.result.recaptchaKeyType}
-      appImageUrl={state.result.pwaSettings?.homeScreenIconUrl}
-      title={state.result.pwaSettings?.homeScreenName}
+      captchaSiteKey={formsAppConfiguration.recaptchaPublicKey}
+      captchaType={formsAppConfiguration.recaptchaKeyType}
+      appImageUrl={formsAppConfiguration.pwaSettings?.homeScreenIconUrl}
+      title={formsAppConfiguration.pwaSettings?.homeScreenName}
     />
   )
 }
