@@ -2,11 +2,19 @@
 
 ## [Unreleased]
 
+## [1.9.0] - 2024-11-27
+
 ### Added
 
 - `renderCalendarBookingForm()` function
 - `renderCalendarBookingRescheduleForm()` function
 - `renderCalendarBookingCancelForm()` function
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [17.2.0-beta.6](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [17.1.0-beta.9](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [6.10.0-beta.11](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [6.9.2-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.8.8] - 2024-11-13
 
