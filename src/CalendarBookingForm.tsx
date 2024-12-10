@@ -13,8 +13,8 @@ export default function CalendarBookingForm({
         return await submissionService.executePostSubmissionAction(
           formSubmissionResult,
           {
-            onRedirectToAbsoluteUrl: window.location.replace,
-            onRedirectToRelativeUrl: window.location.replace,
+            onRedirectToAbsoluteUrl: (url) => window.location.replace(url),
+            onRedirectToRelativeUrl: (url) => window.location.replace(url),
           },
         )
       }
