@@ -51,19 +51,22 @@ The script to include comes in a few different ways to allow you to choose the u
 
 ## `OneBlinkForms.render()` Options
 
-| Property                          | Type     | Required    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --------------------------------- | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selector`                        | `string` | Yes         | The selector to find a HTML Element to render the OneBlink Form inside.                                                                                                                                                                                                                                                                                                                                                                                            |
-| `formId`                          | `number` | Yes         | The identifier of the OneBlink Form to render.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `formsAppId`                      | `number` | Yes         | The identifier of the OneBlink Forms App to submit the form to.                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `submissionRedirectUrl`           | `string` | Yes         | The URL to redirect the user to after a successful submission. Will have `submissionId` added to query string before redirecting.                                                                                                                                                                                                                                                                                                                                  |
-| `cancelRedirectUrl`               | `string` | Yes         | The URL to redirect the user to if they cancel the form.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `paymentReceiptUrl`               | `string` | Conditional | The URL to redirect the user to for displaying a payment receipt. Required if the form requires a payment.                                                                                                                                                                                                                                                                                                                                                         |
-| `paymentFormUrl`                  | `string` | Conditional | The URL to redirect the user to for displaying a payment form. Required if the form requires a payment using a custom form e.g. Westpac QuickStream.                                                                                                                                                                                                                                                                                                               |
-| `googleMapsApiKey` **Deprecated** | `string` | Conditional | Should use Google Maps Integration and assign key to the OneBlink Forms App passed into the `formsAppId` option. Can still be set here to override the integration setup on the OneBlink Forms App. A [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Required if the form contains a `location` or `googleAddress` form element and the OneBlink Forms App does not have a Google Maps API Key integration setup. |
-| `externalId`                      | `string` | No          | An identifier to match the form submission with in your system.                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `preFillData`                     | `Object` | No          | The data to pre-fill the OneBlink Form.                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `scrollableContainerId`           | `string` | No          | if the form is renderered inside a container that is vertically scrollable (that is not the body), this is the id of that container. This is used when scrolling to validation errors after they are clicked in the validation errors notification. The id should be supplied WITHOUT a `#` in front of it.                                                                                                                                                        |
+| Property                           | Type     | Required    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------------------------------- | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `selector`                         | `string` | Yes         | The selector to find a HTML Element to render the OneBlink Form inside.                                                                                                                                                                                                                                                                                                                                                                                            |
+| `formId`                           | `number` | Yes         | The identifier of the OneBlink Form to render.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `formsAppId`                       | `number` | Yes         | The identifier of the OneBlink Forms App to submit the form to.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `submissionRedirectUrl`            | `string` | Yes         | The URL to redirect the user to after a successful submission. Will have `submissionId` added to query string before redirecting.                                                                                                                                                                                                                                                                                                                                  |
+| `cancelRedirectUrl`                | `string` | Yes         | The URL to redirect the user to if they cancel the form.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `paymentReceiptUrl`                | `string` | Conditional | The URL to redirect the user to for displaying a payment receipt. Required if the form requires a payment.                                                                                                                                                                                                                                                                                                                                                         |
+| `paymentFormUrl`                   | `string` | Conditional | The URL to redirect the user to for displaying a payment form. Required if the form requires a payment using a custom form e.g. Westpac QuickStream.                                                                                                                                                                                                                                                                                                               |
+| `calendarBookingFormUrl`           | `string` | Conditional | The URL to redirect the user to for displaying a calendar booking form. Only required if the form requires a calendar booking.                                                                                                                                                                                                                                                                                                                                     |
+| `calendarBookingRescheduleFormUrl` | `string` | Conditional | The URL to redirect the user to for displaying a calendar booking cancel form. Only required if the form requires a calendar booking.                                                                                                                                                                                                                                                                                                                              |
+| `calendarBookingCancelFormUrl`     | `string` | Conditional | The URL to redirect the user to for displaying a calendar booking reschedule form. Only required if the form requires a calendar booking.                                                                                                                                                                                                                                                                                                                          |
+| `googleMapsApiKey` **Deprecated**  | `string` | Conditional | Should use Google Maps Integration and assign key to the OneBlink Forms App passed into the `formsAppId` option. Can still be set here to override the integration setup on the OneBlink Forms App. A [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Required if the form contains a `location` or `googleAddress` form element and the OneBlink Forms App does not have a Google Maps API Key integration setup. |
+| `externalId`                       | `string` | No          | An identifier to match the form submission with in your system.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `preFillData`                      | `Object` | No          | The data to pre-fill the OneBlink Form.                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `scrollableContainerId`            | `string` | No          | if the form is renderered inside a container that is vertically scrollable (that is not the body), this is the id of that container. This is used when scrolling to validation errors after they are clicked in the validation errors notification. The id should be supplied WITHOUT a `#` in front of it.                                                                                                                                                        |
 
 ## Example - Payment Receipt Page
 
@@ -138,10 +141,11 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property     | Type     | Required | Description                                                              |
-| ------------ | -------- | -------- | ------------------------------------------------------------------------ |
-| `selector`   | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside |
-| `formsAppId` | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from    |
+| Property          | Type     | Required | Description                                                                                                                    |
+| ----------------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `selector`        | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside                                                       |
+| `formsAppId`      | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from                                                          |
+| `doneRedirectUrl` | `number` | Yes      | The URL to redirect the user to after a successful booking. Will have `submissionId` added to query string before redirecting. |
 
 ## Example - Calendar Booking Form Page
 
@@ -165,6 +169,7 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderCalendarBookingForm({
           selector: '#oneblink-booking-form',
+          formsAppId: 1,
           doneRedirectUrl: 'https://example.com/done',
         })
       })
@@ -179,6 +184,7 @@ The script to include comes in a few different ways to allow you to choose the u
 | Property          | Type     | Required | Description                                                                     |
 | ----------------- | -------- | -------- | ------------------------------------------------------------------------------- |
 | `selector`        | `string` | Yes      | The selector to find a HTML Element to render the booking form inside           |
+| `formsAppId`      | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from           |
 | `doneRedirectUrl` | `string` | Yes      | The URL to redirect the user once they click 'Done' on the booking receipt page |
 
 ## Example - Calendar Booking Cancel Form Page
@@ -203,6 +209,7 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderCalendarBookingCancelForm({
           selector: '#oneblink-cancel-booking-form',
+          formsAppId: 1,
         })
       })
     </script>
@@ -213,9 +220,10 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property   | Type     | Required | Description                                                                  |
-| ---------- | -------- | -------- | ---------------------------------------------------------------------------- |
-| `selector` | `string` | Yes      | The selector to find a HTML Element to render the cancel booking form inside |
+| Property     | Type     | Required | Description                                                                  |
+| ------------ | -------- | -------- | ---------------------------------------------------------------------------- |
+| `selector`   | `string` | Yes      | The selector to find a HTML Element to render the cancel booking form inside |
+| `formsAppId` | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from        |
 
 ## Example - Calendar Booking Reschedule Form Page
 
@@ -239,6 +247,7 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderCalendarBookingRescheduleForm({
           selector: '#oneblink-reschedule-booking-form',
+          formsAppId: 1,
         })
       })
     </script>
@@ -249,6 +258,7 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property   | Type     | Required | Description                                                                      |
-| ---------- | -------- | -------- | -------------------------------------------------------------------------------- |
-| `selector` | `string` | Yes      | The selector to find a HTML Element to render the reschedule booking form inside |
+| Property     | Type     | Required | Description                                                                      |
+| ------------ | -------- | -------- | -------------------------------------------------------------------------------- |
+| `selector`   | `string` | Yes      | The selector to find a HTML Element to render the reschedule booking form inside |
+| `formsAppId` | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from            |
