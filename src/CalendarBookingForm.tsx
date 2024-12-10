@@ -12,7 +12,10 @@ export default function CalendarBookingForm({
       if (formSubmissionResult.payment) {
         return await submissionService.executePostSubmissionAction(
           formSubmissionResult,
-          window.location.replace,
+          {
+            onRedirectToAbsoluteUrl: window.location.replace,
+            onRedirectToRelativeUrl: window.location.replace,
+          },
         )
       }
 
