@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- To use Navigable validation errors notification
+
 ## [1.9.1] - 2024-12-09
 
 ### Dependencies
