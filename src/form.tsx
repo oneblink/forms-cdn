@@ -8,7 +8,6 @@ import {
 import { OneBlinkForm, useLoadDataState } from '@oneblink/apps-react'
 import sanitizeHtml from '@oneblink/apps-react/dist/services/sanitize-html'
 import OnLoading from '@oneblink/apps-react/dist/components/renderer/OnLoading'
-import { useHistory } from 'react-router-dom'
 import ErrorModal from './ErrorModal'
 import { FormsAppsTypes } from '@oneblink/types'
 
@@ -55,8 +54,6 @@ function Form({
   calendarBookingCancelFormUrl,
   navigableValidationErrorsNotificationSettings,
 }: Props) {
-  const history = useHistory()
-
   const [{ isSubmitting, submitError }, setSubmittingState] = React.useState<{
     isSubmitting: boolean
     submitError: Error | null
@@ -93,9 +90,11 @@ function Form({
           shouldRunExternalIdGeneration: true,
           paymentFormUrl,
           schedulingUrlConfiguration:
-            calendarBookingCancelFormUrl && calendarBookingRescheduleFormUrl
+            calendarBookingCancelFormUrl &&
+            calendarBookingRescheduleFormUrl &&
+            calendarBookingFormUrl
               ? {
-                  schedulingReceiptUrl: '',
+                  schedulingBookingUrl: calendarBookingFormUrl,
                   schedulingCancelUrl: calendarBookingCancelFormUrl,
                   schedulingRescheduleUrl: calendarBookingRescheduleFormUrl,
                 }
@@ -110,24 +109,13 @@ function Form({
           )
         }
 
-        if (
-          formSubmissionResult.submissionId &&
-          formSubmissionResult.scheduling &&
-          formSubmissionResult.scheduling.submissionEvent.type === 'NYLAS' &&
-          calendarBookingFormUrl
-        ) {
-          const url = new URL(calendarBookingFormUrl)
-          url.searchParams.append(
-            'submissionId',
-            formSubmissionResult.submissionId,
-          )
-          formSubmissionResult.scheduling.bookingUrl = url.href
-        }
-
         if (formSubmissionResult.payment || formSubmissionResult.scheduling) {
           return submissionService.executePostSubmissionAction(
             formSubmissionResult,
-            history.push,
+            {
+              onRedirectToRelativeUrl: (url) => window.location.replace(url),
+              onRedirectToAbsoluteUrl: (url) => window.location.replace(url),
+            },
           )
         }
 
@@ -155,7 +143,6 @@ function Form({
       calendarBookingRescheduleFormUrl,
       calendarBookingFormUrl,
       submissionRedirectUrl,
-      history.push,
     ],
   )
 
