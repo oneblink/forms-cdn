@@ -25,6 +25,9 @@ type Props = {
   calendarBookingFormUrl: string | undefined
   calendarBookingRescheduleFormUrl: string | undefined
   calendarBookingCancelFormUrl: string | undefined
+  navigableValidationErrorsNotificationSettings?: React.ComponentProps<
+    typeof OneBlinkForm
+  >['navigableValidationErrorsNotificationSettings']
 }
 
 const formIsSubmittingContainerStyles: React.CSSProperties = {
@@ -49,6 +52,7 @@ function Form({
   calendarBookingFormUrl,
   calendarBookingRescheduleFormUrl,
   calendarBookingCancelFormUrl,
+  navigableValidationErrorsNotificationSettings,
 }: Props) {
   const [{ isSubmitting, submitError }, setSubmittingState] = React.useState<{
     isSubmitting: boolean
@@ -249,7 +253,9 @@ function Form({
             formsAppConfiguration.abnLookupAuthenticationGuid
           }
           isPendingQueueEnabled={false}
-          shouldUseNavigableValidationErrorsNotification={false}
+          navigableValidationErrorsNotificationSettings={
+            navigableValidationErrorsNotificationSettings
+          }
         />
       </div>
       <ErrorModal error={submitError} onClose={clearSubmitError} />

@@ -53,6 +53,7 @@ export function render(options?: Record<string, unknown>): void {
     googleMapsApiKey,
     preFillData,
     token,
+    scrollableContainerId,
   } = options
   if (typeof selector !== 'string' || !selector) {
     throw new TypeError('"options.selector" must be a string')
@@ -64,10 +65,10 @@ export function render(options?: Record<string, unknown>): void {
     throw new TypeError('"options.formsAppId" must be a number')
   }
   if (!cancelRedirectUrl || typeof cancelRedirectUrl !== 'string') {
-    throw new TypeError('"options.cancelRedirectUrl" must be a string ')
+    throw new TypeError('"options.cancelRedirectUrl" must be a string')
   }
   if (!submissionRedirectUrl || typeof submissionRedirectUrl !== 'string') {
-    throw new TypeError('"options.submissionRedirectUrl" must be a string ')
+    throw new TypeError('"options.submissionRedirectUrl" must be a string')
   }
   if (
     paymentReceiptUrl !== undefined &&
@@ -113,19 +114,27 @@ export function render(options?: Record<string, unknown>): void {
     }
   }
   if (externalId !== undefined && typeof externalId !== 'string') {
-    throw new TypeError(
-      '"options.externalId" must be a string or not supplied ',
-    )
+    throw new TypeError('"options.externalId" must be a string or not supplied')
   }
   if (googleMapsApiKey !== undefined && typeof googleMapsApiKey !== 'string') {
     throw new TypeError(
-      '"options.googleMapsApiKey" must be a string or not supplied ',
+      '"options.googleMapsApiKey" must be a string or not supplied',
     )
   }
   if (token !== undefined && typeof token !== 'string') {
-    throw new TypeError('"options.token" must be a string or not supplied ')
+    throw new TypeError('"options.token" must be a string or not supplied')
   }
-
+  if (
+    scrollableContainerId !== undefined &&
+    typeof scrollableContainerId !== 'string'
+  ) {
+    throw new TypeError(
+      '"options.scrollableContainerId" must be a string or not supplied',
+    )
+  }
+  const navigableValidationErrorsNotificationSettings = {
+    scrollableContainerId,
+  }
   authService.setFormsKeyToken(token)
 
   ReactDOM.render(
@@ -149,6 +158,9 @@ export function render(options?: Record<string, unknown>): void {
                 calendarBookingRescheduleFormUrl
               }
               calendarBookingCancelFormUrl={calendarBookingCancelFormUrl}
+              navigableValidationErrorsNotificationSettings={
+                navigableValidationErrorsNotificationSettings
+              }
             />
           </IsOfflineContextProvider>
         </Router>
