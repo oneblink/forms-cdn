@@ -132,7 +132,9 @@ export function render(options?: Record<string, unknown>): void {
       '"options.scrollableContainerId" must be a string or not supplied',
     )
   }
-
+  const navigableValidationErrorsNotificationSettings = {
+    scrollableContainerId,
+  }
   authService.setFormsKeyToken(token)
 
   ReactDOM.render(
@@ -156,9 +158,9 @@ export function render(options?: Record<string, unknown>): void {
                 calendarBookingRescheduleFormUrl
               }
               calendarBookingCancelFormUrl={calendarBookingCancelFormUrl}
-              navigableValidationErrorsNotificationSettings={{
-                scrollableContainerId,
-              }}
+              navigableValidationErrorsNotificationSettings={
+                navigableValidationErrorsNotificationSettings
+              }
             />
           </IsOfflineContextProvider>
         </Router>
