@@ -109,8 +109,8 @@ function Form({
           return submissionService.executePostSubmissionAction(
             formSubmissionResult,
             {
-              onRedirectToRelativeUrl: (url) => window.location.assign(url),
-              onRedirectToAbsoluteUrl: (url) => window.location.assign(url),
+              onRedirectToRelativeUrl: (url) => window.location.replace(url),
+              onRedirectToAbsoluteUrl: (url) => window.location.replace(url),
             },
           )
         }

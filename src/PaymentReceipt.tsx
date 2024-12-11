@@ -18,13 +18,13 @@ export default function PaymentReceipt({
         'submissionId',
         submissionResult.submissionId || '',
       )
-      window.location.href = url.href
+      window.location.replace(url.href)
     },
     [doneRedirectUrl],
   )
 
   const handleCancel = React.useCallback(async () => {
-    window.location.href = cancelRedirectUrl
+    window.location.replace(cancelRedirectUrl)
   }, [cancelRedirectUrl])
 
   return <PaymentReceiptComponent onDone={onDone} onCancel={handleCancel} />
