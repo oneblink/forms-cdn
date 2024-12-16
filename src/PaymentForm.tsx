@@ -25,8 +25,8 @@ export default function PaymentForm({
       <div className="has-text-centered">
         <h3 className="title is-3">Error Loading Configuration</h3>
         <p className="content has-text-danger">
-          Insufficient configuration to complete payment. Please the site
-          administrators to rectify the issue.
+          Insufficient configuration to complete payment. Please contact the
+          site administrators to rectify the issue.
         </p>
       </div>
     )
