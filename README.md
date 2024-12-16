@@ -36,7 +36,6 @@ The script to include comes in a few different ways to allow you to choose the u
         OneBlinkForms.render({
           selector: '#oneblink-form',
           formId: 1,
-          formsAppId: 1,
           submissionRedirectUrl: 'https://example.com/submitted',
           cancelRedirectUrl: 'https://example.com/cancelled',
         })
@@ -55,7 +54,7 @@ The script to include comes in a few different ways to allow you to choose the u
 | ---------------------------------- | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `selector`                         | `string` | Yes         | The selector to find a HTML Element to render the OneBlink Form inside.                                                                                                                                                                                                                                                                                                                                                                                            |
 | `formId`                           | `number` | Yes         | The identifier of the OneBlink Form to render.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `formsAppId`                       | `number` | Yes         | The identifier of the OneBlink Forms App to submit the form to.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `formsAppId`                       | `number` | No          | The identifier of the OneBlink Forms App to submit the form to.                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `submissionRedirectUrl`            | `string` | Yes         | The URL to redirect the user to after a successful submission. Will have `submissionId` added to query string before redirecting.                                                                                                                                                                                                                                                                                                                                  |
 | `cancelRedirectUrl`                | `string` | Yes         | The URL to redirect the user to if they cancel the form.                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `paymentReceiptUrl`                | `string` | Conditional | The URL to redirect the user to for displaying a payment receipt. Required if the form requires a payment.                                                                                                                                                                                                                                                                                                                                                         |
@@ -67,6 +66,7 @@ The script to include comes in a few different ways to allow you to choose the u
 | `externalId`                       | `string` | No          | An identifier to match the form submission with in your system.                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `preFillData`                      | `Object` | No          | The data to pre-fill the OneBlink Form.                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `scrollableContainerId`            | `string` | No          | if the form is renderered inside a container that is vertically scrollable (that is not the body), this is the id of that container. This is used when scrolling to validation errors after they are clicked in the validation errors notification. The id should be supplied WITHOUT a `#` in front of it.                                                                                                                                                        |
+| `token`                            | `string` | No          | A token that was signed by a developer key to allow submitting private forms                                                                                                                                                                                                                                                                                                                                                                                       |
 
 ## Example - Payment Receipt Page
 
@@ -107,6 +107,7 @@ The script to include comes in a few different ways to allow you to choose the u
 | `selector`          | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside                              |
 | `doneRedirectUrl`   | `string` | Yes      | The URL to redirect the user once they click 'Done' on the payment receipt                            |
 | `cancelRedirectUrl` | `string` | Yes      | The URL to redirect the user if they click 'Cancel' on the payment receipt after a failed transaction |
+| `token`             | `string` | No       | A token that was signed by a developer key to allow payments on private forms                         |
 
 ## Example - Payment Form Page
 
@@ -130,7 +131,6 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderPaymentForm({
           selector: '#oneblink-payment-form',
-          formsAppId: 1,
         })
       })
     </script>
@@ -141,11 +141,12 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property          | Type     | Required | Description                                                                                                                    |
-| ----------------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `selector`        | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside                                                       |
-| `formsAppId`      | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from                                                          |
-| `doneRedirectUrl` | `number` | Yes      | The URL to redirect the user to after a successful booking. Will have `submissionId` added to query string before redirecting. |
+| Property                | Type     | Required | Description                                                                       |
+| ----------------------- | -------- | -------- | --------------------------------------------------------------------------------- |
+| `selector`              | `string` | Yes      | The selector to find a HTML Element to render the payment receipt inside          |
+| `formsAppEnvironmentId` | `number` | No       | The identifier of the OneBlink Forms App Environment to gather configuration from |
+| `formsAppId`            | `number` | No       | The identifier of the OneBlink Forms App to gather configuration from             |
+| `token`                 | `string` | No       | A token that was signed by a developer key to allow payments on private forms     |
 
 ## Example - Calendar Booking Form Page
 
@@ -169,7 +170,6 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderCalendarBookingForm({
           selector: '#oneblink-booking-form',
-          formsAppId: 1,
           doneRedirectUrl: 'https://example.com/done',
         })
       })
@@ -181,11 +181,12 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property          | Type     | Required | Description                                                                     |
-| ----------------- | -------- | -------- | ------------------------------------------------------------------------------- |
-| `selector`        | `string` | Yes      | The selector to find a HTML Element to render the booking form inside           |
-| `formsAppId`      | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from           |
-| `doneRedirectUrl` | `string` | Yes      | The URL to redirect the user once they click 'Done' on the booking receipt page |
+| Property                | Type     | Required | Description                                                                       |
+| ----------------------- | -------- | -------- | --------------------------------------------------------------------------------- |
+| `selector`              | `string` | Yes      | The selector to find a HTML Element to render the booking form inside             |
+| `formsAppEnvironmentId` | `number` | No       | The identifier of the OneBlink Forms App Environment to gather configuration from |
+| `formsAppId`            | `number` | No       | The identifier of the OneBlink Forms App to gather configuration from             |
+| `doneRedirectUrl`       | `string` | Yes      | The URL to redirect the user once they click 'Done' on the booking receipt page   |
 
 ## Example - Calendar Booking Cancel Form Page
 
@@ -209,7 +210,6 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderCalendarBookingCancelForm({
           selector: '#oneblink-cancel-booking-form',
-          formsAppId: 1,
         })
       })
     </script>
@@ -220,10 +220,11 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property     | Type     | Required | Description                                                                  |
-| ------------ | -------- | -------- | ---------------------------------------------------------------------------- |
-| `selector`   | `string` | Yes      | The selector to find a HTML Element to render the cancel booking form inside |
-| `formsAppId` | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from        |
+| Property                | Type     | Required | Description                                                                       |
+| ----------------------- | -------- | -------- | --------------------------------------------------------------------------------- |
+| `selector`              | `string` | Yes      | The selector to find a HTML Element to render the cancel booking form inside      |
+| `formsAppEnvironmentId` | `number` | No       | The identifier of the OneBlink Forms App Environment to gather configuration from |
+| `formsAppId`            | `number` | No       | The identifier of the OneBlink Forms App to gather configuration from             |
 
 ## Example - Calendar Booking Reschedule Form Page
 
@@ -247,7 +248,6 @@ The script to include comes in a few different ways to allow you to choose the u
       window.addEventListener('load', function (event) {
         OneBlinkForms.renderCalendarBookingRescheduleForm({
           selector: '#oneblink-reschedule-booking-form',
-          formsAppId: 1,
         })
       })
     </script>
@@ -258,7 +258,8 @@ The script to include comes in a few different ways to allow you to choose the u
 </html>
 ```
 
-| Property     | Type     | Required | Description                                                                      |
-| ------------ | -------- | -------- | -------------------------------------------------------------------------------- |
-| `selector`   | `string` | Yes      | The selector to find a HTML Element to render the reschedule booking form inside |
-| `formsAppId` | `number` | Yes      | The identifier of the OneBlink Forms App to gather configuration from            |
+| Property                | Type     | Required | Description                                                                       |
+| ----------------------- | -------- | -------- | --------------------------------------------------------------------------------- |
+| `selector`              | `string` | Yes      | The selector to find a HTML Element to render the reschedule booking form inside  |
+| `formsAppEnvironmentId` | `number` | No       | The identifier of the OneBlink Forms App Environment to gather configuration from |
+| `formsAppId`            | `number` | No       | The identifier of the OneBlink Forms App to gather configuration from             |

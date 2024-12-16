@@ -2,9 +2,14 @@
 
 ## [Unreleased]
 
+### Added
+
+- navigable validation errors notification
+- `formsAppEnvironmentId` option to all scripts
+
 ### Changed
 
-- To use Navigable validation errors notification
+- `formsAppId` option for all scripts to be optional
 
 ## [1.9.2] - 2024-12-11
 

@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { PaymentForm as PaymentFormComponent } from '@oneblink/apps-react'
-import { FormsAppsTypes } from '@oneblink/types'
+import { EnvironmentTypes, FormsAppsTypes } from '@oneblink/types'
 
 export default function PaymentForm({
-  formsAppConfiguration,
+  configuration,
+  pwaSettings,
 }: {
-  formsAppConfiguration: FormsAppsTypes.FormsAppConfiguration
+  configuration: EnvironmentTypes.FormsAppEnvironmentConfiguration | undefined
+  pwaSettings: FormsAppsTypes.FormsAppPWASettings | undefined
 }) {
   const onCompleted = React.useCallback(
     ({ paymentReceiptUrl }: { paymentReceiptUrl: string }) => {
@@ -14,14 +16,30 @@ export default function PaymentForm({
     [],
   )
 
+  if (!configuration?.recaptchaPublicKey) {
+    console.error(
+      'OneBlinkForms.renderPaymentForm() cannot render a payment form without a reCAPTCHA configured on the "formsAppId" or "formsAppEnvironmentId" passed in.',
+      configuration,
+    )
+    return (
+      <div className="has-text-centered">
+        <h3 className="title is-3">Error Loading Configuration</h3>
+        <p className="content has-text-danger">
+          Insufficient configuration to complete payment. Please the site
+          administrators to rectify the issue.
+        </p>
+      </div>
+    )
+  }
+
   return (
     <PaymentFormComponent
       onCompleted={onCompleted}
       onCancelled={onCompleted}
-      captchaSiteKey={formsAppConfiguration.recaptchaPublicKey}
-      captchaType={formsAppConfiguration.recaptchaKeyType}
-      appImageUrl={formsAppConfiguration.pwaSettings?.homeScreenIconUrl}
-      title={formsAppConfiguration.pwaSettings?.homeScreenName}
+      captchaSiteKey={configuration?.recaptchaPublicKey}
+      captchaType={configuration?.recaptchaKeyType}
+      appImageUrl={pwaSettings?.homeScreenIconUrl}
+      title={pwaSettings?.homeScreenName}
     />
   )
 }

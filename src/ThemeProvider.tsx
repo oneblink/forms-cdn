@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material'
-import { FormsAppsTypes } from '@oneblink/types'
+import { EnvironmentTypes } from '@oneblink/types'
 
-function ThemeProvider({
-  formsAppConfiguration,
+export default function ThemeProvider({
+  configuration,
   children,
 }: React.PropsWithChildren<{
-  formsAppConfiguration: FormsAppsTypes.FormsAppConfiguration
+  configuration: EnvironmentTypes.FormsAppEnvironmentConfiguration | undefined
 }>) {
   const muiTheme = React.useMemo(
     () =>
@@ -23,20 +23,18 @@ function ThemeProvider({
             main: '#E8113C',
           },
           primary: {
-            main: formsAppConfiguration.styles.highlightColour || '#407E8C',
+            main: configuration?.styles.highlightColour || '#407E8C',
           },
           secondary: {
-            main: formsAppConfiguration.styles.foregroundColour || '#407E8C',
+            main: configuration?.styles.foregroundColour || '#407E8C',
           },
           warning: {
             main: '#B85000',
           },
         },
       }),
-    [formsAppConfiguration],
+    [configuration],
   )
 
   return <MuiThemeProvider theme={muiTheme}>{children}</MuiThemeProvider>
 }
-
-export default React.memo(ThemeProvider)

@@ -9,11 +9,10 @@ import { OneBlinkForm, useLoadDataState } from '@oneblink/apps-react'
 import sanitizeHtml from '@oneblink/apps-react/dist/services/sanitize-html'
 import OnLoading from '@oneblink/apps-react/dist/components/renderer/OnLoading'
 import ErrorModal from './ErrorModal'
-import { FormsAppsTypes } from '@oneblink/types'
 
 type Props = {
   formId: number
-  formsAppId: number
+  formsAppId: number | undefined
   submissionRedirectUrl: string
   cancelRedirectUrl: string
   preFillData: Record<string, unknown> | undefined
@@ -159,12 +158,9 @@ function Form({
           formsAppId: undefined,
           formSlug: undefined,
         }),
-        formsAppService.getFormsAppConfiguration(
-          formsAppId,
-          abortSignal,
-        ) as Promise<
-          FormsAppsTypes.FormsAppConfiguration<FormsAppsTypes.FormsListStyles>
-        >,
+        formsAppId !== undefined
+          ? formsAppService.getFormsAppConfiguration(formsAppId, abortSignal)
+          : formService.getFormConfiguration(formId, abortSignal),
       ])
     },
     [formId, formsAppId],
