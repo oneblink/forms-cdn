@@ -156,6 +156,7 @@ function Form({
           formId,
           abortSignal,
           formsAppId: undefined,
+          formsAppEnvironmentId: undefined,
           formSlug: undefined,
         }),
         formsAppId !== undefined

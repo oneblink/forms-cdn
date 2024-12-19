@@ -33,7 +33,7 @@ export default function ThemeProvider({
           },
         },
       }),
-    [configuration],
+    [configuration?.styles.foregroundColour, configuration?.styles.highlightColour],
   )
 
   return <MuiThemeProvider theme={muiTheme}>{children}</MuiThemeProvider>
