@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.10.0] - 2025-01-12
+
 ### Added
 
 - navigable validation errors notification
@@ -10,6 +12,12 @@
 ### Changed
 
 - `formsAppId` option for all scripts to be optional
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [19.0.0-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [18.0.0-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [7.0.0-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [6.11.1-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.9.2] - 2024-12-11
 
