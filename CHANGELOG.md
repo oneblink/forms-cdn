@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Tenant specific form embed scripts
+
 ## [1.10.2] - 2025-01-29
 
 ### Dependencies
