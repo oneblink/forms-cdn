@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [1.11.1] - 2025-03-11
+
+### Dependencies
+
+- update [@oneblink/apps](https://www.npmjs.com/package/@oneblink/apps) to [21.0.0-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [20.0.0-beta.1](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [8.0.0-beta.15](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [7.2.0-beta.7](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
 ## [1.11.0] - 2025-02-20
 
 ### Changed
