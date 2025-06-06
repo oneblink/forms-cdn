@@ -67,10 +67,10 @@ export function render(options?: Record<string, unknown>): void {
   ) {
     throw new TypeError('"options.formsAppId" must be a number or not supplied')
   }
-  if (!cancelRedirectUrl || typeof cancelRedirectUrl !== 'string') {
+  if (cancelRedirectUrl !== undefined && typeof cancelRedirectUrl !== 'string') {
     throw new TypeError('"options.cancelRedirectUrl" must be a string')
   }
-  if (!submissionRedirectUrl || typeof submissionRedirectUrl !== 'string') {
+  if (submissionRedirectUrl !== undefined && typeof submissionRedirectUrl !== 'string') {
     throw new TypeError('"options.submissionRedirectUrl" must be a string')
   }
   if (

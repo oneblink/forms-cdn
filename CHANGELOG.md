@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+`render()` properties `submissionRedirectUrl` and `cancelRedirectUrl` to be optional
+
 ## [1.13.4] - 2025-06-03
 
 ### Dependencies
