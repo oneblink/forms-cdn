@@ -13,8 +13,8 @@ import ErrorModal from './ErrorModal'
 type Props = {
   formId: number
   formsAppId: number | undefined
-  submissionRedirectUrl: string
-  cancelRedirectUrl: string
+  submissionRedirectUrl: string | undefined
+  cancelRedirectUrl: string | undefined
   preFillData: Record<string, unknown> | undefined
   externalId: string | undefined
   /** @deprecated `googleMapsApiKey` is now inherited from the Forms App Google Maps API Key integration */
@@ -67,6 +67,11 @@ function Form({
     })
   }, [])
 
+  const [cancelError, setCancelError] = React.useState<Error | null>(null)
+  const clearCancelError = React.useCallback(() => {
+    setCancelError(null)
+  }, [])
+
   const handleSubmit = React.useCallback(
     async (newFormSubmission: submissionService.NewFormSubmission) => {
       try {
@@ -108,14 +113,27 @@ function Form({
           )
         }
 
-        if (formSubmissionResult.payment || formSubmissionResult.scheduling) {
-          return submissionService.executePostSubmissionAction(
+        if (
+          formSubmissionResult.payment ||
+          formSubmissionResult.scheduling ||
+          !submissionRedirectUrl
+        ) {
+          await submissionService.executePostSubmissionAction(
             formSubmissionResult,
             {
-              onRedirectToRelativeUrl: (url) => window.location.replace(url),
-              onRedirectToAbsoluteUrl: (url) => window.location.replace(url),
+              onRedirectToRelativeUrl: (url) =>
+                !!formSubmissionResult.scheduling ||
+                !!formSubmissionResult.payment
+                  ? window.location.replace(url)
+                  : window.location.assign(url),
+              onRedirectToAbsoluteUrl: (url) =>
+                !!formSubmissionResult.scheduling ||
+                !!formSubmissionResult.payment
+                  ? window.location.replace(url)
+                  : window.location.assign(url),
             },
           )
+          return
         }
 
         const url = new URL(submissionRedirectUrl)
@@ -144,10 +162,6 @@ function Form({
       submissionRedirectUrl,
     ],
   )
-
-  const handleCancel = React.useCallback(() => {
-    window.location.href = cancelRedirectUrl
-  }, [cancelRedirectUrl])
 
   const loadState = React.useCallback(
     async (abortSignal: AbortSignal) => {
@@ -186,6 +200,29 @@ function Form({
     }
     return []
   }, [state])
+
+  const handleCancel = React.useCallback(async () => {
+    if (!cancelRedirectUrl) {
+      if (form) {
+        try {
+          await submissionService.executeCancelAction(
+            {
+              definition: form,
+              externalId: externalId || null,
+            },
+            {
+              onRedirectToRelativeUrl: (url) => window.location.assign(url),
+              onRedirectToAbsoluteUrl: (url) => window.location.assign(url),
+            },
+          )
+        } catch (e) {
+          setCancelError(e as Error)
+        }
+      }
+    } else {
+      window.location.href = cancelRedirectUrl
+    }
+  }, [cancelRedirectUrl, externalId, form])
 
   const formNotPublishedError = React.useMemo(() => {
     if (!form) {
@@ -255,7 +292,13 @@ function Form({
           }
         />
       </div>
-      <ErrorModal error={submitError} onClose={clearSubmitError} />
+      <ErrorModal
+        error={submitError || cancelError}
+        onClose={() => {
+          if (submitError) clearSubmitError()
+          if (cancelError) clearCancelError()
+        }}
+      />
     </>
   )
 }
