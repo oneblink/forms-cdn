@@ -2,9 +2,15 @@
 
 ## [Unreleased]
 
+## [1.13.5] - 2025-06-16
+
 ### Changed
 
 `render()` properties `submissionRedirectUrl` and `cancelRedirectUrl` to be optional
+
+### Dependencies
+
+- update [@oneblink/apps-react](https://www.npmjs.com/package/@oneblink/apps-react) to [8.5.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [8.4.0-beta.8](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.13.4] - 2025-06-03
 
