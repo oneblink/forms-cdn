@@ -11,7 +11,7 @@
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
-    "@oneblink/apps": "^23.0.0-beta.2",
+    "@oneblink/apps": "^23.0.0-beta.3",
     "@oneblink/apps-react": "^8.6.0-beta.4",
     "@oneblink/cli": "^3.5.1",
     "@types/react": "^17.0.73",
