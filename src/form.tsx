@@ -290,6 +290,7 @@ function Form({
           navigableValidationErrorsNotificationSettings={
             navigableValidationErrorsNotificationSettings
           }
+          validationIcon={formsAppConfiguration.styles.validationIcon}
         />
       </div>
       <ErrorModal
