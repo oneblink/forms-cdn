@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- pass `validationIcon` to `<OneBlinkForm>`
+
 ## [1.13.6] - 2025-07-01
 
 ### Dependencies
