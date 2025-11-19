@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [1.13.20] - 2025-11-19
+
+### Dependencies
+
+- update @oneblink/apps to [23.5.0-beta.2](https://github.com/oneblink/apps/blob/master/CHANGELOG.md) (from [23.4.2-beta.2](https://github.com/oneblink/apps/blob/master/CHANGELOG.md))
+
+- update @oneblink/apps-react to [8.13.1-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [8.12.2-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
 ## [1.13.19] - 2025-10-28
 
 ### Dependencies
