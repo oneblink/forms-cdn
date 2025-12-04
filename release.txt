@@ -1,7 +1,0 @@
-https://github.com/oneblink/forms-cdn/actions
-https://github.com/oneblink/product-api/actions
-https://github.com/oneblink/product-approvals-client/actions
-https://github.com/oneblink/product-console/actions
-https://github.com/oneblink/product-form-store-client/actions
-https://github.com/oneblink/product-forms-renderer/actions
-https://github.com/oneblink/product-volunteers-client/actions
