@@ -1,6 +1,6 @@
 import './polyfills'
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {
   authService,
@@ -67,10 +67,16 @@ export function render(options?: Record<string, unknown>): void {
   ) {
     throw new TypeError('"options.formsAppId" must be a number or not supplied')
   }
-  if (cancelRedirectUrl !== undefined && typeof cancelRedirectUrl !== 'string') {
+  if (
+    cancelRedirectUrl !== undefined &&
+    typeof cancelRedirectUrl !== 'string'
+  ) {
     throw new TypeError('"options.cancelRedirectUrl" must be a string')
   }
-  if (submissionRedirectUrl !== undefined && typeof submissionRedirectUrl !== 'string') {
+  if (
+    submissionRedirectUrl !== undefined &&
+    typeof submissionRedirectUrl !== 'string'
+  ) {
     throw new TypeError('"options.submissionRedirectUrl" must be a string')
   }
   if (
@@ -140,7 +146,14 @@ export function render(options?: Record<string, unknown>): void {
   }
   authService.setFormsKeyToken(token)
 
-  ReactDOM.render(
+  const rootElement = document.querySelector(selector)
+  if (!rootElement) {
+    throw new TypeError('Root element not found')
+  }
+
+  const root = createRoot(rootElement)
+
+  root.render(
     <React.StrictMode>
       <ModalContainerProvider className="oneblink-apps-react-styles">
         {/* apps-react won't render a form and instead throws an error unless wrapped in a router tag */}
@@ -169,7 +182,6 @@ export function render(options?: Record<string, unknown>): void {
         </Router>
       </ModalContainerProvider>
     </React.StrictMode>,
-    document.querySelector(selector),
   )
 }
 
@@ -198,7 +210,14 @@ export function renderPaymentReceipt(options?: {
 
   authService.setFormsKeyToken(token)
 
-  ReactDOM.render(
+  const rootElement = document.querySelector(selector)
+  if (!rootElement) {
+    throw new TypeError('Root element not found')
+  }
+
+  const root = createRoot(rootElement)
+
+  root.render(
     <React.StrictMode>
       <ModalContainerProvider className="oneblink-apps-react-styles">
         <Router>
@@ -209,7 +228,6 @@ export function renderPaymentReceipt(options?: {
         </Router>
       </ModalContainerProvider>
     </React.StrictMode>,
-    document.querySelector(selector),
   )
 }
 
@@ -247,7 +265,14 @@ export function renderPaymentForm(options?: {
 
   authService.setFormsKeyToken(token)
 
-  ReactDOM.render(
+  const rootElement = document.querySelector(selector)
+  if (!rootElement) {
+    throw new TypeError('Root element not found')
+  }
+
+  const root = createRoot(rootElement)
+
+  root.render(
     <React.StrictMode>
       <FormConfigLoader
         formsAppId={formsAppId}
@@ -265,7 +290,6 @@ export function renderPaymentForm(options?: {
         )}
       </FormConfigLoader>
     </React.StrictMode>,
-    document.querySelector(selector),
   )
 }
 
@@ -302,7 +326,14 @@ export function renderCalendarBookingForm(options?: {
     )
   }
 
-  ReactDOM.render(
+  const rootElement = document.querySelector(selector)
+  if (!rootElement) {
+    throw new TypeError('Root element not found')
+  }
+
+  const root = createRoot(rootElement)
+
+  root.render(
     <React.StrictMode>
       <FormConfigLoader
         formsAppId={formsAppId}
@@ -319,7 +350,6 @@ export function renderCalendarBookingForm(options?: {
         )}
       </FormConfigLoader>
     </React.StrictMode>,
-    document.querySelector(selector),
   )
 }
 
@@ -351,7 +381,14 @@ export function renderCalendarBookingRescheduleForm(options?: {
     )
   }
 
-  ReactDOM.render(
+  const rootElement = document.querySelector(selector)
+  if (!rootElement) {
+    throw new TypeError('Root element not found')
+  }
+
+  const root = createRoot(rootElement)
+
+  root.render(
     <React.StrictMode>
       <FormConfigLoader
         formsAppId={formsAppId}
@@ -368,7 +405,6 @@ export function renderCalendarBookingRescheduleForm(options?: {
         )}
       </FormConfigLoader>
     </React.StrictMode>,
-    document.querySelector(selector),
   )
 }
 
@@ -400,7 +436,14 @@ export function renderCalendarBookingCancelForm(options?: {
     )
   }
 
-  ReactDOM.render(
+  const rootElement = document.querySelector(selector)
+  if (!rootElement) {
+    throw new TypeError('Root element not found')
+  }
+
+  const root = createRoot(rootElement)
+
+  root.render(
     <React.StrictMode>
       <FormConfigLoader
         formsAppId={options.formsAppId}
@@ -417,6 +460,5 @@ export function renderCalendarBookingCancelForm(options?: {
         )}
       </FormConfigLoader>
     </React.StrictMode>,
-    document.querySelector(selector),
   )
 }
