@@ -1,7 +1,6 @@
 import * as React from 'react'
 import clsx from 'clsx'
-import { OneBlinkAppsError } from '@oneblink/apps'
-import { useBooleanState } from '@oneblink/apps-react'
+import { OneBlinkAppsError, useBooleanState } from '@oneblink/apps-react'
 import MaterialIcon from '@oneblink/apps-react/dist/components/MaterialIcon'
 import Modal from '@oneblink/apps-react/dist/components/renderer/Modal'
 

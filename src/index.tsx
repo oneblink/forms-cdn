@@ -6,8 +6,8 @@ import {
   authService,
   useTenantCivicPlus,
   useTenantOneBlink,
-} from '@oneblink/apps'
-import { IsOfflineContextProvider } from '@oneblink/apps-react'
+  IsOfflineContextProvider,
+} from '@oneblink/apps-react'
 import { ModalContainerProvider } from '@oneblink/apps-react/dist/components/renderer/Modal'
 import Form from './form'
 import PaymentReceipt from './PaymentReceipt'

@@ -1,6 +1,8 @@
 import * as React from 'react'
-import { PaymentReceipt as PaymentReceiptComponent } from '@oneblink/apps-react'
-import { submissionService } from '@oneblink/apps'
+import {
+  PaymentReceipt as PaymentReceiptComponent,
+  submissionService,
+} from '@oneblink/apps-react'
 
 type Props = {
   doneRedirectUrl: string

@@ -4,8 +4,9 @@ import {
   submissionService,
   formsAppService,
   OneBlinkAppsError,
-} from '@oneblink/apps'
-import { OneBlinkForm, useLoadDataState } from '@oneblink/apps-react'
+  OneBlinkForm,
+  useLoadDataState,
+} from '@oneblink/apps-react'
 import sanitizeHtml from '@oneblink/apps-react/dist/services/sanitize-html'
 import OnLoading from '@oneblink/apps-react/dist/components/renderer/OnLoading'
 import ErrorModal from './ErrorModal'
