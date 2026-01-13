@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { CalendarBookingsForm } from '@oneblink/apps-react'
-import { submissionService } from '@oneblink/apps'
+import { CalendarBookingsForm, submissionService } from '@oneblink/apps-react'
 
 export default function CalendarBookingForm({
   doneRedirectUrl,
