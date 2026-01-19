@@ -50,3 +50,26 @@ jobs:
       - run: npm run build
       - run: npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
       - run: npx civicplus cdn deploy dist --env test --force
+  #
+  # OneBlink US Tenant
+  #
+  OneBlinkUSTest:
+    name: Test Deployment (OneBlink US)
+    runs-on: ubuntu-latest
+    environment: OneBlink US Test
+    env:
+      TENANT: 'oneblink-us'
+      ENVIRONMENT: 'test'
+      PUBLIC_URL: https://oneblink-forms-test.cdn.us.oneblink.io
+      ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
+      ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --global npm@10
+      - run: npm ci
+      - run: npm run build
+      - run: npx oneblinkus cdn scope oneblink-forms.cdn.us.oneblink.io
+      - run: npx oneblinkus cdn deploy dist --env test --force

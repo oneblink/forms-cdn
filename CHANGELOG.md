@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- `OneBlink US` tenant
+
 ## [1.13.22] - 2025-12-17
 
 ### Dependencies
