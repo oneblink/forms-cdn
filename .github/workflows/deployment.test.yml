@@ -14,19 +14,20 @@ jobs:
     env:
       TENANT: 'oneblink'
       ENVIRONMENT: 'test'
-      PUBLIC_URL: https://oneblink-forms-test.cdn.oneblink.io
+      PUBLIC_URL: https://oneblink-forms.cdn.test.oneblink.io
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+      ONEBLINK_CLI_ENVIRONMENT: 'test'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20'
-      - run: npm install --global npm@10
+          node-version: '24'
+      - run: npm install --global npm@11
       - run: npm ci
       - run: npm run build
-      - run: npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
-      - run: npx oneblink cdn deploy dist --env test --force
+      - run: npx oneblink cdn scope oneblink-forms.cdn.test.oneblink.io
+      - run: npx oneblink cdn deploy dist --env prod --force
   #
   # CivicPlus Tenant
   #
@@ -37,19 +38,20 @@ jobs:
     env:
       TENANT: 'civicplus'
       ENVIRONMENT: 'test'
-      PUBLIC_URL: https://civicplus-forms-test.cdn.transform.civicplus.com
+      PUBLIC_URL: https://civicplus-forms.cdn.transform.test.civicplus.com
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+      ONEBLINK_CLI_ENVIRONMENT: 'test'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20'
-      - run: npm install --global npm@10
+          node-version: '24'
+      - run: npm install --global npm@11
       - run: npm ci
       - run: npm run build
-      - run: npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
-      - run: npx civicplus cdn deploy dist --env test --force
+      - run: npx civicplus cdn scope civicplus-forms.cdn.transform.test.civicplus.com
+      - run: npx civicplus cdn deploy dist --env prod --force
   #
   # OneBlink US Tenant
   #
@@ -60,16 +62,17 @@ jobs:
     env:
       TENANT: 'oneblink-us'
       ENVIRONMENT: 'test'
-      PUBLIC_URL: https://oneblink-forms-test.cdn.us.oneblink.io
+      PUBLIC_URL: https://oneblink-forms.cdn.test.us.oneblink.io
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+      ONEBLINK_CLI_ENVIRONMENT: 'test'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20'
-      - run: npm install --global npm@10
+          node-version: '24'
+      - run: npm install --global npm@11
       - run: npm ci
       - run: npm run build
-      - run: npx oneblinkus cdn scope oneblink-forms.cdn.us.oneblink.io
-      - run: npx oneblinkus cdn deploy dist --env test --force
+      - run: npx oneblink-us cdn scope oneblink-forms.cdn.test.us.oneblink.io
+      - run: npx oneblink-us cdn deploy dist --env prod --force

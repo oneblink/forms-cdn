@@ -6,6 +6,10 @@
 
 - `OneBlink US` tenant
 
+### Changed
+
+- Moved test deployments into respective test tenants
+
 ## [1.13.22] - 2025-12-17
 
 ### Dependencies
