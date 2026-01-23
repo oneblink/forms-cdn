@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: OneBlink US Production
     env:
-      TENANT: 'oneblink-us'
+      TENANT: 'oneblinkUS'
       ENVIRONMENT: 'prod'
       PUBLIC_URL: https://oneblink-forms.cdn.us.oneblink.io
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
@@ -70,5 +70,5 @@ jobs:
       - run: npm install --global npm@10
       - run: npm ci
       - run: npm run build
-      - run: npx oneblinkus cdn scope oneblink-forms.cdn.oneblink.io
+      - run: npx oneblink-us cdn scope oneblink-forms.cdn.oneblink.io
       - run: npx oneblinkus cdn deploy dist --env prod --force
