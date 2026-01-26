@@ -6,6 +6,7 @@ import {
   authService,
   useTenantCivicPlus,
   useTenantOneBlink,
+  useTenantOneBlinkUS,
   IsOfflineContextProvider,
 } from '@oneblink/apps-react'
 import { ModalContainerProvider } from '@oneblink/apps-react/dist/components/renderer/Modal'
@@ -24,6 +25,11 @@ switch (__TENANT__) {
   case 'civicplus': {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useTenantCivicPlus()
+    break
+  }
+  case 'oneblinkUS': {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useTenantOneBlinkUS()
     break
   }
   case 'oneblink':
