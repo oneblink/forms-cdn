@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: npm install --global npm@10
+      - run: npm install --global npm@11
       - run: npm ci
       - run: npm run build
       - run: npx oneblink cdn scope oneblink-forms.cdn.oneblink.io
@@ -45,7 +45,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: npm install --global npm@10
+      - run: npm install --global npm@11
       - run: npm ci
       - run: npm run build
       - run: npx civicplus cdn scope civicplus-forms.cdn.transform.civicplus.com
@@ -68,7 +68,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: npm install --global npm@10
+      - run: npm install --global npm@11
       - run: npm ci
       - run: npm run build
       - run: npx oneblink-us cdn scope oneblink-forms.cdn.us.oneblink.io

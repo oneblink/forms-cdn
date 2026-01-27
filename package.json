@@ -60,7 +60,7 @@
   },
   "engines": {
     "node": ">=24",
-    "npm": ">=10"
+    "npm": ">=11"
   },
   "homepage": "https://github.com/oneblink/forms-cdn",
   "keywords": [],
