@@ -71,4 +71,4 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx oneblink-us cdn scope oneblink-forms.cdn.oneblink.io
-      - run: npx oneblinkus cdn deploy dist --env prod --force
+      - run: npx oneblink-us cdn deploy dist --env prod --force
