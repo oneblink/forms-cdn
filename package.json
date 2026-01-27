@@ -59,8 +59,8 @@
     "webpack-dev-server": "^4.15.1"
   },
   "engines": {
-    "node": ">=20",
-    "npm": ">=10"
+    "node": ">=24",
+    "npm": ">=11"
   },
   "homepage": "https://github.com/oneblink/forms-cdn",
   "keywords": [],
