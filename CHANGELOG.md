@@ -2,9 +2,29 @@
 
 ## [Unreleased]
 
+## [1.14.0] - 2026-02-02
+
 ### Added
 
 - `OneBlink US` tenant
+
+### Dependencies
+
+- no longer depend upon @oneblink/apps
+
+- update @oneblink/apps-react to [9.0.0-beta.13](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [8.14.0-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update @oneblink/cli to [4.0.0-beta.2](https://github.com/oneblink/cli/blob/master/CHANGELOG.md) (from [3.5.1](https://github.com/oneblink/cli/blob/master/CHANGELOG.md))
+
+- update @types/react to 19.2.7 (from 17.0.73)
+
+- update @types/react-dom to 19.2.3 (from 17.0.25)
+
+- update react to [19.2.3](https://github.com/facebook/react/releases/tag/v19.2.3) (from [17.0.2](https://github.com/facebook/react/releases/tag/v17.0.2))
+
+- update react-dom to [19.2.3](https://github.com/facebook/react/releases/tag/v19.2.3) (from [17.0.2](https://github.com/facebook/react/releases/tag/v17.0.2))
+
+- update react-router-dom to [5.3.4](https://github.com/remix-run/react-router/releases/tag/v5.3.4) (from [5.3.0](https://github.com/remix-run/react-router/releases/tag/v5.3.0))
 
 ## [1.13.22] - 2025-12-17
 
