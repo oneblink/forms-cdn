@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [1.14.1] - 2026-02-03
+
+### Dependencies
+
+- update @oneblink/apps-react to [9.0.0](https://github.com/oneblink/apps-react/releases/tag/v9.0.0) (from [9.0.0-beta.13](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update @oneblink/cli to [4.0.1](https://github.com/oneblink/cli/releases/tag/v4.0.1) (from [4.0.0-beta.2](https://github.com/oneblink/cli/blob/master/CHANGELOG.md))
+
 ## [1.14.0] - 2026-02-02
 
 ### Added
