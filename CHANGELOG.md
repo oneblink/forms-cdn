@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- OneBlink US tenant production deployment variables using AU values 
+
 ## [1.14.1] - 2026-02-03
 
 ### Dependencies
