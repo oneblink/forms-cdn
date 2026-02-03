@@ -60,7 +60,7 @@ jobs:
       TENANT: 'oneblinkUS'
       ENVIRONMENT: 'prod'
       PUBLIC_URL: https://oneblink-forms.cdn.us.oneblink.io
-      ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
+      ONEBLINK_ACCESS_KEY: ${{ vars.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
     steps:
       - uses: actions/checkout@v6
