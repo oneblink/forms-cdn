@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- sass-loader throwing errors on css files
+
 ## [1.14.2] - 2026-02-03
 
 ### Fixed
