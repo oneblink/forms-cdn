@@ -16,6 +16,7 @@ jobs:
       PUBLIC_URL: https://oneblink-forms.cdn.oneblink.io
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+      NODE_OPTIONS: '--max_old_space_size=8192'
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -39,6 +40,7 @@ jobs:
       PUBLIC_URL: https://civicplus-forms.cdn.transform.civicplus.com
       ONEBLINK_ACCESS_KEY: ${{ secrets.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+      NODE_OPTIONS: '--max_old_space_size=8192'
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -62,6 +64,7 @@ jobs:
       PUBLIC_URL: https://oneblink-forms.cdn.us.oneblink.io
       ONEBLINK_ACCESS_KEY: ${{ vars.ONEBLINK_ACCESS_KEY }}
       ONEBLINK_SECRET_KEY: ${{ secrets.ONEBLINK_SECRET_KEY }}
+      NODE_OPTIONS: '--max_old_space_size=8192'
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
