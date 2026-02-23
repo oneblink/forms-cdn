@@ -101,6 +101,9 @@ module.exports = {
       'react-dom$': path.resolve('./node_modules/react-dom'),
       'react-router-dom$': path.resolve('./node_modules/react-router-dom'),
       '@oneblink/apps$': path.resolve('./node_modules/@oneblink/apps'),
+      'react-signature-canvas$': path.resolve(
+        './node_modules/react-signature-canvas/dist/index.umd.min.js'
+      ),
     },
     fallback: {
       timers: require.resolve('timers-browserify'),
