@@ -2,9 +2,15 @@
 
 ## [Unreleased]
 
+## [1.14.3] - 2026-02-23
+
 ### Fixed
 
 - sass-loader throwing errors on css files
+
+### Dependencies
+
+- update @oneblink/apps-react to [9.1.0-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [9.0.0](https://github.com/oneblink/apps-react/releases/tag/v9.0.0))
 
 ## [1.14.2] - 2026-02-03
 
