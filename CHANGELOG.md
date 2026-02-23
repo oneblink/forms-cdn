@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed signature elements throwing error
+
 ## [1.14.3] - 2026-02-23
 
 ### Fixed
