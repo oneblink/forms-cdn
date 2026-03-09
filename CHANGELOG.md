@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- `OneBlink US` deployments to be skipped until we have customers
+
 ### Fixed
 
 - Fixed signature elements throwing error
