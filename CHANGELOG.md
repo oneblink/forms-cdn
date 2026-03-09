@@ -4,7 +4,7 @@
 
 ### Changed
 
-- `OneBlink US` deployments to be skipped until we have customers
+- `OneBlink US` deployments to be conditional based on github variable
 
 ### Fixed
 

@@ -57,7 +57,7 @@ jobs:
   #
   OneBlinkUSTest:
     name: Test Deployment (OneBlink US)
-    if: false
+    if: ${{ vars.DEPLOY_ONEBLINK_US_TENANT == 'true' }}
     runs-on: ubuntu-latest
     environment: OneBlink US Test
     env:
