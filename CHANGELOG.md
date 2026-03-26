@@ -4,6 +4,10 @@
 
 ### Changed
 
+- Docs to include optionally importing `Public Sans` font
+
+### Changed
+
 - `OneBlink US` deployments to be conditional based on github variable
 
 ### Fixed

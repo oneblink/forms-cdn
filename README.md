@@ -55,8 +55,8 @@ The script to include comes in a few different ways to allow you to choose the u
 | `selector`                         | `string` | Yes         | The selector to find a HTML Element to render the OneBlink Form inside.                                                                                                                                                                                                                                                                                                                                                                                            |
 | `formId`                           | `number` | Yes         | The identifier of the OneBlink Form to render.                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `formsAppId`                       | `number` | No          | The identifier of the OneBlink Forms App to submit the form to.                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `submissionRedirectUrl`            | `string` | No         | The URL to redirect the user to after a successful submission. Will have `submissionId` added to query string before redirecting.                                                                                                                                                                                                                                                                                                                                  |
-| `cancelRedirectUrl`                | `string` | No         | The URL to redirect the user to if they cancel the form.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `submissionRedirectUrl`            | `string` | No          | The URL to redirect the user to after a successful submission. Will have `submissionId` added to query string before redirecting.                                                                                                                                                                                                                                                                                                                                  |
+| `cancelRedirectUrl`                | `string` | No          | The URL to redirect the user to if they cancel the form.                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `paymentReceiptUrl`                | `string` | Conditional | The URL to redirect the user to for displaying a payment receipt. Required if the form requires a payment.                                                                                                                                                                                                                                                                                                                                                         |
 | `paymentFormUrl`                   | `string` | Conditional | The URL to redirect the user to for displaying a payment form. Required if the form requires a payment using a custom form e.g. Westpac QuickStream.                                                                                                                                                                                                                                                                                                               |
 | `calendarBookingFormUrl`           | `string` | Conditional | The URL to redirect the user to for displaying a calendar booking form. Only required if the form requires a calendar booking.                                                                                                                                                                                                                                                                                                                                     |
@@ -121,6 +121,14 @@ The script to include comes in a few different ways to allow you to choose the u
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
 
+    <!-- Optionally include Public Sans font if used -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    /> -->
+
     <!-- OneBlink -->
     <script src="https://oneblink-forms.cdn.oneblink.io/{version}.js"></script>
 
@@ -159,6 +167,14 @@ The script to include comes in a few different ways to allow you to choose the u
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+
+    <!-- Optionally include Public Sans font if used -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    /> -->
 
     <!-- OneBlink -->
     <script src="https://oneblink-forms.cdn.oneblink.io/{version}.js"></script>
@@ -200,6 +216,14 @@ The script to include comes in a few different ways to allow you to choose the u
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
 
+    <!-- Optionally include Public Sans font if used -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    /> -->
+
     <!-- OneBlink -->
     <script src="https://oneblink-forms.cdn.oneblink.io/{version}.js"></script>
 
@@ -237,6 +261,13 @@ The script to include comes in a few different ways to allow you to choose the u
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+    <!-- Optionally include Public Sans font if used -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    /> -->
 
     <!-- OneBlink -->
     <script src="https://oneblink-forms.cdn.oneblink.io/{version}.js"></script>
