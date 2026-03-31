@@ -2,11 +2,11 @@
 
 ## [Unreleased]
 
-## [1.14.4] - 2026-03-31
-
 ### Changed
 
 - Docs to include optionally importing `Public Sans` font
+
+## [1.14.4] - 2026-03-31
 
 ### Changed
 
