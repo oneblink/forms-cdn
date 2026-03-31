@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.14.4] - 2026-03-31
+
 ### Changed
 
 - `OneBlink US` deployments to be conditional based on github variable
@@ -9,6 +11,10 @@
 ### Fixed
 
 - Fixed signature elements throwing error
+
+### Dependencies
+
+- update @oneblink/apps-react to [10.0.0-beta.4](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [9.1.0-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.14.3] - 2026-02-23
 
