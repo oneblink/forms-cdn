@@ -468,15 +468,3 @@ export function renderCalendarBookingCancelForm(options?: {
     </React.StrictMode>,
   )
 }
-
-// required for for local development
-if (import.meta.env.DEV) {
-  window.OneBlinkForms = {
-    render,
-    renderPaymentReceipt,
-    renderPaymentForm,
-    renderCalendarBookingForm,
-    renderCalendarBookingRescheduleForm,
-    renderCalendarBookingCancelForm,
-  }
-}

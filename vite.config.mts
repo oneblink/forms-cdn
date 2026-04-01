@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => {
   const opts: UserConfig = {
     build: {
       lib: {
-        entry: './src/index.tsx',
+        entry: mode === 'development' ? './src/dev.tsx' : './src/index.tsx',
         fileName: () => latestFileName,
         name: 'OneBlinkForms',
         formats: ['umd'],
@@ -119,7 +119,7 @@ export default defineConfig(({ mode }) => {
     ],
     server: {
       open: true,
-      port: 8080,
+      port: 3000,
     },
   }
 
