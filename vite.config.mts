@@ -4,6 +4,7 @@ import viteTsconfigPaths from 'vite-tsconfig-paths'
 import checker from 'vite-plugin-checker'
 import cssInjectedByJs from 'vite-plugin-css-injected-by-js'
 import { copyFile } from 'fs/promises'
+import { resolve } from 'path'
 import dotenv from 'dotenv'
 import { parse } from 'semver'
 import pkg from './package.json'
@@ -54,6 +55,10 @@ export default defineConfig(({ mode }) => {
         },
       },
       rollupOptions: {
+        input: {
+          main: './index.html',
+          'payment-form.html': './public/payment-form.html',
+        },
         output: {
           chunkFileNames(preRenderedChunk) {
             for (const {

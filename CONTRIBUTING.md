@@ -24,7 +24,7 @@ To run the project locally:
 
 1. Optionally create a `.env.local` file in the root of the project to override the values set in `.env`
 
-1. `npm run start` - This will serve an index.html file located in `public` dir which includes the project
+1. `npm run start` - This will serve an index.html file located at the root which includes the project
 
 1. The served project will automatically open in your default browser.
 
