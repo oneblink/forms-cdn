@@ -4,7 +4,6 @@ import viteTsconfigPaths from 'vite-tsconfig-paths'
 import checker from 'vite-plugin-checker'
 import cssInjectedByJs from 'vite-plugin-css-injected-by-js'
 import { copyFile } from 'fs/promises'
-import { resolve } from 'path'
 import dotenv from 'dotenv'
 import { parse } from 'semver'
 import pkg from './package.json'
@@ -14,17 +13,6 @@ dotenv.config({
   path: './.env.local',
 })
 dotenv.config()
-
-const staticLazyLoadedFiles = [
-  {
-    moduleIdPrefixes: ['@arcgis', '@esri'],
-    directory: 'arcgis',
-  },
-  {
-    moduleIdPrefixes: ['@nylas'],
-    directory: 'nylas',
-  },
-]
 
 const latestFileName = 'latest.js'
 const outDir = 'dist'
@@ -52,32 +40,6 @@ export default defineConfig(({ mode }) => {
       modulePreload: {
         resolveDependencies() {
           return []
-        },
-      },
-      rollupOptions: {
-        input: {
-          main: './index.html',
-          'payment-form.html': './public/payment-form.html',
-        },
-        output: {
-          chunkFileNames(preRenderedChunk) {
-            for (const {
-              moduleIdPrefixes,
-              directory,
-            } of staticLazyLoadedFiles) {
-              if (
-                moduleIdPrefixes.some((moduleIdPrefix) => {
-                  return preRenderedChunk.moduleIds.some((moduleId) => {
-                    return moduleId.includes(moduleIdPrefix)
-                  })
-                })
-              ) {
-                return `static/${directory}/[name]-[hash].js`
-              }
-            }
-
-            return 'static/[name]-[hash].js'
-          },
         },
       },
     },
