@@ -35,7 +35,6 @@ export default defineConfig(({ mode }) => {
       outDir,
       manifest: false,
       copyPublicDir: false,
-      assetsDir: 'static',
       sourcemap: false,
       modulePreload: {
         resolveDependencies() {
