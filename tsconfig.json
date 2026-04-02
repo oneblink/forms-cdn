@@ -4,14 +4,16 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "strict": true,
-    "module": "commonjs",
+    "module": "es2020",
     "target": "es5",
+    "lib": ["dom", "es2015"],
     "jsx": "react",
     "allowJs": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["vite/client"]
   },
   "include": ["src", "types"]
 }

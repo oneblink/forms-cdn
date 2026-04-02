@@ -18,7 +18,7 @@
     "@types/react-loader-spinner": "^4.0.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/semver": "^7.5.6",
-    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.20.0",
     "abortcontroller-polyfill": "^1.7.5",
     "babel-loader": "^9.1.3",
@@ -40,15 +40,14 @@
     "timers-browserify": "^2.0.12",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3",
-    "webpack": "^5.90.1",
-    "webpack-cli": "^5.1.4",
+    "typescript": "5.3",
     "whatwg-fetch": "^3.6.20"
   },
   "devDependencies": {
     "@microsoft/eslint-plugin-sdl": "^0.2.2",
     "@oneblink/release-cli": "^4.0.0",
     "@oneblink/types": "github:oneblink/types",
+    "@vitejs/plugin-react": "^5.2.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
@@ -56,7 +55,10 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "fixpack": "^4.0.0",
     "prettier": "^3.2.5",
-    "webpack-dev-server": "^4.15.1"
+    "vite": "^7.3.1",
+    "vite-plugin-checker": "^0.11.0",
+    "vite-plugin-css-injected-by-js": "^4.0.1",
+    "vite-tsconfig-paths": "^6.1.1"
   },
   "engines": {
     "node": ">=24",
@@ -71,10 +73,10 @@
     "url": "git+https://github.com/oneblink/forms-cdn.git"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "vite build",
     "eslint": "eslint --quiet --fix ./src/*.tsx",
     "release": "oneblink-release repository --no-name",
-    "start": "webpack serve",
+    "start": "vite dev",
     "test": "npm run eslint && npm run typescript",
     "types": "npm i --save github:oneblink/types",
     "typescript": "tsc --noEmit"
