@@ -1,4 +1,4 @@
 dist
 node_modules
-webpack.config.js
+vite.config.mts
 public/configuration.js
