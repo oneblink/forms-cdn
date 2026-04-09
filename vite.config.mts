@@ -3,10 +3,14 @@ import react from '@vitejs/plugin-react'
 import viteTsconfigPaths from 'vite-tsconfig-paths'
 import checker from 'vite-plugin-checker'
 import cssInjectedByJs from 'vite-plugin-css-injected-by-js'
-import { copyFile } from 'fs/promises'
+import { readFile, writeFile, copyFile } from 'fs/promises'
+import { transform } from 'esbuild'
+import { join } from 'path'
 import dotenv from 'dotenv'
 import { parse } from 'semver'
+import type { OutputChunk } from 'rollup'
 import pkg from './package.json'
+
 const version = parse(pkg.version)
 
 dotenv.config({
@@ -14,32 +18,36 @@ dotenv.config({
 })
 dotenv.config()
 
-const latestFileName = 'latest.js'
+const versionString = `${version?.major}.${version?.minor}.${version?.patch}`
 const outDir = 'dist'
 
-const versions = [
+const versionFiles = [
+  `latest.js`,
   `${version?.major}.x.x.js`,
   `${version?.major}.${version?.minor}.x.js`,
-  `${version?.major}.${version?.minor}.${version?.patch}.js`,
 ]
 
-export default defineConfig(({ mode }) => {
+// https://vitejs.dev/config/
+export default defineConfig(({ command, mode }) => {
   const opts: UserConfig = {
+    base: command === 'serve' ? '/' : `${process.env.PUBLIC_URL}/`,
     build: {
-      lib: {
-        entry: mode === 'development' ? './src/dev.tsx' : './src/index.tsx',
-        fileName: () => latestFileName,
-        name: 'OneBlinkForms',
-        formats: ['umd'],
-      },
       outDir,
       manifest: false,
       copyPublicDir: false,
       sourcemap: false,
-      modulePreload: {
-        resolveDependencies() {
-          return []
+      chunkSizeWarningLimit: 6000,
+      modulePreload: false,
+      rollupOptions: {
+        input: mode === 'development' ? './src/dev.tsx' : './src/index.tsx',
+        output: {
+          // We use versionString to ensure the files for a single version's
+          // deployment are in the correct directory.
+          entryFileNames: `${versionString}/index-[hash].js`,
+          chunkFileNames: `${versionString}/[name]-[hash].js`,
+          assetFileNames: `${versionString}/[hash][extname]`,
         },
+        preserveEntrySignatures: 'exports-only',
       },
     },
     define: {
@@ -71,14 +79,39 @@ export default defineConfig(({ mode }) => {
           }
         },
       },
+      // Rollup cannot code-split UMD/IIFE bundles, so we build as ESM and
+      // generate a thin IIFE wrapper that can be loaded via a plain <script>
+      // tag. The wrapper exposes window.OneBlinkForms and dynamically imports
+      // the ESM entry. This avoids having to add `type="module"` to every
+      // existing <script> tag that loads the bundle.
       {
-        name: 'copy-versions',
+        name: 'generate-umd-wrapper',
         apply: 'build',
-        async writeBundle() {
+        enforce: 'post',
+        async writeBundle(_options, bundle) {
+          const entryChunk = Object.values(bundle).find(
+            (chunk): chunk is OutputChunk =>
+              chunk.type === 'chunk' && chunk.isEntry,
+          )
+          if (!entryChunk) return
+
+          const source = await readFile(
+            join(__dirname, 'src/wrapper.ts'),
+            'utf-8',
+          )
+          const { code } = await transform(source, {
+            loader: 'ts',
+            minify: false,
+          })
+          const wrapperCode = code.replace(
+            '__ENTRY_FILE__',
+            entryChunk.fileName,
+          )
+
+          const patchFile = join(outDir, `${versionString}.js`)
+          await writeFile(patchFile, wrapperCode)
           await Promise.all(
-            versions.map((version) => {
-              return copyFile(`./${outDir}/latest.js`, `./${outDir}/${version}`)
-            }),
+            versionFiles.map((v) => copyFile(patchFile, join(outDir, v))),
           )
         },
       },
