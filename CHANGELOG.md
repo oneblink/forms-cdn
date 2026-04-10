@@ -2,9 +2,23 @@
 
 ## [Unreleased]
 
+## [1.14.5] - 2026-04-10
+
+##### Release Name: Curly Wurlys
+
 ### Changed
 
 - Docs to include optionally importing `Public Sans` font
+
+### Dependencies
+
+- update @oneblink/apps-react to [10.1.0-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [10.0.0-beta.4](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update @typescript-eslint/eslint-plugin to [6.21.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v6.21.0) (from [6.20.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v6.20.0))
+
+- no longer depend upon webpack
+
+- no longer depend upon webpack-cli
 
 ## [1.14.4] - 2026-03-31
 
