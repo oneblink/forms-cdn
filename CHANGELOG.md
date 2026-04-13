@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.14.6] - 2026-04-13
+
+##### Release Name: Curly Wurlys
+
 ### Fixed
 
 - typescript dependency not matching `package-lock.json`
