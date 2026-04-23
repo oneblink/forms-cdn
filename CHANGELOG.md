@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.14.7] - 2026-04-23
+
+### Dependencies
+
+- update @oneblink/apps-react to [10.1.1-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [10.1.0-beta.3](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
 ## [1.14.6] - 2026-04-13
 
 ##### Release Name: Curly Wurlys
