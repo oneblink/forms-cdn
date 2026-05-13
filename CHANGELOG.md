@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.14.9] - 2026-05-13
+
+### Dependencies
+
+- update @oneblink/apps-react to [10.2.0-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [10.1.2-beta.5](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
 ## [1.14.8] - 2026-05-07
 
 ### Dependencies
