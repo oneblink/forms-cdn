@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [1.14.11] - 2026-06-18
+
+### Dependencies
+
+- update @oneblink/apps-react to [10.3.1-beta.6](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [10.3.0-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- update @typescript-eslint/eslint-plugin to [8.52.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v8.52.0) (from [6.21.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v6.21.0))
+
+- update @typescript-eslint/parser to [8.52.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v8.52.0) (from [6.20.0](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v6.20.0))
+
 ## [1.14.10] - 2026-05-22
 
 ### Dependencies
