@@ -288,6 +288,7 @@ function Form({
             formsAppConfiguration.abnLookupAuthenticationGuid
           }
           isPendingQueueEnabled={false}
+          audience="FORM_COMPLETER"
           navigableValidationErrorsNotificationSettings={
             navigableValidationErrorsNotificationSettings
           }
