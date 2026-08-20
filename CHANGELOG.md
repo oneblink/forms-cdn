@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- `audience="FORM_COMPLETER"` on `<OneBlinkForm />` so form elements can be hidden from form completers, approvers, or both
+
 ## [1.15.1] - 2026-07-28
 
 ### Dependencies
