@@ -2,9 +2,15 @@
 
 ## [Unreleased]
 
+## [1.15.2] - 2026-08-26
+
 ### Added
 
 - `audience="SUBMITTER"` on `<OneBlinkForm />` so form elements can be hidden from submitters, approvers, or both
+
+### Dependencies
+
+- update @oneblink/apps-react to [12.0.0-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [11.1.1-beta.2](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
 
 ## [1.15.1] - 2026-07-28
 
