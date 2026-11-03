@@ -8,7 +8,7 @@
     "url": "https://github.com/oneblink/forms-cdn/issues"
   },
   "dependencies": {
-    "@oneblink/apps-react": "^13.5.1-beta.2",
+    "@oneblink/apps-react": "^13.5.1-beta.3",
     "abortcontroller-polyfill": "^1.7.5",
     "buffer": "^6.0.3",
     "clsx": "^2.1.0",
