@@ -260,7 +260,6 @@ function Form({
     return (
       <div
         className="ob-form-unpublished-user-message__content ql-editor"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: formNotPublishedError || defaultUnpublishedHTML,
         }}
