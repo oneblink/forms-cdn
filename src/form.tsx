@@ -166,7 +166,7 @@ function Form({
 
   const loadState = React.useCallback(
     async (abortSignal: AbortSignal) => {
-      return await Promise.all([
+      const [form, formsAppConfiguration] = await Promise.all([
         formService.getForm({
           formId,
           abortSignal,
@@ -178,6 +178,19 @@ function Form({
           ? formsAppService.getFormsAppConfiguration(formsAppId, abortSignal)
           : formService.getFormConfiguration(formId, abortSignal),
       ])
+
+      const startDate = form.publishStartDate
+        ? new Date(form.publishStartDate)
+        : null
+      const endDate = form.publishEndDate ? new Date(form.publishEndDate) : null
+      const now = new Date()
+      // If now is before startDate or after endDate
+      const formNotPublishedError =
+        (startDate && now < startDate) || (endDate && now > endDate)
+          ? sanitizeHtml(form.unpublishedUserMessage || defaultUnpublishedHTML)
+          : undefined
+
+      return [form, formsAppConfiguration, formNotPublishedError] as const
     },
     [formId, formsAppId],
   )
@@ -195,12 +208,13 @@ function Form({
     }
   }, [isSubmitting])
 
-  const [form, formsAppConfiguration] = React.useMemo(() => {
-    if (state.status === 'SUCCESS') {
-      return state.result
-    }
-    return []
-  }, [state])
+  const [form, formsAppConfiguration, formNotPublishedError] =
+    React.useMemo(() => {
+      if (state.status === 'SUCCESS') {
+        return state.result
+      }
+      return []
+    }, [state])
 
   const handleCancel = React.useCallback(async () => {
     if (!cancelRedirectUrl) {
@@ -224,21 +238,6 @@ function Form({
       window.location.href = cancelRedirectUrl
     }
   }, [cancelRedirectUrl, externalId, form])
-
-  const formNotPublishedError = React.useMemo(() => {
-    if (!form) {
-      return
-    }
-    const startDate = form.publishStartDate
-      ? new Date(form.publishStartDate)
-      : null
-    const endDate = form.publishEndDate ? new Date(form.publishEndDate) : null
-    const now = new Date()
-    // If now is before startDate or after endDate
-    if ((startDate && now < startDate) || (endDate && now > endDate)) {
-      return sanitizeHtml(form.unpublishedUserMessage || defaultUnpublishedHTML)
-    }
-  }, [form])
 
   if (state.status === 'LOADING') {
     return <OnLoading className="has-text-centered" small />
