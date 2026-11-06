@@ -1,6 +1,13 @@
 import * as React from 'react'
-import { PaymentForm as PaymentFormComponent } from '@oneblink/apps-react'
-import { EnvironmentTypes, FormsAppsTypes } from '@oneblink/types'
+import {
+  PaymentForm as PaymentFormComponent,
+  paymentService,
+} from '@oneblink/apps-react'
+import {
+  EnvironmentTypes,
+  FormsAppsTypes,
+  SubmissionTypes,
+} from '@oneblink/types'
 
 export default function PaymentForm({
   configuration,
@@ -9,12 +16,51 @@ export default function PaymentForm({
   configuration: EnvironmentTypes.FormsAppEnvironmentConfiguration | undefined
   pwaSettings: FormsAppsTypes.FormsAppPWASettings | undefined
 }) {
+  const sessionResult = React.useMemo(() => {
+    try {
+      return {
+        session: paymentService.getPaymentFormSession(window.location.search),
+      }
+    } catch (error) {
+      return {
+        error: error instanceof Error ? error : new Error('Invalid payment'),
+      }
+    }
+  }, [])
+
+  const session = sessionResult.session
+
   const onCompleted = React.useCallback(
-    ({ paymentReceiptUrl }: { paymentReceiptUrl: string }) => {
-      window.location.replace(paymentReceiptUrl)
+    async ({
+      formSubmissionPayment,
+    }: {
+      formSubmissionPayment: SubmissionTypes.FormSubmissionPayment
+    }) => {
+      const { formSubmissionResult } =
+        await paymentService.getFormSubmissionResultPayment()
+      window.location.replace(
+        paymentService.getCompletedPaymentReceiptUrl({
+          formSubmissionResult,
+          formSubmissionPayment,
+        }),
+      )
     },
     [],
   )
+
+  const onCancelled = React.useCallback(async () => {
+    if (!session) {
+      return
+    }
+    const { formSubmissionResult } =
+      await paymentService.getFormSubmissionResultPayment()
+    window.location.replace(
+      paymentService.getCancelledPaymentReceiptUrl(
+        formSubmissionResult,
+        session.formSubmissionPaymentId,
+      ),
+    )
+  }, [session])
 
   if (!configuration?.recaptchaPublicKey) {
     console.error(
@@ -32,12 +78,24 @@ export default function PaymentForm({
     )
   }
 
+  if (!session) {
+    return (
+      <div className="has-text-centered">
+        <h3 className="title is-3">Invalid Payment Link</h3>
+        <p className="content has-text-danger">
+          {sessionResult.error?.message}
+        </p>
+      </div>
+    )
+  }
+
   return (
     <PaymentFormComponent
+      session={session}
       onCompleted={onCompleted}
-      onCancelled={onCompleted}
-      captchaSiteKey={configuration?.recaptchaPublicKey}
-      captchaType={configuration?.recaptchaKeyType}
+      onCancelled={onCancelled}
+      captchaSiteKey={configuration.recaptchaPublicKey}
+      captchaType={configuration.recaptchaKeyType}
       appImageUrl={pwaSettings?.homeScreenIconUrl}
       title={pwaSettings?.homeScreenName}
     />
