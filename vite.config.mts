@@ -69,7 +69,10 @@ export default defineConfig(({ command, mode }) => {
       cssInjectedByJs(),
       checker({
         typescript: true,
-        eslint: { lintCommand: 'eslint src/**/*.{ts,tsx}' },
+        eslint: {
+          lintCommand: 'eslint src/**/*.{ts,tsx}',
+          useFlatConfig: true,
+        },
       }),
       {
         name: 'ignored-node-polyfills',
