@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- vite eslint config to use `useFlatConfig`
+
 ## [1.15.7] - 2026-10-28
 
 ### Dependencies
