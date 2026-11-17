@@ -2,9 +2,57 @@
 
 ## [Unreleased]
 
+## [1.15.8] - 2026-11-17
+
 ### Fixed
 
 - vite eslint config to use `useFlatConfig`
+
+### Dependencies
+
+- no longer depend upon @babel/core
+
+- no longer depend upon @babel/preset-env
+
+- no longer depend upon @babel/preset-react
+
+- update @oneblink/apps-react to [13.6.0-beta.1](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md) (from [13.5.0-beta.4](https://github.com/oneblink/apps-react/blob/master/CHANGELOG.md))
+
+- no longer depend upon @oneblink/cli
+
+- no longer depend upon @types/react
+
+- no longer depend upon @types/react-dom
+
+- no longer depend upon @types/react-loader-spinner
+
+- no longer depend upon @types/react-router-dom
+
+- no longer depend upon @types/semver
+
+- no longer depend upon @typescript-eslint/eslint-plugin
+
+- no longer depend upon @typescript-eslint/parser
+
+- no longer depend upon babel-loader
+
+- no longer depend upon css-loader
+
+- no longer depend upon dotenv
+
+- no longer depend upon sass
+
+- no longer depend upon sass-loader
+
+- no longer depend upon semver
+
+- no longer depend upon style-loader
+
+- no longer depend upon ts-loader
+
+- no longer depend upon ts-node
+
+- no longer depend upon typescript
 
 ## [1.15.7] - 2026-10-28
 
